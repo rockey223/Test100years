@@ -20,8 +20,8 @@ const Navbar = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink className="navbar-navLinks-navLink" to={"/level1"}>
-              Level 1
+            <NavLink className="navbar-navLinks-navLink" to={"/upgrade"}>
+              upgrade
             </NavLink>
           </li>
           <li>
