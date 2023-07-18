@@ -1,0 +1,119 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway&display=swap");
+.priceBox-container {
+  position: relative;
+  width: 335px;
+  height: 545px;
+  background: #ffffff;
+  border: 2px solid #f66e24;
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.02), 0px 2px 4px rgba(0, 0, 0, 0.08);
+  border-radius: 20px;
+  padding: 30px 38px;
+  margin: 20px 0;
+}
+.priceBox-title {
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 35px;
+
+  color: #333333;
+}
+.priceBox-desc {
+  height: 78px;
+  width: 300px;
+
+  margin-top: 16px;
+  margin-bottom: 24px;
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 160%;
+  /* or 26px */
+
+  color: #333333;
+}
+.priceBox-feature-question {
+  width: 115px;
+  height: 26px;
+
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 160%;
+  /* identical to box height, or 26px */
+
+  color: #333333;
+}
+.priceBox-feature-answer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 8px;
+  width: 300px;
+  height: 203px;
+  margin-top: 16px;
+}
+.priceBox-Answer-container {
+  display: flex;
+  gap: 10px;
+  width: 290px;
+  height: 52px;
+  /* justify-content: center; */
+  align-items: center;
+  padding-left: 4px;
+}
+.priceBox-answer-icon {
+  width: 24px;
+  height: 24px;
+  font-size: 24px;
+  color: #008000;
+}
+.priceBox-answer-content {
+  width: 256px;
+  height: 52px;
+
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 160%;
+  /* or 26px */
+
+  color: #333333;
+}
+.button-section {
+  position: absolute;
+  bottom: 20px;
+  border-top: 2px solid #f66e24;
+  padding-top: 20px;
+  width: 78%;
+  display: flex; 
+  justify-content: space-between;
+}
+
+#star {
+  position: absolute;
+  width: auto;
+  top: -26px;
+  left: 375px;
+}
+.gradient-border{
+  /* border-image: linear-gradient(to right, #f6b73c,#6398d4, #4d9f0c) 30;
+  border-width: 2px; */
+  position: relative;
+  width: 335px;
+  height: 545px;
+  border: 2px solid transparent;
+  border-radius: 20px;
+  background: 
+    linear-gradient(to right, white, white), 
+    linear-gradient(180deg, #01ACF1 0%, #89C11F 56.56%, #F66E24 100%); 
+  background-clip: padding-box, border-box;
+  background-origin: padding-box, border-box;
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.02), 0px 2px 4px rgba(0, 0, 0, 0.08);
+}
+

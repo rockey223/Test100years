@@ -1,0 +1,97 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+
+
+}
+
+a{
+  text-decoration: none;
+}
+.Achievement,
+.HealthGuides,
+.midBanner,
+.pricing-table-container,
+.Testinomial{
+  width: 1440px;
+}
+.midBanner {
+  /* width: 1440px; */
+  height: 640px;
+  margin: 100px 0;
+}
+
+.pricing-table-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 50px 0;
+}
+.pricing-table-heading {
+  width: 739px;
+  height: 150px;
+
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 64px;
+  line-height: 75px;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.pricing-table-pointing-up-arrow {
+  position: relative;
+  /* position: absolute; */
+  right: 270px;
+  transition: 2s all;
+  top: 17px;
+  right: 187px;
+}
+
+.pricing-table {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.pricing-table-pointing-down-arrow {
+  position: relative;
+  /* position: absolute; */
+  /* width: 249.92px;
+    height: 91.25px; */
+  left: 177px;
+  transition: 2s all;
+}
+
+.HealthGuides {
+  height: auto;
+  margin: 50px 0px;
+}
+
+.videoPop-Container-main{
+  height: 100vh;
+  width: 1440px;
+  position:fixed;
+  background-color: #1d1d1db6;
+  z-index: 100;
+
+}
+.videoPopUp{
+  /* display: none; */
+  position: fixed;
+  width: 712px;
+  height: auto;
+  /* left: 219px; */
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: #1D1A1A;
+  border-radius: 20px;
+  z-index: 2;
+}
+
+.videoCard-link{
+  color: black;
+}

@@ -1,0 +1,83 @@
+.videoCard-container {
+  width: 373px;
+  height: 378px;
+
+  background: #ffffff;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.04), 0px 4px 8px rgba(0, 0, 0, 0.06);
+  border-radius: 20px;
+  margin: 20px 0;
+  
+}
+.videoCard-container-thumbnail{
+    position: relative;
+}
+.videoCard-container-thumbnail img {
+  object-fit: cover;
+  width: 373px;
+  height: 217px;
+  border-radius: 12px 12px 0px 0px;
+  filter: brightness(50%);
+}
+.videoCard-container-thumbnail-playBtn{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 15px;
+    cursor: pointer;
+
+}
+.videoCard-container-thumbnail-playBtn p{
+    
+font-family: 'Raleway';
+font-style: normal;
+font-weight: 500;
+font-size: 18px;
+line-height: 21px;
+/* identical to box height */
+
+
+color: #ffffff;
+}
+.videoCard-container-textContent{
+    font-family: 'Raleway';
+    height: 145px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0px 20px;
+}
+
+.videoCard-container-textContent-videoDetails{
+padding: 10px 0;
+}
+.videoCard-container-textContent-videoDetails-category{
+    
+font-family: 'Raleway';
+font-style: normal;
+font-weight: 400;
+font-size: 12px;
+line-height: 14px;
+
+color: rgba(0, 0, 0, 0.6);
+}
+.videoCard-container-textContent-videoDetails-title{
+    
+font-family: 'Raleway';
+font-style: normal;
+font-weight: 500;
+font-size: 16px;
+line-height: 19px;
+}
+
+.videoCard-container-textContent-bottom{
+    display: flex;
+    justify-content: space-between;
+}
+

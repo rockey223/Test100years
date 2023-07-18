@@ -1,0 +1,80 @@
+.navbar-container {
+  width: 90%;
+  height: 100px;
+  
+padding: 0 5%;
+  background: #ffffff;
+  box-shadow: 0px 0px 6px rgba(1, 172, 241, 0.04),
+    0px 2px 4px rgba(1, 172, 241, 0.08);
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 170px;
+  /* position: fixed; */
+  top: 0;
+  z-index: 99;
+}
+.navbar-logo img {
+  width: 100px;
+  height: 100px;
+}
+.navbar-navlinks {
+  height: 100%;
+}
+.navbar-navlinks ul {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 0px;
+  gap: 60px;
+  height: 100%;
+}
+.navbar-navlinks ul li {
+  list-style-type: none;
+
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+}
+
+.navbar-login-btn {
+  display: flex;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  /* identical to box height, or 116% */
+
+  text-transform: uppercase;
+
+  color: #e5e5e5;
+
+  justify-content: center;
+  align-items: center;
+padding: 10px 40px;
+
+
+  /* Blue */
+
+  background: #01acf1;
+  box-shadow: 0px 0px 3.375px rgba(0, 0, 0, 0.04),
+    0px 3.375px 6.75px rgba(0, 0, 0, 0.06);
+  border-radius: 33.75px;
+
+  cursor: pointer;
+}
+.navbar-navLinks-navLink{
+    color: #000;
+}
+.active{
+    color: #F66E24;
+}
+
+.navbar-navbar-navlinks-icon{
+  font-size: 35px;
+  display: none;
+}

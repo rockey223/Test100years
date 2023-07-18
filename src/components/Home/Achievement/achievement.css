@@ -1,0 +1,94 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+.Achievement {
+  height: 530px;
+  display: grid;
+  place-items: center;
+
+  color: #fff;
+
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    #01acf1;
+  font-family: "Raleway";
+}
+.achievement-container {
+    width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  position: relative;
+  flex-wrap: wrap;
+  gap: 85px;
+  /* padding: 0% 10%; */
+  /* border: 1px solid black; */
+}
+/* .achievement-left,
+.achievement-right {
+  
+  width: 45%;
+} */
+
+.achievement-left {
+  width: 414px;
+  height: 188px;
+
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  letter-spacing: 0.015em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.achievement-left-counter {
+  display: flex;
+  justify-content: space-between;
+}
+.achievement-left-counter-user,
+.achievement-left-counter-employee,
+.achievement-left-counter-happyUser {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+}
+
+.achievement-left-counter-user-count,
+.achievement-left-counter-employee-count,
+.achievement-left-counter-happyUser-count {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 39px;
+  /* identical to box height */
+}
+
+.achievement-left-counter-user-title,
+.achievement-left-counter-employee-title,
+.achievement-left-counter-happyUser-title {
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  /* identical to box height */
+}
+
+
+.achievement-right{
+    
+    width: 572px;
+    height: 300px;
+    
+    
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 64px;
+    line-height: 75px;
+}
+
+
+  

@@ -1,0 +1,139 @@
+@media only screen and (max-width: 1300px) {
+  .pricing-table-pointing-up-arrow {
+    right: 60px;
+    transition: 2s all;
+  }
+  .pricing-table-pointing-down-arrow {
+    position: relative;
+    /* position: absolute; */
+    /* left: 177px; */
+    transform: rotateY(169deg);
+    transform: rotateY(200px);
+    rotate: 322deg;
+    bottom: 593px;
+    transition: 2s all;
+    left: 330px;
+  }
+
+  .who-container-content {
+    width: 648px;
+  }
+
+}
+
+@media only screen and (max-width: 1024px) {
+  .navbar-container {
+    gap: 100px !important;
+  }
+}
+@media only screen and (max-width: 1100px) {
+  .Achievement {
+    height: 665px;
+    padding: 30px 0;
+  }
+  .achievement-container {
+    flex-direction: column-reverse;
+    gap: 0px;
+  }
+  .achievement-left {
+    width: 580px;
+    height: 134px;
+  }
+  .achievement-right {
+    font-size: 55px;
+    line-height: 65px;
+    /* text-align: center; */
+  }
+}
+
+@media only screen and (max-width: 860px) {
+  /* .Achievement {
+    height: 805px;
+    padding: 30px 0;
+  } */
+  .pricing-table-pointing-arrow {
+    display: none;
+    /* right: 60px; */
+    transition: 2s all;
+  }
+  .pricing-table-pointing-down-arrow {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  /* .achievement-left {
+    width: 80%;
+  } */
+  .achievement-right {
+    line-height: 60px;
+  }
+  .achievement-left {
+    /* width: 600px;
+    height: 134px; */
+    padding: 0 0 0 25px;
+    gap: 17px;
+  }
+  /* .achievement-left-counter {
+    justify-content: space-evenly;
+  } */
+}
+
+@media only screen and (max-width: 650px) {
+  .achievement-right {
+    width: 434px;
+    line-height: 60px;
+    height: 326px;
+  }
+  .achievement-left {
+    width: 460px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .Achievement {
+    height: 465px;
+    padding: 30px 0;
+  }
+  .achievement-right {
+    font-size: 39px;
+    width: 338px;
+    line-height: 48px;
+    height: 264px;
+  }
+  .achievement-left {
+    width: 370px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .achievement-right {
+    width: 319px;
+    line-height: 48px;
+  }
+  .achievement-left {
+    width: 344px;
+  }
+  .videoCard-container {
+    width: 319px !important;
+  }
+  .videoCard-container-thumbnail img {
+    width: 310px !important;
+  }
+}
+@media only screen and (max-width: 350px) {
+  .Achievement {
+    height: 543px;
+    /* padding: 43px 0; */
+  }
+  .achievement-right {
+    width: 287px;
+    font-size: 32px;
+    padding: 0 0 0 20px;
+
+    height: 235px;
+  }
+  .achievement-left {
+    width: 295px;
+  }
+}

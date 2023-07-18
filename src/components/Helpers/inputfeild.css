@@ -1,0 +1,23 @@
+.inputFeild {
+  border-radius: 8px;
+
+  /* border: 1px solid rgba(0, 0, 0, 0.20); */
+  border: none;
+  box-shadow: inset 0px 0px 0px 1px rgba(0, 0, 0, 0.20);
+
+  background: #fff;
+  flex-shrink: 0;
+  padding: 20px;
+outline: none;
+  color: rgba(0, 0, 0);
+  font-size: 14px;
+  font-family: Inter;
+  line-height: 160%;
+}
+.inputFeild:focus {
+  /* border-radius: 8px; */
+  /* border: 1px solid  ; */
+  box-shadow: inset 0px 0px 0px 2px #f66e24;
+  border: none;
+  /* background: #fff; */
+}

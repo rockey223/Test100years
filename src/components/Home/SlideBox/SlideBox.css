@@ -1,0 +1,120 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway&display=swap");
+
+.slidebox-container {
+    margin-top: 110px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.slidebox-heading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.slide-head {
+    text-align: center;
+}
+
+.slide-head span {
+    align-self: center;
+    font-family: "Raleway";
+    color: #000;
+    text-align: center;
+    font-family: Inter;
+    font-size: 60px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.slider-arrow {
+    width: 150px;
+    height: 24px;
+    justify-content: flex-end;
+    left: 20%;
+    bottom: 13px;
+    position: relative;
+}
+
+.carousel-container {
+    width: 100%;
+    margin-bottom: 180px;
+}
+
+
+
+.slider-content {
+    display: flex;
+    /* flex: 1 0 100%; */
+    /* scroll-snap-align: start; */
+    /* object-fit: cover; */
+    justify-content: center;
+    align-items: center;
+
+}
+
+.icon66 {
+    align-self: start;
+}
+
+.left-review {
+    margin-top: 25px;
+    width: 500px;
+    height: 300px;
+    margin-right: 96.28px;
+}
+
+.review {
+    color: #3D3D3D;
+    font-family: Inter;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140%;
+    /* 50.4px */
+    letter-spacing: 0.54px;
+    margin-bottom: 24px;
+}
+
+.review-name {
+    font-family: Raleway;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-bottom: 4px;
+}
+
+.review-occupation {
+    color: #000;
+    font-family: Raleway;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+/* .right-image {
+    border-radius: 20px;
+
+} */
+
+.right-image img {
+    width: 300px;
+    height: 270px;
+    border-radius: 20px;
+}
+
+.carousel .control-dots .dot {
+    background-color: rgba(246, 110, 36, 0.8);
+    box-shadow: none;
+}
+
+.carousel .control-dots .dot.selected {
+    background-color: #F66E24;
+    /* Replace with your desired active dot color */
+}

@@ -1,0 +1,14 @@
+.videoplayer-container-content-Player{
+    /* width: 1440px; */
+    height: auto;
+    background: #000;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.videoplayer-container-content-Player video{
+    width: 70%;
+    height: 100%;
+}

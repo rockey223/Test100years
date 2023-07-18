@@ -1,0 +1,68 @@
+.midBanner-container {
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.midBanner-container-left {
+  width: 495px;
+  height: 242px;
+}
+.midBanner-container-left-title {
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 64px;
+  line-height: 75px;
+  margin-bottom: 16px;
+}
+.midBanner-container-left-content {
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  letter-spacing: 0.045em;
+
+  color: #333333;
+  margin-bottom: 9px;
+}
+
+.midBanner-container-right {
+  width: 618.52px;
+  height: 100%;
+}
+.midBanner-container-right-first-image {
+    position: relative;
+  background-color: rgba(168, 230, 255, 1);
+  width: 261px;
+  height: 261px;
+  border-radius: 50%;
+  border: 6px solid #01acf1;
+  top: 90px;
+  right: 33px;
+}
+.midBanner-container-right-first-image img {
+  width: 261px;
+  height: 261px;
+  border-radius: 50%;
+  
+  
+}
+
+.midBanner-container-right-second-image {
+  background-color: rgba(255, 224, 207, 1);
+  width: 350.69px;
+  height: 350.69px;
+  border-radius: 50%;
+  border: 6px solid rgba(246, 110, 36, 1);
+  position: relative;
+  left: 220px;
+  bottom: 30px;
+}
+.midBanner-container-right-second-image img {
+  width: 350.69px;
+  height: 350.69px;
+  border-radius: 50%;
+}
+

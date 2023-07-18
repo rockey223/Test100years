@@ -1,0 +1,43 @@
+.videoPopup-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+.videoPopup-container-close{
+    color: white;
+    position: absolute;
+    right:30px;
+    top: 30px;
+    font-size: 25px;
+    cursor: pointer;
+}
+.videoPopup-container-top-container{
+    color: white;
+    width: 80%;
+}
+.videoPopup-container-preview-text{
+    font-family: 'Raleway';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 19px;
+/* identical to box height */
+margin: 10px 0;
+
+
+}
+.videoPopup-container-video-title{
+    font-family: 'Raleway';
+font-style: normal;
+font-weight: 700;
+font-size: 20px;
+line-height: 23px;
+margin: 10px 0;
+}
+.videoPopup-container video{
+    width: 80%;
+    height: auto;
+    margin: 20px 0;
+}
