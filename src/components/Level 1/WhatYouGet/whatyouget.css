@@ -1,5 +1,5 @@
 .what-container {
-  width: 1440px;
+  /* width: 1440px; */
   height: 395px;
   display: grid;
   place-items: center;
