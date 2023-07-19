@@ -7,7 +7,7 @@ import { RiInstagramFill } from "react-icons/ri";
 const Footer = () => {
   return (
     <>
-      <div className="footer-container">
+      <div className="footer-container footer">
         <div className="footer-container-content">
           <div className="footer-container-sitemap">
             <div className="footer-container-sitemap-title">Site Map</div>
@@ -166,6 +166,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="footer-copyright-container">
+        <div className="footer-copyright-container-content">
         <div className="footer-copyright-container-left">
           Copyright @2023 All reserved <span> 100 Years </span>{" "}
           <span>Healthy</span>
@@ -175,6 +176,8 @@ const Footer = () => {
           <FaFacebookF />
           <RiInstagramFill />
         </div>
+        </div>
+       
       </div>
     </>
   );

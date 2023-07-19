@@ -1,3 +1,38 @@
+
+.videoPop-Container-main{
+    height: 100vh;
+    /* width: 1440px; */
+    width: 100%;
+    display: block!important;
+    position:fixed;
+    /* background-color: #1d1d1db6; */
+    z-index: 100;
+  
+  }
+
+  .videoPopUp-bg{
+    height: 100vh;
+    width: 100%;
+    background-color: #1d1d1db6;
+    position:fixed;
+    top: 0;
+  }
+
+  .videoPopUp{
+    /* display: none; */
+    position: fixed;
+    width: 712px;
+    height: auto;
+    /* left: 219px; */
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: #1D1A1A;
+    border-radius: 20px;
+    z-index: 2;
+  }
+  
+
 .videoPopup-container{
     display: flex;
     flex-direction: column;

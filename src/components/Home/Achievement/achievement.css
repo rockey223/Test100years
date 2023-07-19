@@ -4,7 +4,7 @@
   height: 530px;
   display: grid;
   place-items: center;
-
+width: 100%;
   color: #fff;
 
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
@@ -12,7 +12,7 @@
   font-family: "Raleway";
 }
 .achievement-container {
-    width: 100%;
+    width: 1440px;
   display: flex;
   justify-content: space-evenly;
   align-items: center;

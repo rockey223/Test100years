@@ -8,6 +8,7 @@ import Requirement from "./SingleVIdeo/Requirement/Requirement";
 import Who from "./SingleVIdeo/Who/Who";
 import Desc from "./SingleVIdeo/Desc/Desc";
 import Content from "./SingleVIdeo/Content/content"
+
 const SingleVideo = ({tooglePopup}) => {
   window.scrollTo(0, 0); 
 
@@ -19,13 +20,15 @@ const SingleVideo = ({tooglePopup}) => {
   
   return (
     <>
-   
+   <div className="singleVideo-Container">
+
       <SigngleTop tooglePopup={tooglePopup} videoDetails={video}/>
       <SingleWhatYouGet/>
       <Requirement/>
       <Who/>
       <Desc/>
       <Content videoDetails={video}/>
+   </div>
       
     </>
   );

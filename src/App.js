@@ -29,11 +29,9 @@ function App() {
   return (
     <div className="App">
       {openVideoPlayer ? (
-        <div className="videoPop-Container-main">
-          <div className="videoPopUp">
+        
             <VideoPopUp close={tooglePopup} details={popupDetails} />
-          </div>
-        </div>
+          
       ) : null}
       <Router>
         <Navbar/>

@@ -1,5 +1,6 @@
 .footer-container {
   /* width: 1440px; */
+  width: 100%;
   height: 378px;
   overflow: hidden;
   background: rgba(0, 0, 0, 0.9);
@@ -15,7 +16,12 @@
   gap: 70px;
   line-height: normal;
 }
-
+.footer-copyright-container-content{
+  width: 1440px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .footerLink {
   color: #b6b6b6;
 }
@@ -175,6 +181,7 @@ width: 180px;
 
 .footer-copyright-container{
   display: flex;
+  width: 100%;
   /* width: 1440px; */
   height: 30px;
   background: #222;
