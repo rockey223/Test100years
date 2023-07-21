@@ -1,5 +1,6 @@
 import React from "react";
 import './midBanner.css';
+// import '../../../responsive.css'
 const MidBanner = () => {
   return (
     <>

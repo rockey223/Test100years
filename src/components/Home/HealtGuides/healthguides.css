@@ -1,7 +1,21 @@
 .videoCard-Box{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
 flex-wrap: wrap;  
+gap: 20px;
 width: 1440px;
 
+}
+
+.healthGuides-title{
+  
+
+    width: 609px;
+    color: #000;
+    font-family: Raleway;
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    text-align: center;
 }

@@ -1,3 +1,22 @@
+@media only screen and (max-width: 1366px) {
+  .achievement-container,
+  .HealthGuides,
+  .midBanner,
+  .midBanner-container,
+  .pricing-table-container,
+  .Testinomial {
+    width: 100%;
+  }
+
+  .videoCard-Box,
+  .slidebox-container {
+    width: 100% !important;
+  }
+
+  .who-container-content {
+    width: 648px;
+  }
+}
 @media only screen and (max-width: 1300px) {
   .pricing-table-pointing-up-arrow {
     right: 60px;
@@ -14,16 +33,30 @@
     transition: 2s all;
     left: 330px;
   }
-
-  .who-container-content {
-    width: 648px;
-  }
-
 }
-
 @media only screen and (max-width: 1024px) {
   .navbar-container {
     gap: 100px !important;
+  }
+  .midBanner-container-right-first-image {
+    width: 150px !important;
+    height: 150px !important;
+  }
+  .midBanner-container-right-first-image img {
+    width: 150px !important;
+    height: 150px !important;
+  }
+
+  .midBanner-container-right-second-image {
+    width: 250px !important;
+    height: 250px !important;
+  }
+  .midBanner-container-right-second-image img {
+    width: 250px !important;
+    height: 250px !important;
+  }
+  .midBanner {
+    width: 87%;
   }
 }
 @media only screen and (max-width: 1100px) {
@@ -44,6 +77,15 @@
     line-height: 65px;
     /* text-align: center; */
   }
+  .midBanner {
+    height: auto;
+  }
+  .midBanner-container {
+    flex-direction: column !important;
+  }
+  .midBanner-container-left {
+    width: 70% !important;
+  }
 }
 
 @media only screen and (max-width: 860px) {
@@ -58,6 +100,55 @@
   }
   .pricing-table-pointing-down-arrow {
     display: none;
+  }
+  .midBanner-container {
+    width: 100%;
+  }
+  .midBanner-container-left-title {
+    text-align: center;
+  }
+  .midBanner-container-right-first-image {
+    left: 65px !important;
+  }
+  .pricing-table-heading {
+    width: 100%;
+    font-size: 50px;
+    line-height: 65px;
+    margin: 0;
+  }
+  .pricing-table-pointing-up-arrow {
+    display: none;
+  }
+  .slide-head span {
+    font-size: 50px !important ;
+  }
+  .carousel-container {
+    width: 95% !important;
+    margin-top: 20px;
+    height: 342px;
+    margin-bottom: 50px !important;
+  }
+  .carousel-root {
+    height: 100%;
+  }
+  .carousel .slider-wrapper {
+    height: 100%;
+  }
+  .carousel.carousel-slider {
+    height: 100%;
+  }
+  .icon66 svg {
+    height: 78px;
+    width: 63px;
+  }
+  .slider{
+    height: 100%;
+  }
+  .slider-content{
+    height: 100%;
+  }
+  .left-review{
+    height: 100%;
   }
 }
 
@@ -88,6 +179,26 @@
   .achievement-left {
     width: 460px;
   }
+  .healthGuides-title {
+    width: 100% !important;
+    font-size: 50px !important;
+  }
+  .midBanner-container-right {
+    width: 100% !important;
+  }
+  .midBanner-container-right-first-image {
+    top: 8px !important;
+    left: 4px !important;
+  }
+  .midBanner-container-right-second-image {
+    left: 140px !important;
+  }
+  .midBanner-container-left {
+    width: 100% !important;
+  }
+  .midBanner-container-left-title {
+    width: 100% !important;
+  }
 }
 
 @media only screen and (max-width: 500px) {
@@ -103,6 +214,22 @@
   }
   .achievement-left {
     width: 370px;
+  }
+  .midBanner {
+    margin-bottom: 100px;
+  }
+  .midBanner-container-right-second-image {
+    left: 130px !important;
+  }
+  .pricing-table-heading {
+    width: 100%;
+    font-size: 50px;
+  }
+  .pricing-table-heading {
+    margin-bottom: 40px;
+  }
+  #star {
+    display: none;
   }
 }
 

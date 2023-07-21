@@ -5,6 +5,7 @@ import { Carousel } from "react-responsive-carousel";
 import "./SlideBox.css";
 import img from "./pp.png";
 
+
 function SlideBox() {
     const [currentSlide, setCurrentSlide] = useState(0);
     const totalSlides = Reviews.length; // Assuming Reviews is the array of carousel items

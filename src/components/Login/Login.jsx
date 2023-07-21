@@ -3,8 +3,11 @@ import InputField from "../Helpers/InputField";
 import LoginHelper from "./LoginHelper";
 import "./login.css";
 import { NavLink } from "react-router-dom";
+import axios from 'axios';
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const navigate = useNavigate();
   window.scrollTo(0, 0);
 
   const [loginDetails, setloginDetails] = useState({
@@ -21,9 +24,33 @@ const Login = () => {
       };
     });
   };
-
+  const [error, setError] = useState();
   const handleLoginForm = (e) => {
     e.preventDefault();
+
+    axios
+    .post('http://localhost:8000/api/userLogin',{
+      userEmail: loginDetails.loginUsername,
+      userPassword: loginDetails.loginPassword,
+    })
+    .then((res)=>{
+      setloginDetails({
+        loginUsername: "",
+        loginPassword: "",
+      });
+      if(res.data.success===true){
+             
+        navigate("/");
+      }
+      else{
+        setError("Problem loging in")
+      }
+      console.log(res.data);
+    })
+    .catch((err)=>{
+      console.log(err);
+    })
+
 
     console.log(loginDetails);
     setloginDetails({

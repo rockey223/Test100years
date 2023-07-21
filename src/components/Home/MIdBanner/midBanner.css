@@ -1,10 +1,10 @@
 .midBanner-container {
   height: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   width: 100%;
-  margin: 0 50px;
+  /* margin: 0 50px; */
 }
 .midBanner-container-left {
   width: 495px;
@@ -42,7 +42,7 @@
   border-radius: 50%;
   border: 6px solid #01acf1;
   top: 90px;
-  right: 33px;
+  left: 7px;
 }
 .midBanner-container-right-first-image img {
   width: 261px;
@@ -59,7 +59,7 @@
   border-radius: 50%;
   border: 6px solid rgba(246, 110, 36, 1);
   position: relative;
-  left: 220px;
+  left: 248px;
   bottom: 30px;
 }
 .midBanner-container-right-second-image img {

@@ -28,13 +28,18 @@ a{
   /* margin: 0 1000px; */
 }
 
+.Testinomial
+{
+  width: 1440px;
+}
 .midBanner {
   width: 1440px;
   height: 640px;
-  margin: 100px 0;
+  /* margin: 100px 0; */
 }
 
 .pricing-table-container {
+  width: 1440px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -80,6 +85,9 @@ a{
 .HealthGuides {
   height: auto;
   margin: 50px 0px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
 }
 
 .videoCard-link{

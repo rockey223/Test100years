@@ -4,6 +4,8 @@ import { NavLink } from "react-router-dom";
 import "./signup.css";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+// import { ToastContainer, toast } from 'react-toastify';
+// import 'react-toastify/dist/ReactToastify.css';
 const Signup = () => {
   const navigate = useNavigate();
   window.scrollTo(0, 0);
@@ -44,7 +46,8 @@ const Signup = () => {
               signupRePassword: "",
             });
             if(res.data.success===true){
-              navigate("/login");
+             
+              navigate("/");
             }
             else{
               setError("Problem in signinup")
@@ -68,6 +71,7 @@ const Signup = () => {
 
   return (
     <>
+    {/* <ToastContainer /> */}
       <div className="signup-container">
         <div className="signup-container-content">
           <div className="signup-container-content-header">

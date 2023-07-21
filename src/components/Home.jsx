@@ -8,8 +8,23 @@ import HealthGuides from "./Home/HealtGuides/HealthGuides.jsx";
 // import VideoPopUp from "./Helpers/VideoPopUp";
 // import Navbar from "./Navbar/Navbar.jsx";
 import SlideBox from "./Home/SlideBox/SlideBox.jsx"
+import { useEffect } from "react";
+import axios from "axios";
 
 const Home = ({ tooglePopup }) => {
+
+  useEffect(()=>{
+    axios.get('http://localhost:8000/api/getMyInfo',{
+      withCredentials: true
+    })
+    .then((res)=>{
+      console.log(res);
+    })
+    .catch((err)=>{
+      console.log(err);
+    })
+  })
+
   // window.scrollTo(0, 0); 
   // console.log(PriceTable)
   return (

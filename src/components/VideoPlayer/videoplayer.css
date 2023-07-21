@@ -1,3 +1,8 @@
+
+.videoplayer-container{
+    width: 1440px;
+}
+
 .videoplayer-container-content-Player{
     /* width: 1440px; */
     height: auto;

@@ -7,6 +7,9 @@ import "./healthguides.css";
 const HealthGuides = ({ open }) => {
   return (
     <>
+    <div className="healthGuides-title">
+    Various Guide are treated by us
+    </div>
       <div className="videoCard-Box">
         {Video.map((videoItem, index) => {
           return <VideoCard key={index} videoItem={videoItem} open={open} />;
