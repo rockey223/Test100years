@@ -195,6 +195,7 @@
   }
   .midBanner-container-left {
     width: 100% !important;
+    height: 445px;
   }
   .midBanner-container-left-title {
     width: 100% !important;
@@ -219,7 +220,7 @@
     margin-bottom: 100px;
   }
   .midBanner-container-right-second-image {
-    left: 130px !important;
+    left: 84px !important;
   }
   .pricing-table-heading {
     width: 100%;
