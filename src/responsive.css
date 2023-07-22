@@ -195,7 +195,7 @@
   }
   .midBanner-container-left {
     width: 100% !important;
-    height: 445px;
+    height: 445px!important;
   }
   .midBanner-container-left-title {
     width: 100% !important;
