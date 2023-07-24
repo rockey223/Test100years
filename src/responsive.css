@@ -245,6 +245,24 @@
 
     height: 50px!important;
   }
+  .slider-content{
+    gap: 5px!important;
+  }
+  .icon66 svg {
+    height: 85px;
+    width: 36px;}
+    .review{
+      font-size: 16px!important;
+      text-align: justify;
+      letter-spacing: 0!important;
+    }
+    .left-review{
+      margin: 0!important;
+    }
+    .right-image img{
+      width: 150px!important;
+      height: 150px!important;
+    }
 }
 
 @media only screen and (max-width: 400px) {

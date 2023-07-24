@@ -34,7 +34,7 @@ function App() {
           
       ) : null}
       <Router>
-        {/* <Navbar/> */}
+        <Navbar/>
         <Routes>
           <Route path="/" element={<Home tooglePopup={tooglePopup} />} />
           <Route path="/level1" element={<Level1 tooglePopup={tooglePopup}/>} />
