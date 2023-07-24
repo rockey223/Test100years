@@ -41,10 +41,10 @@ buttons?(
     <NavLink to={link}>
 
 
-  <OutLineButton btnTxt={"Preview"} width={'142px'}height={ '50px'} />
+  <OutLineButton className={"priceBox-btn"} btnTxt={"Preview"} width={'142px'}height={ '50px'} />
     </NavLink>
   
-  <FillButton btnTxt={`$${price}`} width={'142px'}height={ '50px'} />
+  <FillButton className={"priceBox-btn"} btnTxt={`$${price}`} width={'142px'}height={ '50px'} />
 </div>
 ):''
        }

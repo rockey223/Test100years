@@ -28,7 +28,7 @@ const Achievement = () => {
         </div>
         <div className="achievement-right">
             <div className="achievement-right-paragraph">
-            Healthcare that way you want it. Simple,convenient and reliable
+            Healthcare that way you want it. Simple, convenient and reliable
             </div>
         </div>
     </div>

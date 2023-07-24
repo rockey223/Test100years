@@ -216,11 +216,19 @@
   .achievement-left {
     width: 370px;
   }
-  .midBanner {
-    margin-bottom: 100px;
+
+  .midBanner-container-left{
+    height: 230px!important;
+  }
+  .midBanner-container-left-title {
+   font-size: 40px!important;
+   line-height: 47px!important;
   }
   .midBanner-container-right-second-image {
-    left: 84px !important;
+    left: 80px !important;
+  }
+  .priceBox-container{
+    width: 254px;
   }
   .pricing-table-heading {
     width: 100%;
@@ -232,6 +240,11 @@
   #star {
     display: none;
   }
+  .priceBox-btn{
+    width: 130px!important;
+
+    height: 50px!important;
+  }
 }
 
 @media only screen and (max-width: 400px) {
@@ -240,8 +253,16 @@
     line-height: 48px;
   }
   .achievement-left {
-    width: 344px;
+    width: 316px;
+    padding: 0;
   }
+  .achievement-left-counter{
+    
+    display: flex;
+    justify-content: flex-start;
+    gap: 33px;
+}
+  
   .videoCard-container {
     width: 319px !important;
   }
