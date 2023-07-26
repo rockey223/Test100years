@@ -97,7 +97,10 @@ a{
 .singleVideo-Container{
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: start;
+  /* align-items: center; */
   width:1440px;
+  position: relative;
+  height: auto;
+  /* padding: 0 0 0 130px; */
 }

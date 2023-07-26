@@ -6,6 +6,7 @@
   margin-top: 50px;
  width: 1440px;
  padding: 0 200px;
+ position: relative;
 }
 
 .singleTop-container-left {
@@ -82,8 +83,8 @@
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.04), 0px 4px 8px rgba(0, 0, 0, 0.06);
     border-radius: 20px;
     margin: 0 0 80px 0;
-    /* position: fixed; */
-    top: 150px;
+    position: sticky;
+    top: 30px;
     /* bottom: 20px; */
     /* right: 124px; */
 }
