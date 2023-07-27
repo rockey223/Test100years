@@ -38,9 +38,6 @@ function App() {
   });
 
 
-  console.log(buyBanner);
-  console.log(windowScroll);
-  console.log(prevWinScroll);
 
 
 

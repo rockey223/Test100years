@@ -14,7 +14,7 @@ const Top = ({tooglePopup}) => {
       
       <div className="top-container">
         <div className="top-container-left">
-          <div className="top-container-left-level">Level 2</div>
+          <div className="top-container-left-level">Level 1</div>
           <div className="top-container-left-title">
             The Healthcare For Anyone And Everyone
           </div>

@@ -3,16 +3,16 @@ import "./videoBox.css";
 import { Link, NavLink } from "react-router-dom";
 import { FillButton } from "./Buttons";
 
-const VideoBox = ({ videoItem, open }) => {
+const VideoBox = ({ video, open }) => {
   // console.log(videoItem)
 
-  console.log(videoItem);
+  // console.log(videoItem);
 
   return (
     <>
-      {videoItem.map((vi) => {
-        console.log(vi);
-        const { id, title, category, videTime, happy, thumbnail } = vi;
+      {video.map((videoItem) => {
+        console.log(videoItem);
+        const { id, title, category, videTime, happy, thumbnail } = videoItem;
 
         return (
           <div key={id} className="VideoBox-container">
@@ -21,7 +21,7 @@ const VideoBox = ({ videoItem, open }) => {
               <div
                 className="VideoBox-container-thumbnail-playBtn"
                 onClick={() => {
-                  open(videoItem,title);
+                  open({videoItem,title});
                 }}
               >
                 <svg

@@ -83,7 +83,7 @@ const Courses = ({tooglePopup}) => {
             case "video":
               return (
                 <div className="coursesVideo">
-                  <VideoBox videoItem={Video} open={tooglePopup} />
+                  <VideoBox video={Video} open={tooglePopup} />
                 </div>
               );
 

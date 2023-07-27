@@ -15,7 +15,7 @@ import { BiPodcast } from "react-icons/bi";
 import { SiBlogger } from "react-icons/si";
 import "./SingleVIdeo/SingleVideo.css";
 const SingleVideo = ({ tooglePopup }) => {
-  window.scrollTo(0, 0);
+  // window.scrollTo(0, 0);
 
   const { id } = useParams();
   console.log(id);
