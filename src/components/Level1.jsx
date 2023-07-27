@@ -5,8 +5,8 @@ import WhatYouGet from "./Level 1/WhatYouGet/WhatYouGet";
 import RateUs from "./Level 1/Rate/RateUs"
 import BuyBanner from "./Level 1/BuyBanner/BuyBanner";
 import Courses from "./Helpers/Courses";
-const Level1 = ({tooglePopup}) => {
-  window.scrollTo(0, 0); 
+const Level1 = ({tooglePopup,buyBanner,windowScroll}) => {
+  // window.scrollTo(0, 0); 
 
   return (
     <>
@@ -15,7 +15,7 @@ const Level1 = ({tooglePopup}) => {
       <WhatYouGet/>
       <Courses tooglePopup={tooglePopup}/> 
       {/* <RateUs/> */}
-      <BuyBanner/>
+      <BuyBanner buyBanner={buyBanner} windowScroll={windowScroll} />
     </>
   );
 };

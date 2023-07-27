@@ -1,10 +1,16 @@
 import React from "react";
 import { FillButton } from "../../Helpers/Buttons";
 import "./buybanner.css";
-const BuyBanner = () => {
+const BuyBanner = ({buyBanner,windowScroll}) => {
   return (
     <>
-      <div className="buyBanner-container">
+      <div className="buyBanner-container" style={
+        buyBanner > 414 || windowScroll < 0
+          ? buyBanner >= 414
+            ? { bottom: "0px" }
+            : { bottom: "-69px" }
+          : { bottom: "-69px" }
+      }>
         <div className="buyBanner-container-content">
           <div className="buyBanner-container-left">
             <div className="buyBanner-container-left-top">

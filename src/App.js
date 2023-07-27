@@ -27,6 +27,22 @@ function App() {
     console.log(videoItem);
   };
 
+  const [buyBanner, setbuyBanner] = useState(0);
+  const [windowScroll, setWindowScroll] = useState(0);
+  const [prevWinScroll, setPrevWinScroll] = useState(0);
+
+  window.addEventListener("scroll", function () {
+    setbuyBanner(window.scrollY);
+    setWindowScroll(window.scrollY - prevWinScroll);
+    setPrevWinScroll(window.scrollY);
+  });
+
+
+  console.log(buyBanner);
+  console.log(windowScroll);
+  console.log(prevWinScroll);
+
+
 
   return (
     <div className="App">
@@ -39,8 +55,8 @@ function App() {
         <Navbar/>
         <Routes>
           <Route path="/" element={<Home tooglePopup={tooglePopup} />} />
-          <Route path="/level1" element={<Level1 tooglePopup={tooglePopup}/>} />
-          <Route path="/level2" element={<Level2 tooglePopup={tooglePopup}/>} />
+          <Route path="/level1" element={<Level1 tooglePopup={tooglePopup} buyBanner={buyBanner} windowScroll={windowScroll}/>} />
+          <Route path="/level2" element={<Level2 tooglePopup={tooglePopup} buyBanner={buyBanner} windowScroll={windowScroll}/>} />
           <Route path="/login" element={<Login/>}/>
           <Route path="/signup" element={<Signup/>}/>
           <Route path="/singlevideo/:id" element={<SingleVideo tooglePopup={tooglePopup}/>}/>

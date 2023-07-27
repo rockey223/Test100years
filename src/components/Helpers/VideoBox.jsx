@@ -21,7 +21,7 @@ const VideoBox = ({ videoItem, open }) => {
               <div
                 className="VideoBox-container-thumbnail-playBtn"
                 onClick={() => {
-                  open(videoItem);
+                  open(videoItem,title);
                 }}
               >
                 <svg
