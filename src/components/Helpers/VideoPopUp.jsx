@@ -4,6 +4,7 @@ import "./videopopup.css";
 import { CgClose } from "react-icons/cg";
 const VideoPopUp = ({ videoUrl, close, details, title }) => {
   // console.log(close)
+  console.log(details.video.title);
   return (
     <>
       <div className="videoPop-Container-main">

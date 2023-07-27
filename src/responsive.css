@@ -125,7 +125,7 @@
   .carousel-container {
     width: 95% !important;
     margin-top: 20px;
-    height: 342px;
+    height: 385px;
     margin-bottom: 50px !important;
   }
   .carousel-root {
@@ -150,6 +150,18 @@
   .left-review{
     height: 100%;
   }
+
+  .review{
+    line-height: 114%!important;
+  }
+  .review-name,
+.review-occupation {
+padding: 0 0 0 44px!important;
+}
+.icon66 svg{
+height: 77px;
+width: 44px;
+}
 }
 
 @media only screen and (max-width: 700px) {
@@ -237,13 +249,21 @@
   .pricing-table-heading {
     margin-bottom: 40px;
   }
-  #star {
+  /* #star {
     display: none;
-  }
-  .priceBox-btn{
-    width: 130px!important;
+  } */
+  
 
-    height: 50px!important;
+#star {
+    /* position: absolute;
+    width: auto; */
+    top: -23px;
+    left: 299px;
+}
+  .priceBox-btn{
+    width: 115px!important;
+
+    height: 40px!important;
   }
   .slider-content{
     gap: 5px!important;
@@ -263,6 +283,21 @@
       width: 150px!important;
       height: 150px!important;
     }
+    .slider-content{
+      flex-direction: column-reverse;
+    }
+    .left-review {
+    
+      width: 380px!important;
+      height: 225px!important;
+    }
+    .review{
+      height: 115px!important;
+    }
+    .review-name,
+.review-occupation {
+padding: 0 0 0 35px!important;
+}
 }
 
 @media only screen and (max-width: 400px) {
@@ -287,6 +322,11 @@
   .videoCard-container-thumbnail img {
     width: 310px !important;
   }
+  .left-review {
+    
+    width: 280px!important;
+    height: 225px!important;
+  }
 }
 @media only screen and (max-width: 350px) {
   .Achievement {
@@ -303,4 +343,37 @@
   .achievement-left {
     width: 295px;
   }
+
+  .midBanner-container-right-first-image {
+    width: 110px !important;
+    height: 110px !important;
+}
+.midBanner-container-left svg{
+  width: 250px;
+}
+.midBanner-container-right-first-image img{
+  width: 110px !important;
+  height: 110px !important;
+}
+  .midBanner-container-right-second-image {
+    width: 200px!important;
+    height: 200px !important;
+}
+.midBanner-container-right-second-image img {
+  width: 200px !important;
+  height: 200px !important;
+}
+
+
+  .pricing-table-heading {
+    /* width: 100%; */
+    font-size: 45px;
+    line-height: 55px;
+}
+  #star{
+    display: none;
+  }
+  .review {
+    height: 144px!important;
+}
 }

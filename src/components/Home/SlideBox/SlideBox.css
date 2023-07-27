@@ -61,6 +61,7 @@
 }
 
 .left-review {
+  /* display: flex; */
   margin-top: 25px;
   width: 570px;
   height: 300px;
@@ -69,6 +70,8 @@
 }
 
 .review {
+  height: 200px;
+  display: flex;
   color: #3d3d3d;
   font-family: Inter;
   font-size: 24px;
@@ -79,7 +82,9 @@
   letter-spacing: 0.54px;
   margin-bottom: 24px;
 }
-
+.review span{
+  padding: 35px 0 0 0;
+}
 .review-name {
   font-family: Raleway;
   font-size: 20px;
@@ -88,7 +93,10 @@
   line-height: normal;
   margin-bottom: 4px;
 }
-
+.review-name,
+.review-occupation {
+padding: 0 0 0 80px;
+}
 .review-occupation {
   color: #000;
   font-family: Raleway;

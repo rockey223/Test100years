@@ -20,6 +20,7 @@ function App() {
   const [openVideoPlayer, setOpenVideoPlayer] = useState(false);
   const [popupDetails, setPopupDetails] = useState();
   const tooglePopup = (videoItem,title) => {
+    console.log(title);
     setPopupDetails(videoItem,title);
     setOpenVideoPlayer(!openVideoPlayer);
     console.log(videoItem);

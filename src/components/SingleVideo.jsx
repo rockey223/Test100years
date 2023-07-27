@@ -7,7 +7,7 @@ import Video from "./dummy/Video";
 import Requirement from "./SingleVIdeo/Requirement/Requirement";
 import Who from "./SingleVIdeo/Who/Who";
 import Desc from "./SingleVIdeo/Desc/Desc";
-import Content from "./SingleVIdeo/Content/content";
+// import Content from "./SingleVIdeo/Content/content";
 import { FillButton } from "./Helpers/Buttons";
 import { TbArticle } from "react-icons/tb";
 import { BsFillCameraVideoFill } from "react-icons/bs";
@@ -22,7 +22,8 @@ const SingleVideo = ({ tooglePopup }) => {
   // const video = Video.find(({ id }) => id === id);
   const video = Video.find((el) => parseInt(id) === el.id);
   console.log(video);
-
+const title = video.title;
+console.log(title);
   return (
     <>
       <div className="singleVideo-Container">
@@ -35,7 +36,7 @@ const SingleVideo = ({ tooglePopup }) => {
                 <div
                   className="singleTop-container-right-video-box-thumbnail-playBtn"
                   onClick={() => {
-                    tooglePopup({ video });
+                    tooglePopup({ video,title});
                   }}
                 >
                   <svg
@@ -120,7 +121,7 @@ const SingleVideo = ({ tooglePopup }) => {
         <Requirement />
         <Who />
         <Desc />
-        <Content videoDetails={video} />
+        {/* <Content videoDetails={video} /> */}
       </div>
     </>
   );
