@@ -3,6 +3,7 @@ import { useState } from "react";
 import Footer from "./components/Footer/Footer";
 import Home from "./components/Home";
 import Level1 from "./components/Level1";
+import Level2 from "./components/Level2";
 // import MidBanner from "./components/MIdBanner/MidBanner";
 import Navbar from "./components/Navbar/Navbar";
 import "./responsive.css";
@@ -39,6 +40,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home tooglePopup={tooglePopup} />} />
           <Route path="/level1" element={<Level1 tooglePopup={tooglePopup}/>} />
+          <Route path="/level2" element={<Level2 tooglePopup={tooglePopup}/>} />
           <Route path="/login" element={<Login/>}/>
           <Route path="/signup" element={<Signup/>}/>
           <Route path="/singlevideo/:id" element={<SingleVideo tooglePopup={tooglePopup}/>}/>

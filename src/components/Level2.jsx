@@ -5,7 +5,7 @@ import WhatYouGet from "./Level 1/WhatYouGet/WhatYouGet";
 import RateUs from "./Level 1/Rate/RateUs"
 import BuyBanner from "./Level 1/BuyBanner/BuyBanner";
 import Courses from "./Helpers/Courses";
-const Level1 = ({tooglePopup}) => {
+const Level2 = ({tooglePopup}) => {
   window.scrollTo(0, 0); 
 
   return (
@@ -20,4 +20,4 @@ const Level1 = ({tooglePopup}) => {
   );
 };
 
-export default Level1;
+export default Level2;
