@@ -14,7 +14,7 @@ import { BsFillCameraVideoFill } from "react-icons/bs";
 import { BiPodcast } from "react-icons/bi";
 import { SiBlogger } from "react-icons/si";
 import "./SingleVIdeo/SingleVideo.css";
-const SingleVideo = ({ tooglePopup }) => {
+const SingleVideo = ({ tooglePopup,isloggedin }) => {
   // window.scrollTo(0, 0);
 
   const { id } = useParams();
@@ -103,11 +103,13 @@ console.log(title);
               {video.description}
             </div>
             {/* <div className="singleTop-container-left-buybtn">$9.99 Buy Now</div> */}
+            
             <FillButton
               btnTxt={"30 minutes"}
               width={"156px"}
               height={"48px"}
-              disable={true}
+            disable={isloggedin? false : true}
+              link={isloggedin? `/videoplayer/${id}`:""}
             />
             <div className="singleTop-container-left-instrutor">
               <div className="singleTop-container-left-instructor-image">

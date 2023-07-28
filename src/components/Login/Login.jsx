@@ -6,7 +6,7 @@ import { NavLink } from "react-router-dom";
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 
-const Login = () => {
+const Login = ({setIsloggedin}) => {
   const navigate = useNavigate();
   useEffect(()=>{
 
@@ -35,15 +35,20 @@ const Login = () => {
     .post('http://localhost:8000/api/userLogin',{
       userEmail: loginDetails.loginUsername,
       userPassword: loginDetails.loginPassword,
+    },{
+      withCredentials: true,
     })
     .then((res)=>{
-      setloginDetails({
-        loginUsername: "",
-        loginPassword: "",
-      });
+      
       if(res.data.success===true){
-             
-        navigate("/");
+        setIsloggedin(()=>{
+          return true;
+        });
+        setloginDetails({
+          loginUsername: "",
+          loginPassword: "",
+        });
+        navigate(-1);
       }
       else{
         setError("Problem loging in")
@@ -56,10 +61,7 @@ const Login = () => {
 
 
     console.log(loginDetails);
-    setloginDetails({
-      loginUsername: "",
-      loginPassword: "",
-    });
+    
   };
 
   return (

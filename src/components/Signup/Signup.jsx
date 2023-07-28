@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 // import { ToastContainer, toast } from 'react-toastify';
 // import 'react-toastify/dist/ReactToastify.css';
-const Signup = () => {
+const Signup = ({setIsloggedin}) => {
   const navigate = useNavigate();
   // window.scrollTo(0, 0);
   useEffect(()=>{
@@ -40,8 +40,13 @@ const Signup = () => {
         userPassword: signupDetails.signupPassword,
         userConfirmPassword: signupDetails.signupRePassword,
         userFullName: signupDetails.signupFullname,
+      },{
+        withCredentials: true
       })
       .then((res) =>{
+setIsloggedin(()=>{
+  return true
+})
         setSignupDetails({
               signupFullname: "",
               signupEmail: "",
