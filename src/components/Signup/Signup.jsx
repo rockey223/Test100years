@@ -8,7 +8,7 @@ import axios from "axios";
 // import 'react-toastify/dist/ReactToastify.css';
 const Signup = () => {
   const navigate = useNavigate();
-  window.scrollTo(0, 0);
+  // window.scrollTo(0, 0);
 
   const [signupDetails, setSignupDetails] = useState({
     signupFullname: "",

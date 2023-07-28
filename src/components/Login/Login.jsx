@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const navigate = useNavigate();
-  window.scrollTo(0, 0);
+  // window.scrollTo(0, 0);
 
   const [loginDetails, setloginDetails] = useState({
     loginUsername: "",

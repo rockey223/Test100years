@@ -7,7 +7,7 @@ import { useParams } from "react-router-dom";
 import Video from '../dummy/Video';
 import './videoplayer.css'
 const VideoPlayer = () => {
-  window.scrollTo(0, 0);
+  // window.scrollTo(0, 0);
   const {id} = useParams();
 
   const videoDetails = Video.find((video)=>video.id === parseInt(id));
