@@ -1,4 +1,4 @@
-// import React,{useState} from "react";
+import React,{useEffect} from "react";
 import { useParams } from "react-router-dom";
 // import SigngleTop from "./SingleVIdeo/Top/SingleTop";
 import SingleWhatYouGet from "./SingleVIdeo/WhatYouGet/SingleWhatYouGet";
@@ -18,6 +18,10 @@ const SingleVideo = ({ tooglePopup }) => {
   // window.scrollTo(0, 0);
 
   const { id } = useParams();
+  useEffect(()=>{
+
+    window.scrollTo(0, 0);
+  },[]);
   console.log(id);
   // const video = Video.find(({ id }) => id === id);
   const video = Video.find((el) => parseInt(id) === el.id);

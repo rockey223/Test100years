@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import InputField from "../Helpers/InputField";
 import { NavLink } from "react-router-dom";
 import "./signup.css";
@@ -9,7 +9,10 @@ import axios from "axios";
 const Signup = () => {
   const navigate = useNavigate();
   // window.scrollTo(0, 0);
+  useEffect(()=>{
 
+    window.scrollTo(0, 0);
+  },[]);
   const [signupDetails, setSignupDetails] = useState({
     signupFullname: "",
     signupEmail: "",

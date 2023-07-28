@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import InputField from "../Helpers/InputField";
 import LoginHelper from "./LoginHelper";
 import "./login.css";
@@ -8,7 +8,10 @@ import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const navigate = useNavigate();
-  // window.scrollTo(0, 0);
+  useEffect(()=>{
+
+    window.scrollTo(0, 0);
+  },[]);
 
   const [loginDetails, setloginDetails] = useState({
     loginUsername: "",

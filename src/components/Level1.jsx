@@ -1,4 +1,4 @@
-// import React,{useState} from "react";
+import React,{useEffect} from "react";
 import Top from "./Level 1/Top/Top";
 import WhatYouGet from "./Level 1/WhatYouGet/WhatYouGet";
 // import VideoPopUp from "./Helpers/VideoPopUp";
@@ -7,7 +7,10 @@ import BuyBanner from "./Level 1/BuyBanner/BuyBanner";
 import Courses from "./Helpers/Courses";
 const Level1 = ({tooglePopup,buyBanner,windowScroll}) => {
   // window.scrollTo(0, 0); 
+  useEffect(()=>{
 
+    window.scrollTo(0, 0);
+  },[]);
   return (
     <>
    

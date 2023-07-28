@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useEffect} from "react";
 import video from "../dummy/video.mp4";
 import AboutThisCourse from "./AboutThisCourse/AboutThisCourse";
 import PlayerDesc from "./playerDesc/PlayerDesc";
@@ -8,6 +8,10 @@ import Video from '../dummy/Video';
 import './videoplayer.css'
 const VideoPlayer = () => {
   // window.scrollTo(0, 0);
+  useEffect(()=>{
+
+    window.scrollTo(0, 0);
+  },[]);
   const {id} = useParams();
 
   const videoDetails = Video.find((video)=>video.id === parseInt(id));
