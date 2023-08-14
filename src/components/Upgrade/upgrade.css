@@ -49,7 +49,7 @@ margin: 0 0 0 150px;
 
 }
 .upgrade-container-content-requirement-points-point{
-    height: 45px;
+    height: auto;
     color: rgba(0, 0, 0, 0.719);
     font-size: 16px;
     font-family: Inter;

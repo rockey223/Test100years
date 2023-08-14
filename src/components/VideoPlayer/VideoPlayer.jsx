@@ -6,7 +6,9 @@ import Instructor from "./Instructor/Instructor";
 import { useParams } from "react-router-dom";
 import Video from '../dummy/Video';
 import './videoplayer.css'
+
 const VideoPlayer = () => {
+  
   // window.scrollTo(0, 0);
   useEffect(()=>{
 

@@ -2,67 +2,63 @@ import React, { useEffect, useState } from "react";
 import "./navbar.css";
 import "../../responsive.css";
 import logo from "../../assets/images/logo.jpg";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 // import { FillButton } from "../Helpers/Buttons";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { CgProfile } from "react-icons/cg";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { FaGalacticSenate } from "react-icons/fa";
-const Navbar = ({
-  isloggedin,
-  setIsloggedin,
-  usermail,
-  username,
-  setUsername,
-  setUsermail,
-}) => {
-  const navigate = useNavigate();
-  // const [isloggedin, setIsloggedin] = useState(false);
+import { useUser } from "../../contexts/userDetails/userContext";
+import {GoX} from "react-icons/go"
+// import { FaGalacticSenate } from "react-icons/fa";
+const Navbar = () => {
 
-  useEffect(() => {
-    axios
-      .get("http://localhost:8000/api/getMyInfo", {
-        withCredentials: true,
-      })
-      .then((res) => {
-        setIsloggedin(() => {
-          return true;
-        });
+  const {isloggedIn,myInfo,Logout,initialName} = useUser();
+ 
+  
 
-        console.log(res.data.user.userFullName);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
-
+  // const name = myInfo.userFullName;
   const [isDropdown, setIsDropdown] = useState(false);
   function displayDropdown() {
     setIsDropdown(!isDropdown);
-    console.log("asdf");
+    
   }
 
-  function Logout() {
-    axios("http://localhost:8000/api/userLogout", {
-      withCredentials: true,
-    })
-      .then((res) => {
-        setIsloggedin(() => {
-          return false;
-        });
-        setUsername("");
-        setUsermail("");
-        // if (res.data.success === true) {
-          navigate("/");
-        // }
-        console.log(res);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }
+  // function Logout() {
+  //   axios("http://192.168.101.6:8000/api/userLogout", {
+  //     withCredentials: true,
+  //   })
+  //     .then((res) => {
+  //       setIsloggedin(() => {
+  //         return false;
+  //       });
+  //       setUsername("");
+  //       setUsermail("");
+  //       // if (res.data.success === true) {
+  //         navigate("/");
+  //       // }
+  //       console.log(res);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // }
 
-  console.log(username);
+  // console.log(username);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+console.log(windowWidth);
+  useEffect(() => {
+    const handleWindowResize = () => {
+      setWindowWidth(()=>window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleWindowResize);
+
+    return () => {
+      window.removeEventListener('resize', handleWindowResize);
+    };
+  });
+  const [displayNav,setDisplayNav] = useState(false)
   return (
     <>
       <div className="navbar-container">
@@ -71,10 +67,12 @@ const Navbar = ({
             <img src={logo} alt="" />
           </div>
           <div className="navbar-container-links">
-            <div className="navbar-navlinks">
+            <div className={`navbar-navlinks ${displayNav ? 'display' : ""}`} >
               <ul>
-                <li>
-                  <NavLink className="navbar-navLinks-navLink" to={"/"}>
+                <li onClick={()=>{
+              setDisplayNav((prev)=>!prev)
+            }}>
+                  <NavLink className="navbar-navLinks-navLink" to={"/"} >
                     Home
                   </NavLink>
                 </li>
@@ -99,17 +97,15 @@ const Navbar = ({
                   </NavLink>
                 </li>
               </ul>
-              <div className="navbar-navbar-navlinks-icon">
-                <GiHamburgerMenu />
-              </div>
+              
             </div>
-            {isloggedin ? (
+            {isloggedIn ? (
               <div className="navbar-userProfile">
                 <div
                   className="navbar-userProfile-profile"
-                  onClick={displayDropdown}
+                  onClick={()=>{displayDropdown()}}
                 >
-                  {username[0]}
+                   {initialName}
                 </div>
                 <div
                   className="navbar-userProfile-dropdownItem"
@@ -119,28 +115,43 @@ const Navbar = ({
                 >
                   <p className="navbar-profile">
                     <div className="navbar-userProfile-dropdownItem-item">
-                      {username[0]}
+                    {initialName}
                     </div>
                     <div className="navbar-userProfile-dropdown-name">
-                      <span className="name">{username}</span>
-                      <span className="name">{usermail}</span>
+                      <span className="name"> {myInfo.userFullName}</span>
+                      <span className="name">{myInfo.userEmail}</span>
                     </div>
                   </p>
                   <hr />
+                  <Link to={"/profile"}>
                   <p>My Acocunt</p>
-                  <p>My Profile</p>
+                  </Link>
+                  {/* <p>My Profile</p> */}
                   <p>Support</p>
-                  <p onClick={Logout}>Logout</p>
+                  <p 
+                  onClick={Logout}
+                  >Logout</p>
                 </div>
               </div>
             ) : (
               <NavLink to="/login">
-                <div className="navbar-login-btn">
+                {
+                  windowWidth< 450? <CgProfile className="LoginProfileIcon"/> :(<div className="navbar-login-btn">
                   Login
                   {/* <FillButton btnTxt={"LOGIN"}/> */}
-                </div>
+                </div>)
+                }
+                
               </NavLink>
             )}
+            <div className="navbar-navbar-navlinks-icon" onClick={()=>{
+              setDisplayNav((prev)=>!prev)
+            }}>
+              {
+                displayNav? <GoX/> : <GiHamburgerMenu />
+              }
+                
+              </div>
           </div>
         </div>
       </div>

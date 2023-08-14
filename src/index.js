@@ -1,14 +1,15 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App";
+// import { LoginProvider } from './contexts/loginContext';
+import { UserProvider } from "../src/contexts/userDetails/userContext";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+const root = ReactDOM.createRoot(document.getElementById("root"));
 
-import App from './App';
-
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+    <Router>
+  <UserProvider>
+      <App />
+  </UserProvider>
+    </Router>
 );
-
-

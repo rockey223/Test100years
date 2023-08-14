@@ -129,3 +129,18 @@
     color: #F66E24;
     cursor: pointer;
 }
+
+@media screen and (max-width: 500px) {
+    .login-container{
+        width: 100%;
+    }
+    .login-container-content-form{
+        width: 100%;
+    }
+    .login-container-content{
+        width: 90%;
+    }
+    .inputFeild,.login-container-content-form-submitBtn{
+width: 90%!important;
+    }
+}

@@ -1,4 +1,7 @@
 @media only screen and (max-width: 1366px) {
+  .navbar-container {
+    width: 100% !important;
+  }
   .achievement-container,
   .HealthGuides,
   .midBanner,
@@ -163,11 +166,36 @@
     width: 44px;
   }
 }
+@media screen and (max-width: 780px) {
+  .navbar-navlinks {
+    display: none;
+  }
+  .navbar-navlinks.display {
+    display: block;
+    width: 100vw;
+    background-color: white;
+    position: absolute;
+    top: 100px;
+    padding: 25px 0;
+    left: 0;
+    height: auto;
+  }
 
+  .navbar-navlinks ul {
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+  }
+
+  .navbar-navbar-navlinks-icon {
+    display: grid !important;
+    place-items: center;
+  }
+}
 @media only screen and (max-width: 700px) {
   /* .achievement-left {
     width: 80%;
   } */
+
   .achievement-right {
     line-height: 60px;
   }
@@ -183,6 +211,13 @@
 }
 
 @media only screen and (max-width: 650px) {
+  .landing-container-content {
+    width: 400px !important;
+  }
+  .landing-container-content-title {
+    font-size: 48px !important;
+  }
+
   .achievement-right {
     width: 434px;
     line-height: 60px;
@@ -237,7 +272,7 @@
     line-height: 47px !important;
   }
   .midBanner-container-right-second-image {
-    left: 80px !important;
+    left: 65px !important;
   }
   .priceBox-container {
     width: 254px;
@@ -291,19 +326,37 @@
     height: 225px !important;
   }
   .review {
-    height: 115px !important;
+    height: 145px !important;
   }
   .review-name,
   .review-occupation {
     padding: 0 0 0 35px !important;
   }
   .midBanner-container-right-second-image {
-   
-    bottom: 0!important;
-}
+    bottom: 0 !important;
+  }
+
+  .button-section{
+gap: 27px;
+  }
+
+
 }
 
 @media only screen and (max-width: 400px) {
+  .landing-container-content-title {
+    font-size: 35px !important;
+  }
+  .landing-container-content {
+    width: 100% !important;
+  }
+  .landing-container-content-tagline {
+    font-size: 20px !important;
+  }
+  .landing-container-content-info {
+    font-size: 12px !important;
+    padding: 0 20px;
+  }
   .achievement-right {
     width: 319px;
     line-height: 48px;
@@ -323,6 +376,10 @@
   .priceBox-btn {
     width: 108px !important;
   }
+  .button-section{
+    gap: 20px;
+      }
+    
   .priceBox-feature-answer {
     width: 234px;
   }
@@ -330,10 +387,10 @@
     width: 232px;
   }
   .videoCard-container {
-    width: 319px !important;
+    width: 288px !important;
   }
   .videoCard-container-thumbnail img {
-    width: 310px !important;
+    width: 288px !important;
   }
   .left-review {
     width: 280px !important;

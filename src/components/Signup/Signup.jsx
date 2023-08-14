@@ -2,13 +2,15 @@ import React, { useState,useEffect } from "react";
 import InputField from "../Helpers/InputField";
 import { NavLink } from "react-router-dom";
 import "./signup.css";
-import { useNavigate } from "react-router-dom";
-import axios from "axios";
-// import { ToastContainer, toast } from 'react-toastify';
-// import 'react-toastify/dist/ReactToastify.css';
-const Signup = ({setIsloggedin}) => {
-  const navigate = useNavigate();
-  // window.scrollTo(0, 0);
+
+
+import {useUser} from "../../contexts/userDetails/userContext"
+const Signup = () => {
+
+  const { Signup } = useUser();
+
+ 
+  
   useEffect(()=>{
 
     window.scrollTo(0, 0);
@@ -20,7 +22,7 @@ const Signup = ({setIsloggedin}) => {
     signupRePassword: "",
     userLevel: "beginner",
   });
-  const [error, setError] = useState();
+ 
   const handleChange = (event) => {
     const { name, value } = event.target;
     setSignupDetails((prevSignupDetails) => {
@@ -31,51 +33,6 @@ const Signup = ({setIsloggedin}) => {
     });
   };
 
-  const handleSignUpForm = (e) => {
-    e.preventDefault();
-
-    axios
-      .post("http://localhost:8000/api/userRegister", {
-        userEmail: signupDetails.signupEmail,
-        userPassword: signupDetails.signupPassword,
-        userConfirmPassword: signupDetails.signupRePassword,
-        userFullName: signupDetails.signupFullname,
-      },{
-        withCredentials: true
-      })
-      .then((res) =>{
-setIsloggedin(()=>{
-  return true
-})
-        setSignupDetails({
-              signupFullname: "",
-              signupEmail: "",
-              signupPassword: "",
-              signupRePassword: "",
-            });
-            if(res.data.success===true){
-             
-              navigate("/");
-            }
-            else{
-              setError("Problem in signinup")
-            }
-        console.log(res.data)})
-      .catch((err) => console.log(err));
-
-    // if (signupDetails.signupPassword != signupDetails.signupRePassword) {
-    //   console.log("password mismatch");
-    //   setError("Password Incorrect");
-    // } else {
-    //   console.log(signupDetails);
-    //   setSignupDetails({
-    //     signupFullname: "",
-    //     signupEmail: "",
-    //     signupPassword: "",
-    //     signupRePassword: "",
-    //   });
-    // }
-  };
 
   return (
     <>
@@ -144,12 +101,16 @@ setIsloggedin(()=>{
                 value={signupDetails.signupRePassword}
                 change={handleChange}
               />
-              {error ? <div className="signuperror">{error}</div> : ""}
+              
               <input
                 type="submit"
                 value="Sign Up"
                 className="signup-container-content-form-submitBtn"
-                onClick={handleSignUpForm}
+                onClick={(e)=>{
+                  Signup(
+                    e,signupDetails
+                  )
+                }}
               />
             </form>
             <div className="signup-container-content-terms">

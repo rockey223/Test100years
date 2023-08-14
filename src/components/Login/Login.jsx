@@ -1,17 +1,20 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import InputField from "../Helpers/InputField";
 import LoginHelper from "./LoginHelper";
 import "./login.css";
 import { NavLink } from "react-router-dom";
-import axios from 'axios';
-import { useNavigate } from "react-router-dom";
 
-const Login = ({setIsloggedin}) => {
-  const navigate = useNavigate();
-  useEffect(()=>{
 
+// import { useLogin } from "../../contexts/login/loginContext";
+import {useUser} from "../../contexts/userDetails/userContext"
+
+
+const Login = () => {
+  const { Login } = useUser();
+
+  useEffect(() => {
     window.scrollTo(0, 0);
-  },[]);
+  }, []);
 
   const [loginDetails, setloginDetails] = useState({
     loginUsername: "",
@@ -26,42 +29,6 @@ const Login = ({setIsloggedin}) => {
         [name]: value,
       };
     });
-  };
-  const [error, setError] = useState();
-  const handleLoginForm = (e) => {
-    e.preventDefault();
-
-    axios
-    .post('http://localhost:8000/api/userLogin',{
-      userEmail: loginDetails.loginUsername,
-      userPassword: loginDetails.loginPassword,
-    },{
-      withCredentials: true,
-    })
-    .then((res)=>{
-      
-      if(res.data.success===true){
-        setIsloggedin(()=>{
-          return true;
-        });
-        setloginDetails({
-          loginUsername: "",
-          loginPassword: "",
-        });
-        navigate(-1);
-      }
-      else{
-        setError("Problem loging in")
-      }
-      console.log(res.data);
-    })
-    .catch((err)=>{
-      console.log(err);
-    })
-
-
-    console.log(loginDetails);
-    
   };
 
   return (
@@ -110,11 +77,23 @@ const Login = ({setIsloggedin}) => {
                 value={loginDetails.loginPassword}
                 change={handleChange}
               />
-              <input
+              {/* <input
                 type="submit"
                 value="Login"
                 className="login-container-content-form-submitBtn"
                 onClick={handleLoginForm}
+              /> */}
+              <input
+                type="submit"
+                value="Login"
+                className="login-container-content-form-submitBtn"
+                onClick={(e) => {
+                  Login(
+                    e,
+                    loginDetails.loginUsername,
+                    loginDetails.loginPassword
+                  );
+                }}
               />
             </form>
             <div className="login-container-content-forgot">

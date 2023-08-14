@@ -15,14 +15,14 @@ import Landing from "./Home/Landing/Landing.jsx";
 const Home = ({ tooglePopup }) => {
   useEffect(() => {
     axios
-      .get("http://localhost:8000/api/getMyInfo", {
+      .get("http://192.168.101.6:8000/api/getMyInfo", {
         withCredentials: true,
       })
       .then((res) => {
-        console.log(res);
+        // console.log(res);
       })
       .catch((err) => {
-        console.log(err);
+        // console.log(err);
       });
   },[]);
 

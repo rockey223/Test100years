@@ -14,8 +14,12 @@ import { BsFillCameraVideoFill } from "react-icons/bs";
 import { BiPodcast } from "react-icons/bi";
 import { SiBlogger } from "react-icons/si";
 import "./SingleVIdeo/SingleVideo.css";
-const SingleVideo = ({ tooglePopup,isloggedin }) => {
+
+import { useUser } from "../contexts/userDetails/userContext";
+
+const SingleVideo = ({ tooglePopup}) => {
   // window.scrollTo(0, 0);
+  const {isloggedIn} = useUser();
 
   const { id } = useParams();
   useEffect(()=>{
@@ -32,6 +36,36 @@ console.log(title);
     <>
       <div className="singleVideo-Container">
         {/* ****************************** */}
+        
+        
+        {/* ****************************** */}
+
+        <div className="singleVideo-Container-top">
+          <div className="singleTop-container-left">
+            <div className="singleTop-container-left-title">{video.title}</div>
+            <div className="singleTop-container-left-description">
+              {video.description}
+            </div>
+            {/* <div className="singleTop-container-left-buybtn">$9.99 Buy Now</div> */}
+            
+            <FillButton
+              btnTxt={"30 minutes"}
+              width={"156px"}
+              height={"48px"}
+            disable={isloggedIn? false : true}
+              link={isloggedIn? `/videoplayer/${id}`:""}
+            />
+            <div className="singleTop-container-left-instrutor">
+              <div className="singleTop-container-left-instructor-image">
+                <img src={video.thumbnail} alt="" />
+              </div>
+              <div className="singleTop-container-instructor-details">
+                Instructor: <span>{video.instructor}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      
         <div className="singleTop-sticky">
           <div className="singleTop-container-right">
             <div className="singleTop-container-right-video-box">
@@ -64,7 +98,7 @@ console.log(title);
                   <p>Preview This Course</p>
                 </div>
               </div>
-              {/* <OutLineButton btnTxt={"Preview"} className="singleTop-container-right-video-box-btn" width={'111px'} height={'35px'}/> */}
+              
               <div className="singleTop-container-right-video-box-tagline">
                 For your Better Tomorrow
               </div>
@@ -91,33 +125,6 @@ console.log(title);
                   Customer Experience
                 </li>
               </ul>
-            </div>
-          </div>
-        </div>
-        {/* ****************************** */}
-
-        <div className="singleVideo-Container-top">
-          <div className="singleTop-container-left">
-            <div className="singleTop-container-left-title">{video.title}</div>
-            <div className="singleTop-container-left-description">
-              {video.description}
-            </div>
-            {/* <div className="singleTop-container-left-buybtn">$9.99 Buy Now</div> */}
-            
-            <FillButton
-              btnTxt={"30 minutes"}
-              width={"156px"}
-              height={"48px"}
-            disable={isloggedin? false : true}
-              link={isloggedin? `/videoplayer/${id}`:""}
-            />
-            <div className="singleTop-container-left-instrutor">
-              <div className="singleTop-container-left-instructor-image">
-                <img src={video.thumbnail} alt="" />
-              </div>
-              <div className="singleTop-container-instructor-details">
-                Instructor: <span>{video.instructor}</span>
-              </div>
             </div>
           </div>
         </div>
