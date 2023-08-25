@@ -1,0 +1,118 @@
+.account-bottom-section {
+  display: flex;
+  width: 100%;
+  height: auto;
+  padding: 24px 9.216%;
+  gap: 21px;
+  background: #fff;
+  justify-content: center;
+}
+.account-bottom-left-container {
+  width: 275px;
+  height: 620px;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  background: #f8f8f8;
+}
+.account-bottom-left-container-profile {
+  display: flex;
+  gap: 12px;
+  margin-top: 32px;
+  margin-left: 20px;
+}
+.account-bottom-left-circle {
+  background-color: #7ec419;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  align-items: center;
+}
+.circle-profile-text {
+  width: 18.679px;
+  height: 35px;
+  color: #fff;
+  font-family: "Manrope", sans-serif;
+  font-size: 32px;
+}
+.account-bottom-left-Check-mark {
+  color: #01acf1;
+  position: absolute;
+  bottom: -1px;
+  right: -2px;
+}
+.account-profile-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+}
+.account-left-profile-username {
+  width: auto;
+  color: #333;
+  font-family: "Inter", sans-serif;
+  font-size: 12px;
+}
+.account-left-profile-verified-text {
+  color: #0163e0;
+  font-family: "Inter", sans-serif;
+  font-size: 12px;
+}
+.account-profile-line {
+  height: 1px;
+  width: 85%;
+  background: rgba(0, 0, 0, 0.2);
+  margin: 8%;
+}
+.account-text-container {
+  display: flex;
+  gap: 16px;
+  padding: 16px 24px;
+  align-items: center;
+}
+.profile-text-container {
+  display: flex;
+  gap: 16px;
+  padding: 16px 24px;
+  align-items: center;
+}
+.account-text {
+  color: #f66e24;
+  font-family: "Inter", sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.profile-text {
+  color: #333;
+  font-family: "Inter", sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.account-text-container-icon {
+  color: #f66e24;
+  font-size: 24px;
+}
+.profile-text-container-icon {
+  font-size: 24px;
+  color: black;
+}
+@media (max-width: 961px) {
+  .account-bottom-section {
+    padding: 3.216%;
+  }
+}
+@media (max-width: 641px) {
+  .account-bottom-section {
+    flex-direction: column;
+    padding: 24px 0;
+  }
+  .account-bottom-left-container {
+    width: 100%;
+    height: auto;
+    padding-bottom: 25px;
+  }
+}

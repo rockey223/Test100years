@@ -1,27 +1,28 @@
-import React, { useContext, useEffect, useReducer, useState } from "react";
+import React, { useContext, useEffect, useReducer } from "react";
 
 import { useNavigate } from "react-router-dom";
 import { createContext } from "react";
 import userDetailsFunctions from "../../FunctionCollection/userDetails/userDetailsFunctions";
 import axios from "axios";
+import { toast } from "react-toastify";
 const userDetails = createContext();
 
 const initialState = {
   isloggedIn: false,
   myInfo: {},
   initialName: "",
-  
+  isLoading: false
 };
-const API = "http://192.168.101.6:8000/api/getMyInfo";
+const API = `${process.env.REACT_APP_API}/api`;
 const UserProvider = ({ children }) => {
   const navigate = useNavigate();
 
   const [state, dispatch] = useReducer(userDetailsFunctions, initialState);
 
   // Get User Details
-  const getUserDetails = (url) => {
+  const getUserDetails = () => {
     axios
-      .get(url, { withCredentials: true })
+      .get(`${API}/getMyInfo`, { withCredentials: true })
       .then((res) => {
         const user = res.data.user;
         const userName = res.data.user.userFullName[0];
@@ -33,12 +34,12 @@ const UserProvider = ({ children }) => {
   };
 
   // Login Function
-  function Login(e, email, password) {
-    e.preventDefault();
-
+  function Login( email, password) {
+    // e.preventDefault();
+dispatch({type: "SET_LOADING"})
     axios
       .post(
-        "http://192.168.101.6:8000/api/userLogin",
+        `${API}/userLogin`,
         {
           userEmail: email,
           userPassword: password,
@@ -58,17 +59,28 @@ const UserProvider = ({ children }) => {
         }
       })
       .catch((err) => {
+        dispatch({type: "UNSET_lOADING"})
+        if(!err.response){
+
+          toast.error(err.message, {
+            position: toast.POSITION.TOP_RIGHT,
+          });
+        }else{
+          toast.error(err.response.data.message, {
+            position: toast.POSITION.TOP_RIGHT,
+          });
+        }
         console.log(err);
       });
   }
 
   // signup function
-  function Signup(e, signupDetails) {
-    e.preventDefault();
+  function Signup(signupDetails) {
+    dispatch({type: "SET_LOADING"})
 
     axios
       .post(
-        "http://192.168.101.6:8000/api/userRegister",
+        `${API}/userRegister`,
         {
           userEmail: signupDetails.signupEmail,
           userPassword: signupDetails.signupPassword,
@@ -90,25 +102,37 @@ const UserProvider = ({ children }) => {
         }
       })
       .catch((err) => {
+        dispatch({type: "UNSET_lOADING"})
+        if(!err.response){
+
+          toast.error(err.message, {
+            position: toast.POSITION.TOP_RIGHT,
+          });
+        }else{
+          toast.error(err.response.data.message, {
+            position: toast.POSITION.TOP_RIGHT,
+          });
+        }
         console.log(err);
       });
   }
 
   // Logout function
   function Logout() {
-    axios("http://192.168.101.6:8000/api/userLogout", {
+    axios(`${API}/userLogout`, {
       withCredentials: true,
     })
       .then((res) => {
         console.log(res);
+        dispatch({ type: "LOGOUT", payload: {} });
+        navigate("/")
       })
       .catch((err) => {
         console.log(err);
       });
-    dispatch({ type: "LOGOUT", payload: {} });
   }
   useEffect(() => {
-    getUserDetails(API);
+    getUserDetails();
   }, []);
 
   return (

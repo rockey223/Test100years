@@ -1,6 +1,18 @@
-import axios from "axios";
+
 const userDetailsFunction = (state, action) => {
   switch (action.type) {
+
+    case "SET_LOADING":
+      return{
+        ...state,
+        isLoading: true
+      }
+    case "UNSET_lOADING":
+      return{
+        ...state,
+        isLoading: false
+      }
+
     case "GET_MY_INFO":
       return {
         ...state,
@@ -20,6 +32,7 @@ const userDetailsFunction = (state, action) => {
 
       return {
         ...state,
+        isLoading: false,
         isloggedIn: true,
         myInfo: action.payload.user,
         initialName: loginInitial,
@@ -29,6 +42,7 @@ const userDetailsFunction = (state, action) => {
       const signupInitial = action.payload.userName;
       return {
         ...state,
+        isLoading: false,
         isloggedIn: true,
         myInfo: action.payload.user,
         initialName: signupInitial,

@@ -3,109 +3,98 @@ import "./navbar.css";
 import "../../responsive.css";
 import logo from "../../assets/images/logo.jpg";
 import { Link, NavLink } from "react-router-dom";
-// import { FillButton } from "../Helpers/Buttons";
+
 import { GiHamburgerMenu } from "react-icons/gi";
 import { CgProfile } from "react-icons/cg";
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
+
 import { useUser } from "../../contexts/userDetails/userContext";
-import {GoX} from "react-icons/go"
-// import { FaGalacticSenate } from "react-icons/fa";
+import { GoX } from "react-icons/go";
+
 const Navbar = () => {
+  const { isloggedIn, myInfo, Logout, initialName } = useUser();
 
-  const {isloggedIn,myInfo,Logout,initialName} = useUser();
- 
-  
-
-  // const name = myInfo.userFullName;
   const [isDropdown, setIsDropdown] = useState(false);
   function displayDropdown() {
     setIsDropdown(!isDropdown);
-    
   }
 
-  // function Logout() {
-  //   axios("http://192.168.101.6:8000/api/userLogout", {
-  //     withCredentials: true,
-  //   })
-  //     .then((res) => {
-  //       setIsloggedin(() => {
-  //         return false;
-  //       });
-  //       setUsername("");
-  //       setUsermail("");
-  //       // if (res.data.success === true) {
-  //         navigate("/");
-  //       // }
-  //       console.log(res);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // }
-
-  // console.log(username);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-console.log(windowWidth);
+ 
   useEffect(() => {
     const handleWindowResize = () => {
-      setWindowWidth(()=>window.innerWidth);
+      setWindowWidth(() => window.innerWidth);
     };
 
-    window.addEventListener('resize', handleWindowResize);
+    window.addEventListener("resize", handleWindowResize);
 
     return () => {
-      window.removeEventListener('resize', handleWindowResize);
+      window.removeEventListener("resize", handleWindowResize);
     };
   });
-  const [displayNav,setDisplayNav] = useState(false)
+  const [displayNav, setDisplayNav] = useState(false);
   return (
     <>
-      <div className="navbar-container">
+      <div
+        className="navbar-container"
+        style={{ position: displayNav ? "sticky" : "" }}
+      >
         <div className="navbar-container-content">
+          <Link to={'/'}>
           <div className="navbar-logo">
             <img src={logo} alt="" />
           </div>
+          </Link>
           <div className="navbar-container-links">
-            <div className={`navbar-navlinks ${displayNav ? 'display' : ""}`} >
+            <div className={`navbar-navlinks ${displayNav ? "display" : ""}`}>
               <ul>
-                <li onClick={()=>{
-              setDisplayNav((prev)=>!prev)
-            }}>
-                  <NavLink className="navbar-navLinks-navLink" to={"/"} >
+                <li
+                  onClick={() => {
+                    setDisplayNav((prev) => !prev);
+                  }}
+                >
+                  <NavLink className="navbar-navLinks-navLink" to={"/"}>
                     Home
                   </NavLink>
                 </li>
-                <li>
+                <li onClick={() => {
+                    setDisplayNav((prev) => !prev);
+                  }}>
                   <NavLink className="navbar-navLinks-navLink" to={"/upgrade"}>
                     upgrade
                   </NavLink>
                 </li>
-                <li>
+                <li onClick={() => {
+                    setDisplayNav((prev) => !prev);
+                  }}>
                   <NavLink className="navbar-navLinks-navLink" to={"/e"}>
                     Home
                   </NavLink>
                 </li>
-                <li>
+                <li onClick={() => {
+                    setDisplayNav((prev) => !prev);
+                  }}>
                   <NavLink className="navbar-navLinks-navLink" to={"/r"}>
                     Home
                   </NavLink>
                 </li>
-                <li>
-                  <NavLink className="navbar-navLinks-navLink" to={"/t"}>
-                    Home
+                <li onClick={() => {
+                    setDisplayNav((prev) => !prev);
+                  }}>
+                  <NavLink className="navbar-navLinks-navLink" to={"/contactus"}>
+                    Contact us
                   </NavLink>
                 </li>
               </ul>
-              
             </div>
             {isloggedIn ? (
               <div className="navbar-userProfile">
                 <div
                   className="navbar-userProfile-profile"
-                  onClick={()=>{displayDropdown()}}
+                  onClick={() => {
+                    displayDropdown();
+                  }}
                 >
-                   {initialName}
+                  {initialName}
                 </div>
                 <div
                   className="navbar-userProfile-dropdownItem"
@@ -115,7 +104,7 @@ console.log(windowWidth);
                 >
                   <p className="navbar-profile">
                     <div className="navbar-userProfile-dropdownItem-item">
-                    {initialName}
+                      {initialName}
                     </div>
                     <div className="navbar-userProfile-dropdown-name">
                       <span className="name"> {myInfo.userFullName}</span>
@@ -123,35 +112,39 @@ console.log(windowWidth);
                     </div>
                   </p>
                   <hr />
-                  <Link to={"/profile"}>
-                  <p>My Acocunt</p>
+                  <Link to={"/profile"} onClick={()=>{
+                    displayDropdown()
+                  }}>
+                    <p>My Acocunt</p>
                   </Link>
-                  {/* <p>My Profile</p> */}
+                 
                   <p>Support</p>
-                  <p 
-                  onClick={Logout}
-                  >Logout</p>
+                  <p onClick={()=>{
+                    displayDropdown();
+                    Logout();
+                  }}>Logout</p>
                 </div>
               </div>
             ) : (
               <NavLink to="/login">
-                {
-                  windowWidth< 450? <CgProfile className="LoginProfileIcon"/> :(<div className="navbar-login-btn">
-                  Login
-                  {/* <FillButton btnTxt={"LOGIN"}/> */}
-                </div>)
-                }
-                
+                {windowWidth < 450 ? (
+                  <CgProfile className="LoginProfileIcon" />
+                ) : (
+                  <div className="navbar-login-btn">
+                    Login
+                   
+                  </div>
+                )}
               </NavLink>
             )}
-            <div className="navbar-navbar-navlinks-icon" onClick={()=>{
-              setDisplayNav((prev)=>!prev)
-            }}>
-              {
-                displayNav? <GoX/> : <GiHamburgerMenu />
-              }
-                
-              </div>
+            <div
+              className="navbar-navbar-navlinks-icon"
+              onClick={() => {
+                setDisplayNav((prev) => !prev);
+              }}
+            >
+              {displayNav ? <GoX /> : <GiHamburgerMenu />}
+            </div>
           </div>
         </div>
       </div>

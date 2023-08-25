@@ -1,20 +1,17 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import InputField from "../Helpers/InputField";
 import { NavLink } from "react-router-dom";
 import "./signup.css";
 
+import Loader from "../Helpers/Loader/Loader";
 
-import {useUser} from "../../contexts/userDetails/userContext"
+import { useUser } from "../../contexts/userDetails/userContext";
 const Signup = () => {
+  const {isLoading, Signup } = useUser();
 
-  const { Signup } = useUser();
-
- 
-  
-  useEffect(()=>{
-
+  useEffect(() => {
     window.scrollTo(0, 0);
-  },[]);
+  }, []);
   const [signupDetails, setSignupDetails] = useState({
     signupFullname: "",
     signupEmail: "",
@@ -22,7 +19,7 @@ const Signup = () => {
     signupRePassword: "",
     userLevel: "beginner",
   });
- 
+
   const handleChange = (event) => {
     const { name, value } = event.target;
     setSignupDetails((prevSignupDetails) => {
@@ -33,10 +30,9 @@ const Signup = () => {
     });
   };
 
-
   return (
     <>
-    {/* <ToastContainer /> */}
+      {/* <ToastContainer /> */}
       <div className="signup-container">
         <div className="signup-container-content">
           <div className="signup-container-content-header">
@@ -101,17 +97,15 @@ const Signup = () => {
                 value={signupDetails.signupRePassword}
                 change={handleChange}
               />
-              
-              <input
-                type="submit"
-                value="Sign Up"
+              <div
                 className="signup-container-content-form-submitBtn"
-                onClick={(e)=>{
-                  Signup(
-                    e,signupDetails
-                  )
+                onClick={() => {
+                  Signup(signupDetails);
                 }}
-              />
+              >
+                {isLoading? <Loader /> :"Sign Up"}
+              </div>
+             
             </form>
             <div className="signup-container-content-terms">
               By signing up, you agree to our &nbsp;<span> Terms of Use </span>{" "}

@@ -4,13 +4,14 @@ import LoginHelper from "./LoginHelper";
 import "./login.css";
 import { NavLink } from "react-router-dom";
 
+import Loader from "../Helpers/Loader/Loader"
 
 // import { useLogin } from "../../contexts/login/loginContext";
 import {useUser} from "../../contexts/userDetails/userContext"
 
 
 const Login = () => {
-  const { Login } = useUser();
+  const { Login,isLoading } = useUser();
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -83,18 +84,18 @@ const Login = () => {
                 className="login-container-content-form-submitBtn"
                 onClick={handleLoginForm}
               /> */}
-              <input
-                type="submit"
-                value="Login"
-                className="login-container-content-form-submitBtn"
-                onClick={(e) => {
+              <div className="login-container-content-form-submitBtn" onClick={() => {
                   Login(
-                    e,
+                   
                     loginDetails.loginUsername,
                     loginDetails.loginPassword
                   );
-                }}
-              />
+                }}>
+              {
+                isLoading? <Loader/> : <input type="submit" value="Login"/> 
+              }
+              </div>
+              
             </form>
             <div className="login-container-content-forgot">
               Forgot Password?

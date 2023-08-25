@@ -1,29 +1,27 @@
 import "./App.css";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Footer from "./components/Footer/Footer";
 import Home from "./components/Home";
 import Level1 from "./components/Level1";
 import Level2 from "./components/Level2";
-// import MidBanner from "./components/MIdBanner/MidBanner";
+
 import Navbar from "./components/Navbar/Navbar";
 import "./responsive.css";
 import VideoPopUp from "./components/Helpers/VideoPopUp";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Login from "./components/Login/Login";
 import Signup from "./components/Signup/Signup";
 import SingleVideo from "./components/SingleVideo";
 import VideoPlayer from "./components/VideoPlayer/VideoPlayer";
-// import Upgrade from "./components/Upgrade/Upgrade";
+
 import Upgrade from "./components/Upgrade/Upgrade";
-import axios from "axios";
 
-import { UserProvider } from "./contexts/userDetails/userContext";
-
-// import { useUser } from "./contexts/userDetails/userContext";
+import Account from "./components/Profile/Account";
+import Contact from "./components/Contact/ContactUs";
+import { ToastContainer } from "react-toastify";
 
 function App() {
-  // const {myInfo} = useUser();
-  // console.log(myInfo);
+  
   const [openVideoPlayer, setOpenVideoPlayer] = useState(false);
   const [popupDetails, setPopupDetails] = useState();
   const tooglePopup = (videoItem, title) => {
@@ -43,51 +41,14 @@ function App() {
     setPrevWinScroll(window.scrollY);
   });
 
-  // const [isloggedin, setIsloggedin] = useState(false);
-  // const [username, setUsername] = useState("");
-  // const [usermail, setUsermail] = useState("");
-  // const [userDetails,setUserDetails] = useState();
-  // useEffect(() => {
-  //   axios
-  //     .get("http://192.168.101.6:8000/api/getMyInfo", {
-  //       withCredentials: true,
-  //     })
-  //     .then((res) => {
-  //       console.log(res.data.user);
-  //       setUserDetails(()=>{
-  //         return res.data.user;
-  //       })
-  //       setIsloggedin(() => {
-  //         return true;
-  //       });
-  //       setUsername(() => {
-  //         return res.data.user.userFullName;
-  //       });
-  //       setUsermail(() => {
-  //         return res.data.user.userEmail;
-  //       });
-  //       // console.log(res.data.user.userFullName);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // }, []);
-
   return (
+    
     <div className="App">
       {openVideoPlayer ? (
         <VideoPopUp close={tooglePopup} details={popupDetails} />
       ) : null}
-
-      {/* <UserProvider> */}
-      <Navbar
-      // setIsloggedin={setIsloggedin}
-      // isloggedin={isloggedin}
-      // username={username}
-      // setUsername={setUsername}
-      // setUsermail={setUsermail}
-      // usermail={usermail}
-      />
+ <ToastContainer />
+      <Navbar />
       <Routes>
         <Route path="/" element={<Home tooglePopup={tooglePopup} />} />
         <Route
@@ -111,23 +72,19 @@ function App() {
           }
         />
         <Route path="/login" element={<Login />} />
-        
+
         <Route path="/signup" element={<Signup />} />
         <Route
           path="/singlevideo/:id"
-          element={
-            <SingleVideo
-              tooglePopup={tooglePopup}
-             
-            />
-          }
+          element={<SingleVideo tooglePopup={tooglePopup} />}
         />
         <Route path="/videoplayer/:id" element={<VideoPlayer />} />
         <Route path="/upgrade" element={<Upgrade />} />
-        
+        <Route path="/profile" element={<Account />} />
+        <Route path="/contactus" element={<Contact />} />
       </Routes>
       <Footer />
-      {/* </UserProvider> */}
+    
     </div>
   );
 }

@@ -1,0 +1,114 @@
+.contact-us-form-container {
+  margin-top: 30px;
+  display: flex;
+  width: 465px;
+  min-width: 310px;
+  padding: 28px 20px 29px 18px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: #fff;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.08),
+    0px 0px 6px 0px rgba(0, 0, 0, 0.02);
+  gap: 24px;
+}
+.contact-us-form-first-name-input-field,
+.contact-us-form-second-name-input-field {
+  width: 35%;
+  height: 50px;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  background: #fff;
+  padding: 0px 24px;
+}
+.contact-us-form-first-name-input-field:focus,
+.contact-us-form-second-name-input-field:focus,
+.contact-us-form-email-input-field:focus,
+.contact-us-form-phone-number-input-field:focus,
+.contact-us-form-subject-input-field:focus,
+.contact-us-form-message-box:focus {
+  outline: none;
+  border: 1px solid #f66e24;
+}
+.contact-us-form-first-name-input-field::placeholder,
+.contact-us-form-second-name-input-field::placeholder,
+.contact-us-form-email-input-field::placeholder,
+.contact-us-form-phone-number-input-field::placeholder,
+.contact-us-form-subject-input-field::placeholder,
+.contact-us-form-message-box::placeholder {
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+}
+.contact-us-form-email-input-field,
+.contact-us-form-phone-number-input-field,
+.contact-us-form-subject-input-field {
+  width: 90%;
+  height: 50px;
+  flex-shrink: 0;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  background: #fff;
+  padding: 0px 24px;
+}
+.contact-us-form-message-box {
+  width: 90%;
+  height: 125px;
+  flex-shrink: 0;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  background: #fff;
+  resize: none;
+  padding: 15px 24px;
+}
+.contact-us-send-msg-btn {
+  display: flex;
+  width: 180px;
+  padding: 16px 24px;
+  justify-content: center;
+  border-radius: 20px;
+  background: #f66e24;
+  color: #fff;
+  font-family: "Raleway", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  align-self: flex-start;
+}
+.contact-us-form-name-input-field-container {
+  display: flex;
+  /* gap: 3%; */
+  justify-content: space-between;
+  width: 100%;
+}
+@media screen and (max-width: 1230px){
+  .contact-us-form-name-input-field-container{
+flex-direction: column;
+gap: 20px;
+width: 100%;
+align-items: center;
+  }
+  .contact-us-form-first-name-input-field,
+.contact-us-form-second-name-input-field{
+  width: 90%;
+}
+
+}
+@media (max-width: 641px) {
+  .contact-us-form-container {
+    width: 90%;
+    min-width: auto;
+    margin: 0;
+  }
+  .contact-us-form-first-name-input-field,
+  .contact-us-form-second-name-input-field {
+    width: 90%;
+  }
+  .contact-us-form-name-input-field-container {
+    flex-direction: column;
+    width: 100%;
+  }
+}

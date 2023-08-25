@@ -1,0 +1,180 @@
+.profile-bottom-right-form-container {
+  width: 75.64%;
+  height: auto;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  padding: 50px 0 70px 0;
+  background: #f8f8f8;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.profile-form-basic-container,
+.profile-form-link-container {
+  width: 72%;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.profile-form-basic-heading {
+  font-family: "Inter", sans-serif;
+  font-size: 24px;
+}
+.profile-form-link-heading {
+  width: 124px;
+  font-family: "Inter", sans-serif;
+  font-size: 24px;
+}
+.profile-form-name-input-field,
+.profile-form-occupation-input-field,
+.profile-form-website-link-input-field {
+  width: 96%;
+  height: 60px;
+  padding: 0px 0 0 24px;
+  border-radius: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: #fff;
+}
+.profile-form-bio-input-box {
+  width: 96%;
+  height: 187px;
+  padding: 24px 0px 0 24px;
+  background: #fff;
+  border-radius: 16px 16px 16px 16px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  resize: none;
+}
+.profile-form-name-input-field::placeholder,
+.profile-form-occupation-input-field::placeholder,
+.profile-form-website-link-input-field::placeholder,
+.profile-form-bio-input-box::placeholder,
+.profile-form-twitter-input-field::placeholder,
+.profile-form-youtube-input-field::placeholder,
+.profile-form-facebook-input-field::placeholder,
+.profile-form-instagram-input-field::placeholder {
+  font-family: "Inter", sans-serif;
+  font-size: 12px;
+}
+.profile-form-name-input-field:focus,
+.profile-form-occupation-input-field:focus,
+.profile-form-website-link-input-field:focus,
+.profile-form-bio-input-box:focus,
+.profile-form-twitter-input-field:focus,
+.profile-form-youtube-input-field:focus,
+.profile-form-facebook-input-field:focus,
+.profile-form-instagram-input-field:focus {
+  outline: none;
+  border: 1px solid #f66e24;
+}
+.profile-form-save-btn-container {
+  align-self: start;
+  margin-left: 14%;
+  margin-top: 24px;
+}
+.profile-form-save-btn {
+  height: 50px;
+  width: 186px;
+  padding: 16px 24px;
+  border-radius: 40px;
+  background: #01acf1;
+  box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.06),
+    0px 0px 4px 0px rgba(0, 0, 0, 0.04);
+  border: none;
+  cursor: pointer;
+  color: #e5e5e5;
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+}
+.profile-form-line {
+  height: 1px;
+  width: 70%;
+  background: rgba(0, 0, 0, 0.2);
+  margin: 24px 8%;
+}
+.profile-form-twitter-input-text-box,
+.profile-form-youtube-input-text-box,
+.profile-form-facebook-input-text-box,
+.profile-form-instagram-input-text-box {
+  width: 25%;
+  height: 60px;
+  padding: 0px 20px;
+  border-radius: 16px 0px 0px 16px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: #fff;
+  color: #f66e24;
+  font-family: "Inter", sans-serif;
+  font-size: calc(6px + (16 - 12) * ((100vw - 320px) / (1200 - 320)));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.profile-form-twitter-input-field,
+.profile-form-youtube-input-field,
+.profile-form-facebook-input-field,
+.profile-form-instagram-input-field {
+  width: 75%;
+  height: 60px;
+  border-radius: 0 16px 16px 0;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: #fff;
+  color: rgba(0, 0, 0, 0.6);
+  font-family: "Inter", sans-serif;
+  padding: 0px 24px;
+}
+.profile-form-twitter-container,
+.profile-form-youtube-container,
+.profile-form-facebook-container,
+.profile-form-instagram-container {
+  display: flex;
+}
+
+@media (max-width: 801px) {
+  .profile-form-twitter-input-text-box,
+  .profile-form-youtube-input-text-box,
+  .profile-form-facebook-input-text-box,
+  .profile-form-instagram-input-text-box {
+    font-size: calc(5px + (16 - 12) * ((100vw - 320px) / (1200 - 320)));
+  }
+}
+@media (max-width: 641px) {
+  .profile-bottom-right-form-container {
+    width: 100%;
+    padding: 26px 0;
+  }
+  .profile-form-basic-container,
+  .profile-form-link-container {
+    width: 90%;
+  }
+  .profile-form-save-btn-container {
+    margin-left: 5%;
+  }
+  .profile-form-line {
+    width: 80%;
+  }
+  .profile-form-twitter-input-text-box,
+  .profile-form-youtube-input-text-box,
+  .profile-form-facebook-input-text-box,
+  .profile-form-instagram-input-text-box {
+    font-size: calc(11px + (16 - 12) * ((100vw - 320px) / (1200 - 320)));
+    width: 45%;
+  }
+  .profile-form-twitter-input-field,
+  .profile-form-youtube-input-field,
+  .profile-form-facebook-input-field,
+  .profile-form-instagram-input-field {
+    width: 55%;
+  }
+}
+@media (max-width: 481px) {
+  .profile-form-twitter-input-text-box,
+  .profile-form-youtube-input-text-box,
+  .profile-form-facebook-input-text-box,
+  .profile-form-instagram-input-text-box {
+    font-size: calc(10px + (16 - 12) * ((100vw - 320px) / (1200 - 320)));
+  }
+}

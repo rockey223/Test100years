@@ -2,7 +2,6 @@
   width: 1440px;
   height: 100px;
 
-
   background: #ffffff;
   box-shadow: 0px 0px 6px rgba(1, 172, 241, 0.04),
     0px 2px 4px rgba(1, 172, 241, 0.08);
@@ -32,12 +31,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 18px;
+  gap: 55px;
 }
 
-.navbar-navlinks {
+/* .navbar-navlinks {
   height: 100%;
-}
+} */
 .navbar-navlinks ul {
   display: flex;
   flex-direction: row;
@@ -93,6 +92,7 @@
 .navbar-navbar-navlinks-icon {
   font-size: 35px;
   display: none;
+  cursor: pointer;
 }
 
 .navbar-userProfile-profile {
@@ -117,7 +117,7 @@
   margin: 15px 0 0 0;
 
   position: absolute;
-  right: 120px;
+  right: 48px;
   width: 190px;
   /* background: #124578; */
   padding: 20px 20px;
@@ -128,7 +128,7 @@
   background: #fff;
   box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.15),
     0px 0px 4px 0px rgba(0, 0, 0, 0.04);
-    /* transition: display 2s linear; */
+  /* transition: display 2s linear; */
 }
 .navbar-userProfile-dropdownItem-item {
   width: 30px;
@@ -186,13 +186,29 @@
   line-height: normal;
   cursor: pointer;
 }
-.LoginProfileIcon{
+
+.LoginProfileIcon {
   font-size: 43px;
   color: black;
 }
 
-@media screen and (max-width:800px){
+/* @media screen and (max-width:800px){
   .navbar-container{
     height: 69px;
+  }
+} */
+
+@media screen and (max-width: 775px) {
+  .navbar-container-links {
+    gap: 20px;
+  }
+  .navbar-userProfile-dropdownItem {
+    right: 90px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .navbar-userProfile-dropdownItem {
+    right: 10px;
   }
 }

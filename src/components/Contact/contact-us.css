@@ -1,0 +1,28 @@
+
+.contact-us-bottom-container {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  /* padding: 55px 12%; */
+  padding: 55px 100px 55px 12%;
+  gap: 30px;
+  width: 100%;
+  box-sizing: border-box;
+}
+@media (max-width: 961px) {
+  .contact-us-bottom-container {
+    padding: 35px 8%;
+  }
+}
+@media (max-width: 700px) {
+  .contact-us-bottom-container {
+    flex-direction: column;
+    padding: 0 8%;
+  }
+}
+@media (max-width: 481px) {
+  .contact-us-bottom-container {
+    padding: 0 5.029%;
+    align-items: center;
+  }
+}

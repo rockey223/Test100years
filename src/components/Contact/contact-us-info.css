@@ -1,0 +1,122 @@
+.contact-us-information-box-container {
+  position: absolute;
+  display: flex;
+  width: 590px;
+  /* width: 40%; */
+  flex-wrap: wrap;
+  gap: 20px;
+  left: 12%;
+  top: 250px;
+}
+.contact-us-information-day-box,
+.contact-us-information-location-box,
+.contact-us-information-phone-number-box,
+.contact-us-information-gmail-box {
+  display: flex;
+    /* width: 285px; */
+    width: 38%;
+    height: 70px;
+    padding: 0 20px;
+    align-items: center;
+    gap: 6px;
+    border-radius: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    background: #fff;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.08), 0px 0px 6px 0px rgba(0, 0, 0, 0.02);
+    color: rgba(0, 0, 0, 0.8);
+    font-family: "Inter", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+}
+.contact-us-information-icon {
+  color: #01acf1;
+  font-size: 24px;
+}
+@media (max-width: 1330px) {
+  .contact-us-information-box-container {
+    width: 534px;
+    gap: 15px;
+  }
+}
+@media (max-width: 1105px) {
+  .contact-us-information-box-container {
+    justify-content: flex-start;
+    width: 465px;
+    gap: 10px;
+    top: 289px;
+  }
+  .contact-us-information-day-box, .contact-us-information-location-box, .contact-us-information-phone-number-box, .contact-us-information-gmail-box {
+    display: flex;
+    /* width: 285px; */
+    width: 38%;
+    height: 58px;
+    padding: 0 9px;
+    align-items: center;
+    gap: 6px;
+    border-radius: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    background: #fff;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.08), 0px 0px 6px 0px rgba(0, 0, 0, 0.02);
+    color: rgba(0, 0, 0, 0.8);
+    font-family: "Inter", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+}
+}
+@media (max-width: 1028px) {
+  .contact-us-information-box-container {
+    width: 445px;
+    gap: 8px;
+  }
+}
+@media (max-width: 991px) {
+  .contact-us-information-box-container {
+    width: 445px;
+    gap: 20px;
+    top: 290px;
+  }
+}
+@media (max-width: 990px) {
+  .contact-us-information-box-container {
+    width: 300px;
+  }
+  .contact-us-information-day-box,
+  .contact-us-information-location-box,
+  .contact-us-information-phone-number-box,
+  .contact-us-information-gmail-box {
+    width: 100%;
+  }
+}
+@media (max-width: 961px) {
+  .contact-us-information-box-container {
+    left: 8%;
+    top: 230px;
+  }
+}
+@media (max-width: 855px) {
+  .contact-us-information-box-container {
+    top: 240px;
+    width: 240px;
+  }
+}
+@media (max-width: 761px) {
+  .contact-us-information-box-container {
+    top: 240px;
+    width: 253px;
+  }
+}
+
+@media screen and (max-width: 700px){
+  .contact-us-information-box-container {
+    flex-direction: column;
+    position: static;
+    width: 100%;
+    margin-bottom: 100px;
+  }
+  .contact-us-information-day-box,
+  .contact-us-information-location-box,
+  .contact-us-information-phone-number-box,
+  .contact-us-information-gmail-box {
+    width: 90%;
+  }
+}
