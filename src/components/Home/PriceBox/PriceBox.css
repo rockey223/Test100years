@@ -96,10 +96,10 @@
 }
 
 #star {
-  position: absolute;
+  position: relative;
   width: auto;
-  top: -26px;
-  left: 375px;
+  bottom: 53px;
+  left: 340px;
 }
 .gradient-border{
   /* border-image: linear-gradient(to right, #f6b73c,#6398d4, #4d9f0c) 30;

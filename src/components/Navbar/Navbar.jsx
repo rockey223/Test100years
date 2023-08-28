@@ -31,12 +31,13 @@ const Navbar = () => {
       window.removeEventListener("resize", handleWindowResize);
     };
   });
+  // console.log(windowWidth);
   const [displayNav, setDisplayNav] = useState(false);
   return (
     <>
       <div
         className="navbar-container"
-        style={{ position: displayNav ? "sticky" : "" }}
+        style={{ position: displayNav  && windowWidth < 780? "sticky" : "" }}
       >
         <div className="navbar-container-content">
           <Link to={'/'}>
@@ -102,7 +103,7 @@ const Navbar = () => {
                     isDropdown ? { display: "block" } : { display: "none" }
                   }
                 >
-                  <p className="navbar-profile">
+                  <div className="navbar-profile">
                     <div className="navbar-userProfile-dropdownItem-item">
                       {initialName}
                     </div>
@@ -110,7 +111,7 @@ const Navbar = () => {
                       <span className="name"> {myInfo.userFullName}</span>
                       <span className="name">{myInfo.userEmail}</span>
                     </div>
-                  </p>
+                  </div>
                   <hr />
                   <Link to={"/profile"} onClick={()=>{
                     displayDropdown()

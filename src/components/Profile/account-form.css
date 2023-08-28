@@ -29,7 +29,7 @@
 .profile-form-name-input-field,
 .profile-form-occupation-input-field,
 .profile-form-website-link-input-field {
-  width: 96%;
+ width: calc(96% - 24px);
   height: 60px;
   padding: 0px 0 0 24px;
   border-radius: 16px;
@@ -37,7 +37,7 @@
   background: #fff;
 }
 .profile-form-bio-input-box {
-  width: 96%;
+  width: calc(96% - 24px);
   height: 187px;
   padding: 24px 0px 0 24px;
   background: #fff;
@@ -100,7 +100,7 @@
 .profile-form-youtube-input-text-box,
 .profile-form-facebook-input-text-box,
 .profile-form-instagram-input-text-box {
-  width: 25%;
+  width: calc(25% - 20px);
   height: 60px;
   padding: 0px 20px;
   border-radius: 16px 0px 0px 16px;
@@ -117,7 +117,7 @@
 .profile-form-youtube-input-field,
 .profile-form-facebook-input-field,
 .profile-form-instagram-input-field {
-  width: 75%;
+  width: calc(75% - 24px);
   height: 60px;
   border-radius: 0 16px 16px 0;
   border: 1px solid rgba(0, 0, 0, 0.1);
@@ -131,6 +131,7 @@
 .profile-form-facebook-container,
 .profile-form-instagram-container {
   display: flex;
+  width: 96%;
 }
 
 @media (max-width: 801px) {

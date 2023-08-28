@@ -1,8 +1,12 @@
-import React from "react";
+import React,{useEffect} from "react";
 // import { BsCheck2Circle } from "react-icons/bs";
 import './upgrade.css'
 import {FillButton} from '../Helpers/Buttons';
 const Upgrade = () => {
+  useEffect(()=>{
+
+    window.scrollTo(0, 0);
+  },[]);
   return (
     <>
       <div className="upgrade-container">

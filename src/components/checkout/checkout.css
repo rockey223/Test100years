@@ -1,0 +1,25 @@
+
+.checkout-botton-container {
+  display: flex;
+  justify-content: space-around;
+  margin: 64px 0;
+  /* gap: 80px; */
+  width: 85%;
+}
+@media (max-width: 961px) {
+  .checkout-botton-container {
+    margin: 40px 4% 40px 8%;
+    gap: 55px;
+  }
+}
+@media (max-width: 801px) {
+  .checkout-botton-container {
+    gap: 30px;
+  }
+}
+@media (max-width: 700px) {
+  .checkout-botton-container {
+    flex-direction: column;
+    margin: 20px 16px 40px 5.029%;
+  }
+}

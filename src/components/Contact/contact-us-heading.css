@@ -25,6 +25,7 @@
 @media (max-width: 961px) {
   .contact-us-heading-text {
     font-size: 48px;
+    text-align: center;
   }
 }
 @media (max-width: 641px) {
@@ -40,6 +41,7 @@
 @media (max-width: 481px) {
   .contact-us-heading-text {
     font-size: 32px;
+    
   }
   .contact-us-heading-text-container {
     height: auto;

@@ -1,46 +1,28 @@
 import React, { useState } from "react";
 import "./account-password-form.css";
-import { ToastContainer, toast } from "react-toastify";
+// import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import {useUser} from "../../contexts/userDetails/userContext"
+import { useUser } from "../../contexts/userDetails/userContext";
+import Loader from "../Helpers/Loader/Loader";
 function PwdForm() {
-  const {myInfo} = useUser();
-  const [info, setInfo] = React.useState({
-    email: myInfo.userEmail,
-    currentPassword: "",
-    newPassword: "",
-    confirmPassword: ""
+  const { myInfo, ChangePassword,isLoading } = useUser();
+
+  const [passwords, setPasswords] = useState({
+    oldUserPassword: "",
+    newUserPassword: "",
+    confirmUserPassword: ""
   });
-  const [showInfo, setShowInfo] = React.useState("");
+
   function handleChange(event) {
     const { name, value } = event.target;
-    setInfo((prevValue) => {
+    setPasswords((prevValue) => {
       return {
         ...prevValue,
-        [name]: value
+        [name]: value,
       };
     });
   }
-  function handleClick(event) {
-    event.preventDefault();
-    setShowInfo(info);
-    console.log(showInfo);
-    if (info.newPassword === info.confirmPassword) {
-      alert(
-        "Email: " +
-          info.email +
-          "\nCurrent Password: " +
-          info.currentPassword +
-          "\nNew Password: " +
-          info.newPassword +
-          "\nConfirm Password: " +
-          info.confirmPassword
-      );
-    } else
-      toast.error("New Password and Confirm password must be Same!", {
-        position: toast.POSITION.TOP_CENTER
-      });
-  }
+
   const [edit, setEdit] = useState(true);
   // const inputRef = useRef();
   function editClick(event) {
@@ -61,16 +43,14 @@ function PwdForm() {
           type="email"
           className="account-form-email-input-field"
           placeholder="abcxyz@gmail.com" // ref={inputRef}
-          onChange={handleChange}
-          name="email"
-          value={info.email}
+          name="userEmail"
+          value={myInfo.userEmail}
           disabled={edit}
         />
         <button
           className="account-form-email-input-field-edit-btn"
           onClick={editClick}
         >
-     
           {edit ? "edit" : "done"}
         </button>
       </div>
@@ -82,8 +62,8 @@ function PwdForm() {
           className="account-form-password-input-field"
           placeholder="Enter Current password"
           onChange={handleChange}
-          name="currentPassword"
-          value={info.currentPassword}
+          name="oldUserPassword"
+          value={passwords.oldUserPassword}
           required
         />
         <input
@@ -91,8 +71,8 @@ function PwdForm() {
           className="account-form-password-input-field"
           placeholder="Enter New Password"
           onChange={handleChange}
-          name="newPassword"
-          value={info.newPassword}
+          name="newUserPassword"
+          value={passwords.newUserPassword}
           required
         />
         <input
@@ -100,8 +80,8 @@ function PwdForm() {
           className="account-form-password-input-field"
           placeholder="Comfirm Password"
           onChange={handleChange}
-          name="confirmPassword"
-          value={info.confirmPassword}
+          name="confirmUserPassword"
+          value={passwords.confirmUserPassword}
           required
         />
       </div>
@@ -109,11 +89,13 @@ function PwdForm() {
         <button
           type="submit"
           className="account-form-save-btn"
-          onClick={handleClick}
-        >
-          Save
+          onClick={() => ChangePassword(passwords, setPasswords)}
+        >{
+          isLoading? <Loader/> : "Save"
+        }
+         
         </button>
-        <ToastContainer />
+       
       </div>
     </div>
   );

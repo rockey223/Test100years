@@ -16,9 +16,7 @@
     width: 100% !important;
   }
 
-  .who-container-content {
-    width: 648px;
-  }
+  
 }
 @media only screen and (max-width: 1300px) {
   .pricing-table-pointing-up-arrow {
@@ -91,6 +89,22 @@
   }
 }
 
+@media only screen and (max-width: 950px) {
+  .pricing-table-pointing-up-arrow{
+    display: none;
+  }
+  .pricing-table-pointing-down-arrow {
+    display: none;
+  }
+  .priceBox-container,
+  .gradient-border{
+    width: 295px;
+  }
+  #star {
+   
+    left: 305px;
+  }
+}
 @media only screen and (max-width: 860px) {
   /* .Achievement {
     height: 805px;
@@ -101,9 +115,9 @@
     /* right: 60px; */
     transition: 2s all;
   }
-  .pricing-table-pointing-down-arrow {
-    display: none;
-  }
+
+  
+  
   .midBanner-container {
     width: 100%;
   }
@@ -123,7 +137,7 @@
     display: none;
   }
   .slide-head span {
-    font-size: 50px !important ;
+    font-size: 49px !important ;
   }
   .carousel-container {
     width: 95% !important;
@@ -168,27 +182,6 @@
 }
 @media screen and (max-width: 780px) {
 
-
-  /* width */
-::-webkit-scrollbar {
-  width: 2px;
-    height: 1px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: #888;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #555;
-}
 
 
   .navbar-navlinks {
@@ -238,7 +231,7 @@
   .achievement-left {
     /* width: 600px;
     height: 134px; */
-    padding: 0 0 0 25px;
+    /* padding: 0 0 0 25px; */
     gap: 17px;
   }
   /* .achievement-left-counter {
@@ -248,14 +241,14 @@
 
 @media only screen and (max-width: 650px) {
   .landing-container-content {
-    width: 400px !important;
+    width: 100% !important;
   }
   .landing-container-content-title {
     font-size: 48px !important;
   }
 
   .achievement-right {
-    width: 434px;
+    width: 460px;
     line-height: 60px;
     height: 326px;
   }
@@ -264,7 +257,7 @@
   }
   .healthGuides-title {
     width: 100% !important;
-    font-size: 50px !important;
+    font-size: 42px !important;
   }
   .midBanner-container-right {
     width: 100% !important;
@@ -327,8 +320,7 @@
   #star {
     /* position: absolute;
     width: auto; */
-    top: -23px;
-    left: 299px;
+    left: 260px;
   }
   .priceBox-btn {
     width: 115px !important;
@@ -390,6 +382,7 @@
   .landing-container-content-info {
     font-size: 12px !important;
     padding: 0 20px;
+    width: auto;
   }
   .achievement-right {
     width: 319px;
@@ -442,10 +435,13 @@
     height: 543px;
     /* padding: 43px 0; */
   }
+  .achievement-container{
+    gap: 50px;
+  }
   .achievement-right {
-    width: 287px;
+    width:90%;
     font-size: 32px;
-    padding: 0 0 0 20px;
+    /* padding: 0 0 0 20px; */
 
     height: 235px;
   }

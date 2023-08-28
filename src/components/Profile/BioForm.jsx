@@ -1,53 +1,41 @@
-import React from "react";
+import React, { useState } from "react";
 import "./account-form.css";
 import "react-toastify/dist/ReactToastify.css";
 
-import {useUser} from "../../contexts/userDetails/userContext"
+import { useUser } from "../../contexts/userDetails/userContext";
 
 function BioForm() {
-  const {myInfo} = useUser();
-  const [info, setInfo] = React.useState({
-    name: "",
-    occupation: "",
-    bio: "",
-    website: "",
-    twitter: "",
-    youtube: "",
-    facebook: "",
-    instagram: ""
+  const { myInfo, updateUser } = useUser();
+
+  const [info, setInfo] = useState({
+    userFullName: myInfo.userFullName || "",
+    userOccupation: myInfo.userOccupation || "",
+    userBio: myInfo.userBio || "",
+    userSocialMediaLinks: myInfo.userSocialMediaLinks || "",
   });
-  const [showInfo, setShowInfo] = React.useState("");
+
   function handleChange(event) {
     const { name, value } = event.target;
+
     setInfo((prevValue) => {
       return {
         ...prevValue,
-        [name]: value
+        [name]: value,
       };
     });
   }
-  function handleClick(event) {
-    event.preventDefault();
-    setShowInfo(info);
-    alert(
-      "Name: " +
-        info.name +
-        "\n occupation: " +
-        info.occupation +
-        "\n bio: " +
-        info.bio +
-        "\n website: " +
-        info.website +
-        "\n twitter: " +
-        info.twitter +
-        "\n youtube: " +
-        info.youtube +
-        "\n facebook: " +
-        info.facebook +
-        "\n instagram: " +
-        info.instagram
-    );
+
+  function handleSocialMedia(e, index) {
+    setInfo((prev) => {
+      const updatedLinks = [...prev.userSocialMediaLinks];
+      updatedLinks[index] = e.target.value;
+      return {
+        ...prev,
+        userSocialMediaLinks: updatedLinks,
+      };
+    });
   }
+
   return (
     <div className="profile-bottom-right-form-container">
       <div className="profile-form-basic-container">
@@ -57,23 +45,23 @@ function BioForm() {
           className="profile-form-name-input-field"
           placeholder="Name"
           onChange={handleChange}
-          name="name"
-          value={myInfo.userFullName}
+          name="userFullName"
+          value={info.userFullName}
         />
         <input
           type="text"
           className="profile-form-occupation-input-field"
           placeholder="Occupation"
           onChange={handleChange}
-          name="occupation"
-          value={info.occupation}
+          name="userOccupation"
+          value={info.userOccupation}
         />
         <textarea
           className="profile-form-bio-input-box"
           placeholder="Bio"
           onChange={handleChange}
-          name="bio"
-          value={info.bio}
+          name="userBio"
+          value={info.userBio}
         ></textarea>
       </div>
       <hr className="profile-form-line" />
@@ -83,66 +71,68 @@ function BioForm() {
           type="url"
           className="profile-form-website-link-input-field"
           placeholder="Website Link"
-          onChange={handleChange}
-          name="website"
-          value={info.website}
+          onChange={(e) => handleSocialMedia(e, 0)}
+          name="userSocialMediaLinks"
+          value={info.userSocialMediaLinks[0]}
         />
         <div className="profile-form-twitter-container">
           <div className="profile-form-twitter-input-text-box">
-            http:/twitter.com/
+            https://twitter.com/
           </div>
           <input
-            type="url"
+            type="text"
             className="profile-form-twitter-input-field"
             placeholder="Twitter Profile"
-            onChange={handleChange}
-            name="twitter"
-            value={info.twitter}
+            onChange={(e) => handleSocialMedia(e, 1)}
+            name="userSocialMediaLinks"
+            value={info.userSocialMediaLinks[1]}
           />
         </div>
         <div className="profile-form-youtube-container">
           <div className="profile-form-youtube-input-text-box">
-            http:/youtube.com/
+            https://youtube.com/
           </div>
           <input
-            type="url"
+            type="text"
             className="profile-form-youtube-input-field"
             placeholder="Youtube Profile"
-            onChange={handleChange}
-            name="youtube"
-            value={info.youtube}
+            onChange={(e) => handleSocialMedia(e, 2)}
+            name="userSocialMediaLinks"
+            value={info.userSocialMediaLinks[2]}
           />
         </div>
         <div className="profile-form-facebook-container">
           <div className="profile-form-facebook-input-text-box">
-            http:/facebook.com/
+            https://facebook.com/
           </div>
           <input
-            type="url"
+            type="text"
             className="profile-form-facebook-input-field"
             placeholder="Facebook Profile"
-            onChange={handleChange}
-            name="facebook"
-            value={info.facebook}
+            onChange={(e) => handleSocialMedia(e, 3)}
+            name="userSocialMediaLinks"
+            value={info.userSocialMediaLinks[3]}
           />
         </div>
         <div className="profile-form-instagram-container">
           <div className="profile-form-instagram-input-text-box">
-            http:/Instagram.com/
+            https://Instagram.com/
           </div>
           <input
-            type="url"
+            type="text"
             className="profile-form-instagram-input-field"
             placeholder="Instagram Profile"
-            onChange={handleChange}
-            name="instagram"
-            value={info.instagram}
+            onChange={(e) => handleSocialMedia(e, 4)}
+            name="userSocialMediaLinks"
+            value={info.userSocialMediaLinks[4]}
           />
         </div>
       </div>
       <div className="profile-form-save-btn-container">
         <button
-          onClick={handleClick}
+          onClick={() => {
+            updateUser(info);
+          }}
           type="submit"
           className="profile-form-save-btn"
         >

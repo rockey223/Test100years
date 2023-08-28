@@ -5,6 +5,28 @@
 
 
 }
+ 
+  
+  ::-webkit-scrollbar {
+    width: 2px;
+      height: 1px;
+  }
+  
+
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+  
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+  
 .App{
 
   display: flex;
@@ -30,16 +52,19 @@ a{
 
 .Testinomial
 {
-  width: 1440px;
+  /* width: 1440px; */
+  width: 100%;
 }
 .midBanner {
-  width: 1440px;
+  /* width: 1440px; */
+  width: 100%;
   height: 640px;
   /* margin: 100px 0; */
 }
 
 .pricing-table-container {
-  width: 1440px;
+  /* width: 1440px; */
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;

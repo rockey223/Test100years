@@ -112,6 +112,7 @@
     position: static;
     width: 100%;
     margin-bottom: 100px;
+    align-items: center;
   }
   .contact-us-information-day-box,
   .contact-us-information-location-box,

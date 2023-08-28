@@ -12,13 +12,14 @@ width: 100%;
   font-family: "Raleway";
 }
 .achievement-container {
-    width: 1440px;
+    /* width: 1440px; */
+    width: 100%;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   position: relative;
   flex-wrap: wrap;
-  gap: 275px;
+  gap: 75px;
   /* padding: 0% 10%; */
   /* border: 1px solid black; */
 }

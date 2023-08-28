@@ -69,12 +69,18 @@
 .singleTop-sticky {
   position: sticky;
   top: 15px;
+  align-self: flex-end;
   /* left: 990px; */
-  width: 1440px;
+  display: flex;
+  width: 446px;
   margin: 40px 0 30px 0;
+  justify-content: center;
+  /* align-items: center; */
+  
 }
 
 .singleTop-container-right {
+  align-self: flex-start;
   width: 373px;
   height: 450px;
   background: #ffffff;
@@ -83,9 +89,12 @@
   /* margin: 40px 0 80px 0; */
   position: relative;
   /* top: 110px; */
-  left: 990px;
+  /* left: 0px; */
   /* bottom: 20px; */
   /* right: 124px; */
+
+
+  
 }
 
 .singleTop-container-right-video-box {
@@ -181,9 +190,10 @@
     padding: 0 0 0 60px;
     height: auto;
     margin: 15px 0;
+    /* place-items: center; */
   }
   .singleTop-container-left {
-    width: 485px;
+    width: 55%;
   }
   .singleTop-container-left-title {
     font-size: 36px;
@@ -192,20 +202,27 @@
     width: 100%;
   }
   .singleTop-container-right {
-    left: 58%;
+    left: 30%;
   }
-  .swhat-container {
+  /* .swhat-container {
     height: 460px;
-  }
+  } */
   .swhat-container-content,
   .requirement-container-content,
   .desc-container-content {
-    width: 420px;
+    /* width: 758px; */
+    width: 50%;
     height: auto;
   }
-  .who-container-content{
-    width: 420px;
-    height: auto ;
+  .who-container-content {
+    width: 50%;
+    height: auto;
+  }
+
+  .swhat-container-content-points-point,
+  .requirement-container-content-points-point,
+  .who-container-content-points-point{
+    width: auto;
   }
 }
 
@@ -218,8 +235,9 @@
     position: static;
     display: grid;
     /* place-items: center; */
-    padding: 0 60px ;
-    width: auto;
+    /* padding: 0 60px ; */
+    /* width: auto; */
+    align-self: center;
   }
   .singleTop-container-right{
     left: 0;
@@ -241,6 +259,7 @@
   .desc-container{
     width: 100%;
     padding: 0;
+    place-items: center;
     
   }
   .swhat-container-content,
@@ -249,6 +268,7 @@
   .who-container-content{
     width: 84%;
     height: auto;
+    /* place-items: center; */
   }
   .singleTop-container-left{
     width: 90%;
@@ -269,12 +289,12 @@
   .swhat-container-content-points,
   .requirement-container-content-points,
   .who-container-content-points{
-    gap: 0px;
+    gap: 10px;
   }
   .swhat-container-content-points-point,
   .requirement-container-content-points-point,
   .who-container-content-points-point{
-    width: 50%;
+    width: auto;
   }
 }
 

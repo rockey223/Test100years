@@ -1,6 +1,6 @@
 import React from "react";
 import "./videoBox.css";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { FillButton } from "./Buttons";
 
 const VideoBox = ({ video, open }) => {

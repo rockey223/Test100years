@@ -99,7 +99,7 @@ align-items: center;
 }
 @media (max-width: 641px) {
   .contact-us-form-container {
-    width: 90%;
+    width: 85%;
     min-width: auto;
     margin: 0;
   }

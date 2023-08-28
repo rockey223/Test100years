@@ -87,7 +87,7 @@ const Courses = ({tooglePopup}) => {
                 </div>
               );
 
-              break;
+              
             case "inprogress":
               // return <InProgress OrderedItem={allOrderedItem}  />;
               break;

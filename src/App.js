@@ -20,6 +20,9 @@ import Account from "./components/Profile/Account";
 import Contact from "./components/Contact/ContactUs";
 import { ToastContainer } from "react-toastify";
 
+import Checkout from "./components/checkout/Checkout"
+
+
 function App() {
   
   const [openVideoPlayer, setOpenVideoPlayer] = useState(false);
@@ -43,7 +46,7 @@ function App() {
 
   return (
     
-    <div className="App">
+    <div className="App" >
       {openVideoPlayer ? (
         <VideoPopUp close={tooglePopup} details={popupDetails} />
       ) : null}
@@ -82,6 +85,7 @@ function App() {
         <Route path="/upgrade" element={<Upgrade />} />
         <Route path="/profile" element={<Account />} />
         <Route path="/contactus" element={<Contact />} />
+        <Route path="/checkout" element={<Checkout />} />
       </Routes>
       <Footer />
     

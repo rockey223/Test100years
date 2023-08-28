@@ -11,7 +11,7 @@ const initialState = {
   isloggedIn: false,
   myInfo: {},
   initialName: "",
-  isLoading: false
+  isLoading: false,
 };
 const API = `${process.env.REACT_APP_API}/api`;
 const UserProvider = ({ children }) => {
@@ -34,9 +34,9 @@ const UserProvider = ({ children }) => {
   };
 
   // Login Function
-  function Login( email, password) {
+  function Login(email, password) {
     // e.preventDefault();
-dispatch({type: "SET_LOADING"})
+    dispatch({ type: "SET_LOADING" });
     axios
       .post(
         `${API}/userLogin`,
@@ -59,13 +59,12 @@ dispatch({type: "SET_LOADING"})
         }
       })
       .catch((err) => {
-        dispatch({type: "UNSET_lOADING"})
-        if(!err.response){
-
+        dispatch({ type: "UNSET_lOADING" });
+        if (!err.response) {
           toast.error(err.message, {
             position: toast.POSITION.TOP_RIGHT,
           });
-        }else{
+        } else {
           toast.error(err.response.data.message, {
             position: toast.POSITION.TOP_RIGHT,
           });
@@ -76,7 +75,7 @@ dispatch({type: "SET_LOADING"})
 
   // signup function
   function Signup(signupDetails) {
-    dispatch({type: "SET_LOADING"})
+    dispatch({ type: "SET_LOADING" });
 
     axios
       .post(
@@ -102,13 +101,81 @@ dispatch({type: "SET_LOADING"})
         }
       })
       .catch((err) => {
-        dispatch({type: "UNSET_lOADING"})
-        if(!err.response){
-
+        dispatch({ type: "UNSET_lOADING" });
+        if (!err.response) {
           toast.error(err.message, {
             position: toast.POSITION.TOP_RIGHT,
           });
-        }else{
+        } else {
+          toast.error(err.response.data.message, {
+            position: toast.POSITION.TOP_RIGHT,
+          });
+        }
+        console.log(err);
+      });
+  }
+
+  // update userDetails Function
+
+  function updateUser(updateInfo) {
+    // console.log(updateInfo);
+
+    axios
+      .patch(
+        `${API}/updateUserDetails`,
+        {
+          userFullName: updateInfo.userFullName,
+          userOccupation: updateInfo.userOccupation,
+          userBio: updateInfo.userBio,
+          userSocialMediaLinks: updateInfo.userSocialMediaLinks,
+        },
+        {
+          withCredentials: true,
+        }
+      )
+      .then((res) => {
+        console.log(res.data);
+        toast.success(res.data.message, {
+          position: toast.POSITION.TOP_RIGHT,
+        });
+        getUserDetails();
+       
+      })
+      .catch((err) => {
+        
+        if (!err.response) {
+          toast.error(err.message, {});
+        } else {
+          toast.error(err.response.data.message, {
+            position: toast.POSITION.TOP_RIGHT,
+          });
+        }
+        console.log(err);
+      });
+  }
+
+  //change password
+  function ChangePassword(password,setPasswords) {
+    dispatch({ type: "SET_LOADING" });
+    axios
+      .put(`${API}/changeUserPassword`, password, { withCredentials: true })
+      .then((res) => {
+        setPasswords({
+          oldUserPassword: "",
+          newUserPassword: "",
+          confirmUserPassword: ""
+        })
+        toast.success(res.data.message, {
+          position: toast.POSITION.TOP_RIGHT,
+        });
+        console.log(res);
+        dispatch({ type: "UNSET_lOADING" });
+      })
+      .catch((err) => {
+        dispatch({ type: "UNSET_lOADING" });
+        if (!err.response) {
+          toast.error(err.message, {});
+        } else {
           toast.error(err.response.data.message, {
             position: toast.POSITION.TOP_RIGHT,
           });
@@ -125,7 +192,7 @@ dispatch({type: "SET_LOADING"})
       .then((res) => {
         console.log(res);
         dispatch({ type: "LOGOUT", payload: {} });
-        navigate("/")
+        navigate("/");
       })
       .catch((err) => {
         console.log(err);
@@ -136,7 +203,9 @@ dispatch({type: "SET_LOADING"})
   }, []);
 
   return (
-    <userDetails.Provider value={{ ...state, Logout, Login, Signup }}>
+    <userDetails.Provider
+      value={{ ...state, Logout, Login, Signup, updateUser, ChangePassword }}
+    >
       {children}
     </userDetails.Provider>
   );

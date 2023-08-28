@@ -7,7 +7,7 @@
   /* padding: 16px 24px; */
   gap: 10px;
 
-  border: 2px solid #f66e24;
+  outline: 2px solid #f66e24;
   filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.04))
     drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.06));
   border-radius: 10px;

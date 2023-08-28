@@ -1,0 +1,102 @@
+.checkout-payment-method-form-container {
+  width: 57%;
+  height: 336px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.checkout-headings-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.payment-method-heading-text {
+  color: rgba(0, 0, 0, 0.9);
+  font-family: "Inter", sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+}
+.secured-connection-text-container {
+  color: rgba(0, 0, 0, 0.4);
+  font-family: "Inter", sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.secured-connection-lock-icon {
+  font-size: 16px;
+}
+.checkout-name-on-card-input-field,
+.checkout-number-input-field {
+  width: calc(100% - 50px);
+  height: 60px;
+  padding: 0px 24px;
+  border-radius: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: #fff;
+}
+.checkout-date-cvc-input-container {
+  display: flex;
+  gap: 20px;
+}
+.checkout-date-input-field,
+.checkout-cvc-input-field {
+  width: 49%;
+  height: 60px;
+  padding: 0px 24px;
+  border-radius: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: #fff;
+}
+.checkout-date-input-field::placeholder,
+.checkout-cvc-input-field::placeholder,
+.checkout-name-on-card-input-field::placeholder,
+.checkout-number-input-field::placeholder {
+  font-size: 14px;
+  letter-spacing: 0.07px;
+  font-family: "Inter", sans-serif;
+}
+.checkout-date-input-field:focus,
+.checkout-cvc-input-field:focus,
+.checkout-name-on-card-input-field:focus,
+.checkout-number-input-field:focus {
+  outline: none;
+  border: 1px solid #f66e24;
+}
+@media (max-width: 801px) {
+  .payment-method-heading-text {
+    font-size: 20px;
+  }
+  .secured-connection-text-container {
+    font-size: 10px;
+  }
+}
+@media (max-width: 700px) {
+  .checkout-payment-method-form-container {
+    width: 100%;
+    height: auto;
+  }
+  .checkout-date-input-field,
+  .checkout-cvc-input-field {
+    width: calc(100% - 50px);
+  }
+  .checkout-date-cvc-input-container {
+    flex-direction: column;
+  }
+  .payment-method-heading-text {
+    font-size: 24px;
+  }
+  .secured-connection-text-container {
+    font-size: 12px;
+  }
+}
+@media (max-width: 381px) {
+  .payment-method-heading-text {
+    font-size: 20px;
+  }
+  .secured-connection-text-container {
+    font-size: 9px;
+  }
+}
