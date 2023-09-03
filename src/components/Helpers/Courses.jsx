@@ -4,22 +4,22 @@ import { useState } from "react";
 import VideoBox from "./VideoBox";
 import Video from "../dummy/Video";
 
-const Courses = ({tooglePopup}) => {
-  const [activeCoursenav, setActiveCourseNav] = useState("260px");
+const Courses = ({ tooglePopup, videos }) => {
+  const [activeCoursenav, setActiveCourseNav] = useState("94px");
   const [activeNav, setActiveNav] = useState("video");
 
   const changeActiveNav = (content) => {
     if (content === "article") {
-      setActiveCourseNav("95px");
+      setActiveCourseNav("288px");
       setActiveNav("article");
     } else if (content === "podcast") {
-      setActiveCourseNav("-94px");
+      setActiveCourseNav("500px");
       setActiveNav("podcast");
     } else if (content === "blog") {
-      setActiveCourseNav("-273px");
+      setActiveCourseNav("690px");
       setActiveNav("blog");
     } else {
-      setActiveCourseNav("260px");
+      setActiveCourseNav("94px");
       setActiveNav("video");
     }
   };
@@ -73,21 +73,22 @@ const Courses = ({tooglePopup}) => {
             Blog
           </div>
         </div>
-        <div className="courses-container-nav-line"></div>
-        <div
-          className="courses-container-nav-line-active"
-          style={{ right: activeCoursenav }}
-        ></div>
+        <div className="courses-container-nav-line">
+          {/* <div
+            className="courses-container-nav-line-active"
+            style={{ left: activeCoursenav }}
+          ></div> */}
+        </div>
+
         {(() => {
           switch (activeNav) {
             case "video":
               return (
                 <div className="coursesVideo">
-                  <VideoBox video={Video} open={tooglePopup} />
+                  <VideoBox video={videos} tooglePopup={tooglePopup} />
                 </div>
               );
 
-              
             case "inprogress":
               // return <InProgress OrderedItem={allOrderedItem}  />;
               break;

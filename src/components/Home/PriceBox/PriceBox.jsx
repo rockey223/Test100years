@@ -56,7 +56,7 @@ const PriceBox = ({
         </div>
         {buttons ? (
           <div className="button-section">
-            <Link to={link}>
+            <Link to={`/level/${link}`}>
               <OutLineButton
                 className={"priceBox-btn"}
                 btnTxt={"Preview"}

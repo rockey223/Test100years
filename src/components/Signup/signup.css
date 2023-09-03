@@ -127,7 +127,9 @@
     width: 100%;
   }
 
-  .inputFeild,
+  .inputFeild{
+    width: calc(90% - 5px)!important;
+}
   .signup-container-content-form-submitBtn {
     width: 90% !important;
   }

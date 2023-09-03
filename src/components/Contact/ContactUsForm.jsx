@@ -74,6 +74,7 @@ function ContactUsForm() {
         onChange={handleChange}
         name="email"
         value={info.email}
+        autoComplete="false"
       />
       <input
         type="text"
@@ -82,6 +83,7 @@ function ContactUsForm() {
         onChange={handleChange}
         name="number"
         value={info.number}
+        autoComplete="false"
       />
       <input
         type="text"

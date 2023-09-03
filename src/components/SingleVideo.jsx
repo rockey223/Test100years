@@ -1,9 +1,9 @@
-import React,{useEffect} from "react";
+import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 // import SigngleTop from "./SingleVIdeo/Top/SingleTop";
 import SingleWhatYouGet from "./SingleVIdeo/WhatYouGet/SingleWhatYouGet";
 
-import Video from "./dummy/Video";
+// import Video from "./dummy/Video";
 import Requirement from "./SingleVIdeo/Requirement/Requirement";
 import Who from "./SingleVIdeo/Who/Who";
 import Desc from "./SingleVIdeo/Desc/Desc";
@@ -13,68 +13,94 @@ import { TbArticle } from "react-icons/tb";
 import { BsFillCameraVideoFill } from "react-icons/bs";
 import { BiPodcast } from "react-icons/bi";
 import { SiBlogger } from "react-icons/si";
+
 import "./SingleVIdeo/SingleVideo.css";
-
 import { useUser } from "../contexts/userDetails/userContext";
+import { useVideo } from "../contexts/VideoDetails/videoContext";
+const SingleVideo = ({ tooglePopup }) => {
+  const API = `${process.env.REACT_APP_API}/mediaUploads`;
 
-const SingleVideo = ({ tooglePopup}) => {
+  const { level1Videos,level2Videos } = useVideo();
   // window.scrollTo(0, 0);
-  const {isloggedIn} = useUser();
-
+  const { isloggedIn } = useUser();
+ 
   const { id } = useParams();
-  useEffect(()=>{
 
+  useEffect(() => {
     window.scrollTo(0, 0);
-  },[]);
-  console.log(id);
+  }, []);
+  // console.log(id);
   // const video = Video.find(({ id }) => id === id);
-  const video = Video.find((el) => parseInt(id) === el.id);
-  console.log(video);
-const title = video.title;
-console.log(title);
+
+  const allVideos = [...level1Videos,...level2Videos];
+ 
+
+
+
+
+  const videoItem = allVideos.find((el) => id === el._id);
+ 
+
+  const {
+    courseVideoAboutThisCourse,
+    courseVideoCategory,
+    courseVideoDescription,
+    courseVideoDuration,
+    courseVideoInstructorImage,
+    courseVideoInstructorName,
+    courseVideoLevel,
+    courseVideoPreview,
+    courseVideoRequirements,
+    courseVideoThumbnail,
+    courseVideoTitle,
+    courseVideoWhatYouWillGet,
+    courseVideoWhoIsThisFor,
+    _id,
+  } = videoItem;
   return (
     <>
       <div className="singleVideo-Container">
         {/* ****************************** */}
-        
-        
+
         {/* ****************************** */}
 
         <div className="singleVideo-Container-top">
           <div className="singleTop-container-left">
-            <div className="singleTop-container-left-title">{video.title}</div>
+            <div className="singleTop-container-left-title">
+              {courseVideoTitle}
+            </div>
             <div className="singleTop-container-left-description">
-              {video.description}
+              {courseVideoAboutThisCourse}
             </div>
             {/* <div className="singleTop-container-left-buybtn">$9.99 Buy Now</div> */}
-            
+
             <FillButton
-              btnTxt={"30 minutes"}
+              btnTxt="Start Learning"
               width={"156px"}
               height={"48px"}
-            disable={isloggedIn? false : true}
-              link={isloggedIn? `/videoplayer/${id}`:""}
+              disable={isloggedIn ? false : true}
+              link={isloggedIn ? `/videoplayer/${_id}` : ""}
             />
             <div className="singleTop-container-left-instrutor">
               <div className="singleTop-container-left-instructor-image">
-                <img src={video.thumbnail} alt="" />
+                <img src={API + "/" + courseVideoInstructorImage} alt="" />
               </div>
               <div className="singleTop-container-instructor-details">
-                Instructor: <span>{video.instructor}</span>
+                Instructor: <span>{courseVideoInstructorName}</span>
               </div>
             </div>
           </div>
         </div>
-      
+
         <div className="singleTop-sticky">
           <div className="singleTop-container-right">
             <div className="singleTop-container-right-video-box">
               <div className="singleTop-container-right-video-box-thumbnail">
-                <img src={video.thumbnail} alt="" />
+                <img src={API + "/" + courseVideoThumbnail} alt="" />
                 <div
                   className="singleTop-container-right-video-box-thumbnail-playBtn"
                   onClick={() => {
-                    tooglePopup({ video,title});
+                    tooglePopup({ videoItem, courseVideoTitle });
                   }}
                 >
                   <svg
@@ -87,7 +113,7 @@ console.log(title);
                     <path
                       d="M15.5491 30.2857C23.9123 30.2857 30.692 23.506 30.692 15.1429C30.692 6.77969 23.9123 0 15.5491 0C7.18594 0 0.40625 6.77969 0.40625 15.1429C0.40625 23.506 7.18594 30.2857 15.5491 30.2857Z"
                       fill="white"
-                      fill-opacity="0.6"
+                      fillOpacity="0.6"
                     />
                     <path
                       d="M12.0547 9.3186L21.3734 15.1428L12.0547 20.967V9.3186Z"
@@ -98,7 +124,7 @@ console.log(title);
                   <p>Preview This Course</p>
                 </div>
               </div>
-              
+
               <div className="singleTop-container-right-video-box-tagline">
                 For your Better Tomorrow
               </div>
@@ -129,12 +155,16 @@ console.log(title);
           </div>
         </div>
 
-        {/* <SigngleTop tooglePopup={tooglePopup} videoDetails={video} /> */}
-        <SingleWhatYouGet />
-        <Requirement />
-        <Who />
-        <Desc />
-        {/* <Content videoDetails={video} /> */}
+        <div className="singleVideo-page">
+          {/* <SigngleTop tooglePopup={tooglePopup} videoDetails={video} /> */}
+          <SingleWhatYouGet
+            courseVideoWhatYouWillGet={courseVideoWhatYouWillGet}
+          />
+          <Requirement courseVideoRequirements={courseVideoRequirements} />
+          <Who courseVideoWhoIsThisFor={courseVideoWhoIsThisFor} />
+          <Desc courseVideoDescription={courseVideoDescription} />
+          {/* <Content videoDetails={video} /> */}
+        </div>
       </div>
     </>
   );

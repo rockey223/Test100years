@@ -4,7 +4,11 @@ import Video from "../../dummy/Video";
 
 import "../../../responsive.css";
 import "./healthguides.css";
+
+
 const HealthGuides = ({ open }) => {
+
+
   return (
     <>
     <div className="healthGuides-title">

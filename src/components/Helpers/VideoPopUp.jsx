@@ -5,6 +5,25 @@ import { CgClose } from "react-icons/cg";
 const VideoPopUp = ({ videoUrl, close, details, title }) => {
   // console.log(close)
   // console.log(details.video.title);
+console.log(details);
+const {
+  courseVideoAboutThisCourse,
+  courseVideoCategory,
+  courseVideoDescription,
+  courseVideoDuration,
+  courseVideoInstructorImage,
+  courseVideoInstructorName,
+  courseVideoLevel,
+  courseVideoPreview,
+  courseVideoRequirements,
+  courseVideoThumbnail,
+  courseVideoTitle,
+  courseVideoWhatYouWillGet,
+  courseVideoWhoIsThisFor,
+  _id,
+} = details;
+
+  const API = `${process.env.REACT_APP_API}/mediaUploads`;
   return (
     <>
       <div className="videoPop-Container-main">
@@ -24,12 +43,12 @@ const VideoPopUp = ({ videoUrl, close, details, title }) => {
                 Course preview
               </div>
               <div className="videoPopup-container-video-title">
-                {details.title}
+                {details.courseVideoTitle}
               </div>
             </div>
 
-            <video controls>
-              <source src={video} type="video/mp4" />
+            <video controls autoPlay>
+              <source src={`${API}/${details.videoItem.courseVideoPreview}`} type="video/mp4" />
             </video>
           </div>
         </div>

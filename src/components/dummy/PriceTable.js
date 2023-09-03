@@ -12,7 +12,7 @@ const PriceTable = [
     button: true,
     star: false,
     gradient: false,
-    link: "/level1",
+    link: "1",
   },
   {
     id: 1,
@@ -27,7 +27,7 @@ const PriceTable = [
     button: true,
     star: false,
     gradient: false,
-    link: "/level2",
+    link: "2",
   },
   {
     id: 2,

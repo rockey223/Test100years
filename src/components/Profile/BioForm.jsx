@@ -39,8 +39,9 @@ function BioForm() {
   return (
     <div className="profile-bottom-right-form-container">
       <div className="profile-form-basic-container">
-        <label className="profile-form-basic-heading">Basic</label>
+        <label className="profile-form-basic-heading" htmlFor="UserFullName">Basic</label>
         <input
+        id="UserFullName"
           type="text"
           className="profile-form-name-input-field"
           placeholder="Name"
@@ -66,8 +67,9 @@ function BioForm() {
       </div>
       <hr className="profile-form-line" />
       <div className="profile-form-link-container">
-        <label className="profile-form-link-heading">Links</label>
+        <label className="profile-form-link-heading" htmlFor="Links">Links</label>
         <input
+        id="Links"
           type="url"
           className="profile-form-website-link-input-field"
           placeholder="Website Link"

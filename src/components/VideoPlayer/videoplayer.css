@@ -1,11 +1,12 @@
 
 .videoplayer-container{
-    width: 1440px;
+    width: 100%;
 }
 
 .videoplayer-container-content-Player{
-    /* width: 1440px; */
-    height: auto;
+    width: 100%;
+    /* height: auto; */
+    aspect-ratio: auto;
     background: #000;
     flex-shrink: 0;
     display: flex;
@@ -15,5 +16,37 @@
 
 .videoplayer-container-content-Player video{
     width: 70%;
-    height: 100%;
+    /* height: 100%; */
+    /* aspect-ratio: 16/9; */
+}
+.videoPlayer-desc-container{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    /* padding: 0 0 0 130px; */
+    width: calc(100% - 14%);
+    align-items: center;
+    padding: 0 7%;
+    margin: 20px 0;
+}
+
+@media screen and (max-width: 435px) {
+    .aboutThisCourse-container-content-title,
+    .playerDesc-container-content-title,
+    .instructor-container-content-title{
+        font-size: 24px;
+    }
+    .instructor-container-content-details-content-name{
+        font-size: 14px;
+    }
+    .instructor-container-content-details-content-details{
+font-size: 12px;
+    }
+    .instructor-container-content-details{
+        gap: 20px;
+        align-items: center;
+    }
+    .instructor-container-content-details-content{
+        gap: 7px;
+    }
 }

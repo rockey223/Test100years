@@ -8,9 +8,12 @@ import Loader from "../Helpers/Loader/Loader"
 
 // import { useLogin } from "../../contexts/login/loginContext";
 import {useUser} from "../../contexts/userDetails/userContext"
-
+import Toggler from "../Helpers/Toggler";
 
 const Login = () => {
+
+const [InputType,icon] =Toggler();
+
   const { Login,isLoading } = useUser();
 
   useEffect(() => {
@@ -61,6 +64,8 @@ const Login = () => {
           </div>
           <div className="login-container-content-form">
             <form>
+              <div className="login-inputbox">
+
               <InputField
                 placeholder={"User Name"}
                 name={"loginUsername"}
@@ -69,15 +74,21 @@ const Login = () => {
                 value={loginDetails.loginUsername}
                 change={handleChange}
               />
+              </div>
+              <div className="login-inputbox">
+
               <InputField
                 placeholder={"Password"}
                 name={"loginPassword"}
                 width={"360px"}
                 height={"10px"}
-                type={"password"}
+                type={InputType}
                 value={loginDetails.loginPassword}
                 change={handleChange}
+             
               />
+              <span className="password-toggle-icon">{icon}</span>
+              </div>
               {/* <input
                 type="submit"
                 value="Login"
@@ -100,6 +111,9 @@ const Login = () => {
             <div className="login-container-content-forgot">
               Forgot Password?
             </div>
+
+{/* temp removed */}
+{/* 
             <div className="login-container-content-oauth">
               <NavLink>
                 <LoginHelper
@@ -126,6 +140,7 @@ const Login = () => {
                 <span>Sign Up</span>
               </NavLink>
             </div>
+             */}
           </div>
         </div>
       </div>

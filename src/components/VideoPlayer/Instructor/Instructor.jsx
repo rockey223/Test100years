@@ -1,6 +1,7 @@
 import React from 'react'
 import './instructor.css'
 const Instructor = ({videoDetails}) => {
+    const API = `${process.env.REACT_APP_API}/mediaUploads`;
   return (
     <>
     <div className="instructor-container">
@@ -9,14 +10,15 @@ const Instructor = ({videoDetails}) => {
             <div className="instructor-container-content-details">
             <div className="instructor-container-content-details-image">
 
-                <img src={videoDetails.thumbnail} alt="" />
+                <img src={API + "/" + videoDetails.courseVideoInstructorImage} alt="" />
             </div>
                 <div className="instructor-container-content-details-content">
                     <div className="instructor-container-content-details-content-name">
-                        {videoDetails.instructor}
+                        {videoDetails.courseVideoInstructorName}
                     </div>
                     <div className="instructor-container-content-details-content-details">
-                        {videoDetails.description}
+                        {videoDetails.courseVideoDescription}
+                        {/* here goes instructors details */}
                     </div>
                 </div>
             </div>

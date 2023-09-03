@@ -17,7 +17,7 @@ const Signup = () => {
     signupEmail: "",
     signupPassword: "",
     signupRePassword: "",
-    userLevel: "beginner",
+    
   });
 
   const handleChange = (event) => {

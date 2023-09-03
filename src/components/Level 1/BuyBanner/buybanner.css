@@ -30,3 +30,30 @@ transition: all .5s linear;
   line-height: 140%;
   letter-spacing: 0.24px;
 }
+
+@media screen and (max-width: 850px){
+  .buyBanner-container-left-top{
+    font-size: 20px;
+  }
+
+  .buyBanner-container-left-bottom{
+    font-size: 12px;
+  }
+}
+@media screen and (max-width: 670px){
+  .buyBanner-container-left-top{
+    font-size: 16px;
+  }
+  .buyBanner-container-left-bottom{
+   display: none;
+  }
+}
+@media screen and (max-width: 575px) {
+  .buyBanner-container-left-top{
+    font-size: 12px;
+  }
+  .buyBanner-container-content{
+    flex-direction: column;
+    gap: 5px;
+  }
+}

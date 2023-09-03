@@ -2,26 +2,45 @@ import React from "react";
 import "./videoBox.css";
 import { Link } from "react-router-dom";
 import { FillButton } from "./Buttons";
+import Level1 from "../Level1";
 
-const VideoBox = ({ video, open }) => {
+const VideoBox = ({ video, tooglePopup }) => {
   // console.log(videoItem)
 
   // console.log(videoItem);
-
+  const API = `${process.env.REACT_APP_API}/mediaUploads`;
   return (
     <>
       {video.map((videoItem) => {
-        console.log(videoItem);
-        const { id, title, category, videTime, happy, thumbnail } = videoItem;
+        // console.log(videoItem);
+
+        const {
+          courseVideoAboutThisCourse,
+          courseVideoCategory,
+          courseVideoDescription,
+          courseVideoDuration,
+          courseVideoInstructorImage,
+          courseVideoInstructorName,
+          courseVideoLevel,
+          courseVideoPreview,
+          courseVideoRequirements,
+          courseVideoThumbnail,
+          courseVideoTitle,
+          courseVideoWhatYouWillGet,
+          courseVideoWhoIsThisFor,
+          _id,
+        } = videoItem;
+
+        // const { id, title, category, videTime, happy, thumbnail } = videoItem;
 
         return (
-          <div key={id} className="VideoBox-container">
+          <div key={_id} className="VideoBox-container">
             <div className="VideoBox-container-thumbnail">
-              <img src={thumbnail} alt="" />
+              <img src={`${API}/${courseVideoThumbnail}`} alt="" />
               <div
                 className="VideoBox-container-thumbnail-playBtn"
                 onClick={() => {
-                  open({videoItem,title});
+                  tooglePopup({ videoItem, courseVideoTitle });
                 }}
               >
                 <svg
@@ -47,30 +66,31 @@ const VideoBox = ({ video, open }) => {
             <div className="VideoBox-container-textContent">
               <div className="VideoBox-container-textContent-videoDetails">
                 <div className="VideoBox-container-textContent-videoDetails-category">
-                  {category}
+                  {courseVideoCategory}
                 </div>
                 <div className="VideoBox-container-textContent-videoDetails-title">
-                  {title}
+                  {courseVideoTitle}
                 </div>
               </div>
               <div className="VideoBox-container-textContent-bottom">
                 <div className="VideoBox-container-textContent-bottom-videoDuration">
-                  {videTime}
+                  {courseVideoDuration}
                 </div>
                 <div className="VideoBox-container-textContent-bottom-numberOfLearners">
-                  {happy} happy learner
+                  25 happy learner
                 </div>
               </div>
             </div>
             <div className="VideoBox-container-button">
-              <FillButton btnTxt={'Start Learning'} height={'50px'} width={'186px'} />
+              <FillButton
+              className={"startLearning"}
+                btnTxt={"Start Learning"}
+                // height={"50px"}
+                // width={"186px"}
+              />
 
-              <Link to={`/singlevideo/${id}`}>
-
-
-              <div className="VideoBox-container-button-text">
-                More Info
-              </div>
+              <Link to={`/singlevideo/${_id}`}>
+                <div className="VideoBox-container-button-text">More Info</div>
               </Link>
             </div>
           </div>

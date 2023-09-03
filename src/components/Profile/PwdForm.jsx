@@ -36,10 +36,11 @@ function PwdForm() {
   return (
     <div className="account-bottom-right-form-container">
       <div className="account-form-email-container">
-        <label className="account-form-email" htmlFor="email">
+        <label className="account-form-email" htmlFor="userEmail">
           Email
         </label>
         <input
+        id="userEmail"
           type="email"
           className="account-form-email-input-field"
           placeholder="abcxyz@gmail.com" // ref={inputRef}
@@ -56,8 +57,9 @@ function PwdForm() {
       </div>
       <hr className="account-form-line" />
       <div className="account-form-password-container">
-        <label className="account-form-password">Password</label>
+        <label className="account-form-password" htmlFor="oldPassword">Password</label>
         <input
+        id="oldPassword"
           type="password"
           className="account-form-password-input-field"
           placeholder="Enter Current password"

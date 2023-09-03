@@ -60,24 +60,24 @@ const Navbar = () => {
                 <li onClick={() => {
                     setDisplayNav((prev) => !prev);
                   }}>
-                  <NavLink className="navbar-navLinks-navLink" to={"/upgrade"}>
-                    upgrade
+                  <NavLink className="navbar-navLinks-navLink" to={"/level/1"}>
+                    Course
                   </NavLink>
                 </li>
                 <li onClick={() => {
                     setDisplayNav((prev) => !prev);
                   }}>
-                  <NavLink className="navbar-navLinks-navLink" to={"/e"}>
-                    Home
+                  <NavLink className="navbar-navLinks-navLink" to={"/upgrade"}>
+                    upgrade
                   </NavLink>
                 </li>
-                <li onClick={() => {
+                {/* <li onClick={() => {
                     setDisplayNav((prev) => !prev);
                   }}>
                   <NavLink className="navbar-navLinks-navLink" to={"/r"}>
                     Home
                   </NavLink>
-                </li>
+                </li> */}
                 <li onClick={() => {
                     setDisplayNav((prev) => !prev);
                   }}>

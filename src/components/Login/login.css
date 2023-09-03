@@ -81,6 +81,21 @@
     line-height: 22px;
 }
 
+.login-inputbox{
+    position: relative;
+
+}
+.password-toggle-icon{
+    position: absolute;
+    top: 25%;
+    right: 10px;
+    z-index: 1000;
+    cursor: pointer;
+    font-size: 24px;
+   
+}
+
+
 .login-container-content-forgot{
     color:  #01ACF1;
     font-size: 14px;
@@ -151,7 +166,19 @@
     .login-container-content{
         width: 90%;
     }
-    .inputFeild,.login-container-content-form-submitBtn{
+    .inputFeild{
+        width: calc(90% - 5px)!important;
+    }
+    
+    .login-container-content-form-submitBtn{
 width: 90%!important;
+    }
+    .login-inputbox{
+        width: calc(90% - 20px);
+    }
+    .password-toggle-icon{
+       
+        right: 7%;
+       
     }
 }

@@ -24,7 +24,7 @@ const Top = ({tooglePopup}) => {
             quaerat nihil nostrum.
           </div>
           {/* <div className="top-container-left-buybtn">$9.99 Buy Now</div> */}
-          <FillButton btnTxt={"$9.99 Buy Now"} width={'156px'} height={'48px'} />
+          <FillButton link={"/checkout"} btnTxt={"$9.99 Buy Now"} width={'156px'} height={'48px'} />
         </div>
         <div className="top-container-right">
           <div className="top-container-right-video-box">
