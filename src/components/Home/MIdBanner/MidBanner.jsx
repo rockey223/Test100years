@@ -7,7 +7,7 @@ const MidBanner = () => {
       <div className="midBanner-container">
         <div className="midBanner-container-left">
           <div className="midBanner-container-left-title">
-            Your Health is Our Priority
+            Your <span>Health</span> is Our Priority
           </div>
           <div className="midBanner-container-left-content">
             Enim quae voluptatibus odio est tempora molestiae. Quod sed et

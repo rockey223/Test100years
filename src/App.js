@@ -22,7 +22,7 @@ import { ToastContainer } from "react-toastify";
 
 import Checkout from "./components/checkout/Checkout";
 import Auth from "./Auth";
-
+import ProfileAboutMe from "./components/Bio/ProfileAboutMe"
 import { useUser } from "./contexts/userDetails/userContext";
 
 function App() {
@@ -100,6 +100,7 @@ function App() {
           <Route path="/profile" element={<Account />} />
           <Route path="/contactus" element={<Contact />} />
           <Route path="/checkout" element={<Checkout />} />
+          <Route path="/profileBio" element={<ProfileAboutMe  tooglePopup={tooglePopup}/>}/>
           {/* <Route path="*" element={<Login />} /> */}
         </Route>
       </Routes>

@@ -64,14 +64,15 @@ font-style: normal;
 font-weight: 400;
 font-size: 12px;
 line-height: 14px;
-
+margin-bottom: 10px;
 color: rgba(0, 0, 0, 0.6);
 }
 .videoCard-container-textContent-videoDetails-title{
     
 font-family: 'Raleway';
 font-style: normal;
-font-weight: 500;
+font-weight: 600;
+
 font-size: 16px;
 line-height: 19px;
 }

@@ -58,7 +58,7 @@ const Footer = () => {
               </ul>
             </div>
             <div className="footer-contact">
-              <p className="footer-mid-title">Contact info</p>
+              <p className="footer-mid-title">Contact Info</p>
               <ul>
                 <li>9080 Pfannerstill Lake</li>
                 <li>409-214-9201</li>

@@ -118,6 +118,11 @@ const Navbar = () => {
                   }}>
                     <p>My Acocunt</p>
                   </Link>
+                  <Link to={"/profileBio"} onClick={()=>{
+                    displayDropdown()
+                  }}>
+                    <p>My Profile</p>
+                  </Link>
                  
                   <p>Support</p>
                   <p onClick={()=>{

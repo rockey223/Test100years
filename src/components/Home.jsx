@@ -13,27 +13,25 @@ import axios from "axios";
 import Landing from "./Home/Landing/Landing.jsx";
 
 const Home = ({ tooglePopup }) => {
-  useEffect(() => {
-    axios
-      .get("http://localhost:8000/api/getMyInfo", {
-        withCredentials: true,
-      })
-      .then((res) => {
-        // console.log(res);
-      })
-      .catch((err) => {
-        // console.log(err);
-      });
-  
-        window.scrollTo(0, 0);
-  
-  },[]);
+  // useEffect(() => {
+  //   axios
+  //     .get("http://localhost:8000/api/getMyInfo", {
+  //       withCredentials: true,
+  //     })
+  //     .then((res) => {
+  //       // console.log(res);
+  //     })
+  //     .catch((err) => {
+  //       // console.log(err);
+  //     });
+
+  //   window.scrollTo(0, 0);
+  // }, []);
 
   // window.scrollTo(0, 0);
-  useEffect(()=>{
-
+  useEffect(() => {
     window.scrollTo(0, 0);
-  },[]);
+  }, []);
   // console.log(PriceTable)
   return (
     <>
@@ -42,20 +40,16 @@ const Home = ({ tooglePopup }) => {
       <Landing />
 
       {/* ******************************************************** */}
+
+      {/* ******************************************************** */}
+
       
-      {/* ******************************************************** */}
-
-      <div className="Achievement">
-        <Achievement />
-      </div>
 
       {/* ******************************************************** */}
 
       {/* ******************************************************** */}
 
-      <div className="HealthGuides">
-        <HealthGuides open={tooglePopup} />
-      </div>
+      
 
       {/* ******************************************************** */}
 
@@ -63,9 +57,15 @@ const Home = ({ tooglePopup }) => {
         <MidBanner />
       </div>
 
+
+      <div className="HealthGuides">
+        <HealthGuides open={tooglePopup} />
+      </div>
+
+
       <div className="pricing-table-container">
         <div className="pricing-table-heading">
-          Get the perfect Guide for your health
+          Get the <span>Perfect</span> guide for your health
         </div>
         <div className="pricing-table-pointing-up-arrow">
           <svg
@@ -128,6 +128,9 @@ const Home = ({ tooglePopup }) => {
       </div>
       <div className="Testinomial">
         <SlideBox />
+      </div>
+      <div className="Achievement">
+        <Achievement />
       </div>
     </>
   );

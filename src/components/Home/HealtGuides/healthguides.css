@@ -19,4 +19,11 @@ width: 100%;
     font-weight: 500;
     line-height: normal;
     text-align: center;
+    margin: 40px 0;
+}
+
+.healthGuides-title span{
+    color: #01acf1;
+    font-weight: 600;
+    font-size: 80px;
 }

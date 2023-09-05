@@ -10,6 +10,9 @@
   width: 495px;
   height: 242px;
 }
+.midBanner-container-left-title span{
+/* color: #89c11f; */
+}
 .midBanner-container-left-title {
   font-family: "Raleway";
   font-style: normal;

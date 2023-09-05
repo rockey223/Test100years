@@ -129,12 +129,13 @@
 }
 
 .footer-letshelp ul li,
-.footer-sitemap ul li {
+.footer-sitemap ul li,
+.footer-contact ul li {
   color: #b6b6b6;
 }
-.footer-contact ul li {
+/* .footer-contact ul li {
   color: #fff;
-}
+} */
 .footer-letshelp ul li,
 .footer-sitemap ul li,
 .footer-contact ul li {
@@ -162,12 +163,14 @@
   display: flex;
   gap: 20px;
   font-size: 24px;
-  color: #fff;
+  /* color: #fff; */
+  color: #b6b6b6;
 
 }
 .footer-social-icon a{
   text-decoration: none;
-  color: #fff;
+  /* color: #fff; */
+  color: #b6b6b6;
 }
 .footer-social-icon a:hover{
   text-decoration: none;

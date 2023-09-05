@@ -1,0 +1,75 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.profile-about-me-main-container {
+  margin: 30px 12%;
+}
+.profile-about-me-user-name-container {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 24px;
+}
+.profile-about-me-circle {
+  width: 41px;
+  height: 41px;
+  border-radius: 50%;
+  background-color: #7ec419;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.profile-about-me-circle-text {
+  color: #fff;
+  font-family: "Manrope", sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+}
+.profile-about-me-user-name-text {
+  color: #000;
+  font-family: "Inter", sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+}
+.profile-about-me-role-text {
+  color: #00000099;
+  font-family: "Inter", sans-serif;
+  font-size: 12px;
+}
+
+.profile-about-me-heading {
+  color: #000;
+  font-family: "Inter", sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+}
+.prfile-about-me-text {
+  color: #000000b3;
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 160%;
+  letter-spacing: 0.08px;
+  max-width: 884px;
+}
+.profile-about-me-text-main-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.profile-about-me-icon {
+  font-size: 24px;
+  color: #f66e24;
+  margin-right: 10px;
+}
+@media (max-width: 961px) {
+  .profile-about-me-main-container {
+    margin: 25px 8%;
+  }
+}
+@media (max-width: 481px) {
+  .profile-about-me-main-container {
+    margin: 45px 5.029%;
+  }
+}

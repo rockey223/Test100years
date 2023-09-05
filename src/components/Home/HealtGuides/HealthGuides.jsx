@@ -12,7 +12,9 @@ const HealthGuides = ({ open }) => {
   return (
     <>
     <div className="healthGuides-title">
-    Various Guide are treated by us
+    Various <span>
+      Guides
+      </span> are treated by us
     </div>
       <div className="videoCard-Box">
         {Video.map((videoItem, index) => {
