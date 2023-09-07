@@ -5,7 +5,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 30px 0;
+  margin: 120px 0;
 }
 
 .courses-container-nav {
@@ -70,6 +70,9 @@
   animation: shift 0.3s linear;
 }
 
+.disable{
+  cursor: not-allowed;
+}
 @keyframes shift {
     from{
         left: -83px;

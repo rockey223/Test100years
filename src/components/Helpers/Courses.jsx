@@ -36,41 +36,41 @@ const Courses = ({ tooglePopup, videos }) => {
               changeActiveNav("video");
             }}
           >
-            Video
+            Videos
           </div>
           <div
-            className={`courses-container-nav-item ${
+            className={`courses-container-nav-item disable ${
               activeNav === "article"
                 ? "courses-container-nav-item-active"
                 : null
             }`}
-            onClick={() => {
-              changeActiveNav("article");
-            }}
+            // onClick={() => {
+            //   changeActiveNav("article");
+            // }}
           >
             Articles
           </div>
           <div
-            className={`courses-container-nav-item ${
+            className={`courses-container-nav-item disable ${
               activeNav === "podcast"
                 ? "courses-container-nav-item-active"
                 : null
             }`}
-            onClick={() => {
-              changeActiveNav("podcast");
-            }}
+            // onClick={() => {
+            //   changeActiveNav("podcast");
+            // }}
           >
-            Podccasts
+            Podcasts
           </div>
           <div
-            className={`courses-container-nav-item ${
+            className={`courses-container-nav-item disable ${
               activeNav === "blog" ? "courses-container-nav-item-active" : null
             }`}
-            onClick={() => {
-              changeActiveNav("blog");
-            }}
+            // onClick={() => {
+            //   changeActiveNav("blog");
+            // }}
           >
-            Blog
+            Blogs
           </div>
         </div>
         <div className="courses-container-nav-line">
