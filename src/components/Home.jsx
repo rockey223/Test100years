@@ -11,6 +11,7 @@ import SlideBox from "./Home/SlideBox/SlideBox.jsx";
 import { useEffect } from "react";
 import axios from "axios";
 import Landing from "./Home/Landing/Landing.jsx";
+import BlogSection from "./Home/Blog/BlogSection.jsx";
 
 const Home = ({ tooglePopup }) => {
   // useEffect(() => {
@@ -43,13 +44,9 @@ const Home = ({ tooglePopup }) => {
 
       {/* ******************************************************** */}
 
-      
-
       {/* ******************************************************** */}
 
       {/* ******************************************************** */}
-
-      
 
       {/* ******************************************************** */}
 
@@ -57,11 +54,13 @@ const Home = ({ tooglePopup }) => {
         <MidBanner />
       </div>
 
+      <div className="blogSection">
+        <BlogSection />
+      </div>
 
       <div className="HealthGuides">
         <HealthGuides open={tooglePopup} />
       </div>
-
 
       <div className="pricing-table-container">
         <div className="pricing-table-heading">
