@@ -1,17 +1,16 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./blogsection.css";
 import { useBlog } from "../../../contexts/BlogDetails/blogContext";
-import { BsChevronLeft, BsChevronRight, } from "react-icons/bs";
+import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 import { Link } from "react-router-dom";
 const BlogSection = () => {
+  
   const {
     filter_blogs,
     all_blogs,
     filters: { text, category },
     updateFilterValue,
   } = useBlog();
-
-
 
   const getUniqueCat = (data, property) => {
     let newVal = data.map((curElem) => {
@@ -34,7 +33,7 @@ const BlogSection = () => {
   const btnListRef = useRef();
 
   const btnList = btnListRef.current;
-  
+
   const rightArrowHandler = () => {
     btnList.scrollLeft += 200;
     manageScrollIcons();
@@ -61,11 +60,10 @@ const BlogSection = () => {
     }
   };
 
-// useEffect(()=>{
-//   manageScrollIcons()
-//  console.log(btnList.scrollLeft)
-// },[])
- 
+  // useEffect(()=>{
+  //   manageScrollIcons()
+  //  console.log(btnList.scrollLeft)
+  // },[])
 
   return (
     <>
@@ -75,17 +73,13 @@ const BlogSection = () => {
       <hr className="blog-section-bar" />
 
       <div className="blog-section-filter-btns">
-        <div
-          className={`blog-leftarrow ${leftActiveArrow && "active-arrow"}`}
-          
-        >
+        <div className={`blog-leftarrow ${leftActiveArrow && "active-arrow"}`}>
           <BsChevronLeft className="blog-arrows" onClick={leftArrowHandler} />
         </div>
         <div
           ref={btnListRef}
           className="blog-section-filter-btn"
           onScroll={manageScrollIcons}
-         
         >
           {blogCategories.map((blogCategory, index) => {
             const isActive = activeIndex === index;
@@ -110,42 +104,43 @@ const BlogSection = () => {
         </div>
         <div
           className={`blog-rightarrow ${rightActiveArrow && "active-arrow"} `}
-          
         >
-          <BsChevronRight className="blog-arrows" onClick={rightArrowHandler}/>
+          <BsChevronRight className="blog-arrows" onClick={rightArrowHandler} />
         </div>
       </div>
 
       <div className="blog-section-contents">
         <div className="blog-section-content">
-          {filter_blogs.slice(0,5).map((blog, index) => {
+          {filter_blogs.slice(0, 5).map((blog, index) => {
             return (
-              <Link to={`/blog/${blog.id}`}>
-              <div key={index} className="blog-section-blogBox">
-                <div className="blog-section-thumbnail">
-                  <img src={blog.thumbnail} alt="" />
-                </div>
-                <div className="blog-section-content-texts">
-                  <div className="blog-section-content-category">
-                    {blog.category}
+              <Link to={`/blogpost/${blog.id}`}>
+                <div key={index} className="blog-section-blogBox">
+                  <div className="blog-section-thumbnail">
+                    <img src={blog.thumbnail} alt="" />
                   </div>
-                  <div className="blog-section-content-title">{blog.title}</div>
-                  <div className="blog-section-content-createdDate">
-                    {blog.createdDate}
+                  <div className="blog-section-content-texts">
+                    <div className="blog-section-content-category">
+                      {blog.category}
+                    </div>
+                    <div className="blog-section-content-title">
+                      {blog.title}
+                    </div>
+                    <div className="blog-section-content-createdDate">
+                      {blog.createdDate}
+                    </div>
                   </div>
                 </div>
-              </div>
               </Link>
             );
           })}
 
-{
-  filter_blogs.length > 4 && <div className="blog-section-blogBox">
-  <div className="blog-section-seeMore">
-
-  see More <BsChevronRight />
-  </div>
-      {/* <div className="blog-section-thumbnail">
+          {filter_blogs.length > 4 && (
+            <Link to="/blogs">
+            <div className="blog-section-blogBox">
+              <div className="blog-section-seeMore">
+                see More <BsChevronRight />
+              </div>
+              {/* <div className="blog-section-thumbnail">
         <img src="" alt="" />
       </div>
       <div className="blog-section-content-texts">
@@ -157,10 +152,9 @@ const BlogSection = () => {
          
         </div>
       </div> */}
-    </div>
-}
-
-          
+            </div>
+            </Link>
+          )}
         </div>
       </div>
     </>

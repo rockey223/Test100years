@@ -1,4 +1,4 @@
-.blog-header{
+.singleblog-header{
     width: 100%;
     height: 161px;
     border-radius: 0px 0px 118.5px 0px;
@@ -8,13 +8,13 @@
     display: flex;
     align-items: center;
 }
-.blog-header-content{
+.singleblog-header-content{
     margin-left: 142px;
     display: flex;
     gap: 10px;
 }
 
-.blog-header-blueBar{
+.singleblog-header-blueBar{
     width: 8px;
     height: 43px;
     border-radius: 8px;
@@ -22,7 +22,7 @@
    
 }
 
-.blog-header-text{
+.singleblog-header-text{
     color: var(--bg, #000);
     font-family: Inter;
     font-size: 40px;
@@ -32,24 +32,24 @@
     letter-spacing: 0.6px;
 }
 
-.blog-banner-image{
+.singleblog-banner-image{
     width: 100%;
     height: 420px;
     
 }
-.blog-banner-image img{
+.singleblog-banner-image img{
     width: 100%;
     height: 100%;
     object-fit: fill;
   
 }
 
-.blog-content{
+.singleblog-content{
      width: 70%;
      height: auto;
      margin: 24px 0px;
 }
-.blog-content-category{
+.singleblog-content-category{
     display: inline-flex;
     padding: 16px 24px;
     border-radius: 20px;
@@ -68,7 +68,7 @@
     line-height: normal;
 }
 
-.blog-content-title{
+.singleblog-content-title{
    
     color: var(--bg, #000);
     font-family: Raleway;
@@ -80,7 +80,7 @@
     margin: 24px 0 0 0 ;
 }
 
-.blog-content-createdDate{
+.singleblog-content-createdDate{
     color: rgba(0, 0, 0, 0.60);
     font-family: Inter;
     font-size: 16px;
@@ -90,7 +90,7 @@
     margin: 0 0 24px 0;
 }
 
-.blog-content-description{
+.singleblog-content-description{
    
     /* opacity: 0.8; */
     color: var(--bg, #000);
@@ -103,11 +103,11 @@
     text-align: justify;
 }
 
-.blog-content-subContent{
+.singleblog-content-subContent{
     margin: 40px 0;
 }
 
-.blog-content-subContent-title{
+.singleblog-content-subContent-title{
    color: var(--bg, #000);
    font-family: Raleway;
    font-size: 24px;
@@ -117,7 +117,7 @@
    letter-spacing: 0.12px;
 }
 
-.blog-content-subcontent-description{
+.singleblog-content-subcontent-description{
     text-align: justify;
     /* opacity: 0.8; */
     color: var(--bg, #000);
@@ -131,14 +131,14 @@
 
 
 
-.blog-content-subContent-Image{
+.singleblog-content-subContent-Image{
     width: 285px;
     height: 290px;
    float: right;
    margin: 0 0 20px 20px;
 }
 
-.blog-content-subContent-Image img{
+.singleblog-content-subContent-Image img{
     height: 100%;
     width: 100%;
     object-fit: cover;

@@ -222,6 +222,17 @@
     ),
     var(--wite, #fff);
 }
+
+@media only screen and (max-width: 1366px){
+  .blog-section-contents {
+    width: 95%;
+  }
+  .blog-section-content {
+    width: 95%;
+  }
+}
+
+
 @media only screen and (max-width: 899px) {
   .blog-section-content {
     justify-content: center;

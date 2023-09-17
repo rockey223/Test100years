@@ -11,7 +11,7 @@ import SlideBox from "./Home/SlideBox/SlideBox.jsx";
 import { useEffect } from "react";
 import axios from "axios";
 import Landing from "./Home/Landing/Landing.jsx";
-import BlogSection from "./Home/Blog/BlogSection.jsx";
+import BlogSection from "./Home/BlogSection/BlogSection.jsx";
 
 const Home = ({ tooglePopup }) => {
   // useEffect(() => {
