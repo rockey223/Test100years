@@ -27,7 +27,7 @@ const blogDetailsFunction = (state, action) => {
         });
       }
 
-      console.log(tempFilterBlog);
+     
 
       return {
         ...state,

@@ -24,6 +24,7 @@ import Checkout from "./components/checkout/Checkout";
 import Auth from "./Auth";
 import ProfileAboutMe from "./components/Bio/ProfileAboutMe"
 import { useUser } from "./contexts/userDetails/userContext";
+import Blog from "./components/Blog/Blog";
 
 function App() {
   const { isloggedIn } = useUser();
@@ -102,6 +103,7 @@ function App() {
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/profileBio" element={<ProfileAboutMe  tooglePopup={tooglePopup}/>}/>
           {/* <Route path="*" element={<Login />} /> */}
+          <Route path="/blog/:id" element={<Blog/>}/>
         </Route>
       </Routes>
       {isloggedIn ? <Footer /> : ""}
