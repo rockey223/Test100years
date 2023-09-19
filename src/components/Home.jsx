@@ -12,6 +12,7 @@ import { useEffect } from "react";
 import axios from "axios";
 import Landing from "./Home/Landing/Landing.jsx";
 import BlogSection from "./Home/BlogSection/BlogSection.jsx";
+import AboutSection from "./Home/AboutSection/AboutSection.jsx";
 
 const Home = ({ tooglePopup }) => {
   // useEffect(() => {
@@ -61,6 +62,11 @@ const Home = ({ tooglePopup }) => {
       <div className="HealthGuides">
         <HealthGuides open={tooglePopup} />
       </div>
+
+
+<div className="aboutus-container">
+  <AboutSection/>
+</div>
 
       <div className="pricing-table-container">
         <div className="pricing-table-heading">
