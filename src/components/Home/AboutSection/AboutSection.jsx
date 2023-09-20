@@ -19,20 +19,16 @@ const AboutSection = () => {
           </div>
           <div className="about-section-right-content">
             <p>
-              As of my last knowledge update in September 2021, I'm not aware of
-              any specific company called "100 Years Healthy Life." It's
-              possible that such a company may have emerged or gained prominence
-              after that date, or it might be a relatively small or localized
-              organization that doesn't have widespread recognition.
+            As the natural ceiling of human life expectancy has already proven over 120 years "100 years healthy life" also known as "Family Blue Zone" is a strategy for preserving excellent health and a high standard of living for individuals or families at least for a century while aims for extending the average life expectancy to the maximum natural upper limit. It typically marks an important turning point in human longevity and is often associated with the desire to delay aging and live longer the younger while also making sure that those extra years are full of independence, vitality, and well-being.
             </p>
 
-            <p>
+            {/* <p>
               If "100 Years Healthy Life" is indeed a company or organization,
               it may be involved in various aspects of health and wellness, such
               as healthcare services, longevity research, nutrition, fitness, or
               products and services aimed at promoting a healthy lifestyle and
               extending human lifespan.
-            </p>
+            </p> */}
           </div>
         </div>
       </div>

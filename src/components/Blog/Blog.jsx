@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-
+import axios from "axios";
 import { useBlog } from "../../contexts/BlogDetails/blogContext";
 import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 import { Link } from "react-router-dom";
@@ -10,9 +10,11 @@ const Blog = () => {
   const {
     filter_blogs,
     all_blogs,
-    filters: { text, category },
+    filters: { text, companyBlogCategory },
     updateFilterValue,
   } = useBlog();
+  const API = `${process.env.REACT_APP_API}/imageUploads`;
+  const APICALL = `${process.env.REACT_APP_API}/api`;
 
   const getUniqueCat = (data, property) => {
     let newVal = data.map((curElem) => {
@@ -22,7 +24,7 @@ const Blog = () => {
     return (newVal = ["All", ...new Set(newVal)]);
   };
 
-  const blogCategories = getUniqueCat(all_blogs, "category");
+  const blogCategories = getUniqueCat(all_blogs, "companyBlogCategory");
 
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -61,6 +63,32 @@ const Blog = () => {
       setRightActiveArrow(true);
     }
   };
+
+  
+  var cat = "hellos";
+function getOneCategory (id){
+  if(id==="All"){
+    return "All"
+    
+  }
+ 
+    
+    axios.get(`${APICALL}/getOneCompanyBlogCategory/${id}`)
+    .then((res)=>{
+      // console.log(res.data.data.companyBlogCategoryName);
+      cat = res.data.data.companyBlogCategoryName;
+      // return res.data.data.companyBlogCategoryName
+      console.log(cat);
+      return(cat)
+    })
+    .catch((err)=>{
+      console.log(err);
+    })
+    console.log(cat);
+    return cat;
+  
+}
+
   return (
     <>
       <div className="singleblog-header">
@@ -81,11 +109,12 @@ const Blog = () => {
         >
           {blogCategories.map((blogCategory, index) => {
             const isActive = activeIndex === index;
+            const categoryname = getOneCategory(blogCategory);
             return (
               <button
                 key={index}
                 type="button"
-                name="category"
+                name="companyBlogCategory"
                 className={`blog-section-btn ${
                   isActive ? "blog-section-active" : ""
                 } `}
@@ -95,7 +124,7 @@ const Blog = () => {
                 }}
                 value={blogCategory}
               >
-                {blogCategory}
+                {categoryname}
               </button>
             );
           })}
@@ -111,20 +140,20 @@ const Blog = () => {
         <div className="blog-section-content">
           {filter_blogs.map((blog, index) => {
             return (
-              <Link to={`/blogpost/${blog.id}`}>
+              <Link to={`/blogpost/${blog._id}`}>
                 <div key={index} className="blog-section-blogBox">
                   <div className="blog-section-thumbnail">
-                    <img src={blog.thumbnail} alt="" />
+                  <img src={API + "/" + blog.companyBlogThumbnail} alt="" />
                   </div>
                   <div className="blog-section-content-texts">
                     <div className="blog-section-content-category">
-                      {blog.category}
+                      {blog.companyBlogCategory}
                     </div>
                     <div className="blog-section-content-title">
-                      {blog.title}
+                      {blog.companyBlogTitle}
                     </div>
                     <div className="blog-section-content-createdDate">
-                      {blog.createdDate}
+                      {blog.createDate}
                     </div>
                   </div>
                 </div>

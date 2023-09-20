@@ -54,9 +54,9 @@ const Home = ({ tooglePopup }) => {
 
       {/* ******************************************************** */}
 
-      <div className="midBanner">
+      {/* <div className="midBanner">
         <MidBanner />
-      </div>
+      </div> */}
 
       <div className="blogSection">
         <BlogSection />
