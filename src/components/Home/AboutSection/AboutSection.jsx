@@ -6,7 +6,10 @@ const AboutSection = () => {
       <div className="about-section">
         <div className="about-section-left">
           <div className="about-section-left-image">
-            <img src="https://i.postimg.cc/3wb6qDJt/Are-you-as-healthy-as-you-think-i-Stock-1140193165-500x409.jpg" alt="" />
+            <div className="about-section-left-image-imgbox">
+
+            <img src="https://i.postimg.cc/vBWGLYNv/young-athletic-man-working-out-listening-music-riverside-outdoors.jpg" alt="" />
+            </div>
           </div>
         </div>
         <div className="about-section-right">

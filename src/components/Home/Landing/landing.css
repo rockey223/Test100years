@@ -31,7 +31,7 @@
   flex-direction: column;
   align-items: center;
   gap: 20px;
-  width: 525px;
+  width: auto;
   position: absolute;
 }
 .landing-container-content-title {

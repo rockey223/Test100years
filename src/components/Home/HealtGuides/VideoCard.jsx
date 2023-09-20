@@ -3,9 +3,10 @@ import "./videoCard.css";
 // import video from "./video.mp4";
 import { NavLink } from "react-router-dom";
 
-const VideoCard = ({ videoItem, open }) => {
+const VideoCard = ({ details, open }) => {
   // console.log(videoItem)
-  const { id, title, category, videTime, happy, thumbnail } = videoItem;
+  const { id, title, category, videTime, happy, thumbnail } = details;
+  // console.log(details);
   return (
     <>
       <div className="videoCard-container">
@@ -14,7 +15,7 @@ const VideoCard = ({ videoItem, open }) => {
           <div
             className="videoCard-container-thumbnail-playBtn"
             onClick={() => {
-              open(videoItem);
+              open(details, details.courseVideoTitle);
             }}
           >
             <svg

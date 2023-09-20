@@ -41,6 +41,9 @@ const Home = ({ tooglePopup }) => {
 
       <Landing />
 
+      <div className="aboutus-container">
+        <AboutSection />
+      </div>
       {/* ******************************************************** */}
 
       {/* ******************************************************** */}
@@ -62,11 +65,6 @@ const Home = ({ tooglePopup }) => {
       <div className="HealthGuides">
         <HealthGuides open={tooglePopup} />
       </div>
-
-
-<div className="aboutus-container">
-  <AboutSection/>
-</div>
 
       <div className="pricing-table-container">
         <div className="pricing-table-heading">

@@ -18,7 +18,8 @@ const HealthGuides = ({ open }) => {
     </div>
       <div className="videoCard-Box">
         {Video.map((videoItem, index) => {
-          return <VideoCard key={index} videoItem={videoItem} open={open} />;
+          
+          return <VideoCard key={index} details={videoItem} open={open} />;
         })}
       </div>
     </>
