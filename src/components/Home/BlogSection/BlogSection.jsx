@@ -14,7 +14,7 @@ const BlogSection = () => {
     categories
   } = useBlog();
 
-  console.log(categories);
+  // console.log(categories);
   const API = `${process.env.REACT_APP_API}/imageUploads`;
  
   const getUniqueCat = (data, property) => {
@@ -72,6 +72,10 @@ const BlogSection = () => {
 
 
   
+  function formatDate(dateString) {
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    return new Date(dateString).toLocaleDateString(undefined, options);
+  }
 
 
   return (
@@ -151,7 +155,10 @@ blogCategory === 'All' ?  "All" : categoryname.companyBlogCategoryName
                       {blog.companyBlogTitle}
                     </div>
                     <div className="blog-section-content-createdDate">
-                      {blog.createDate}
+                    { formatDate(blog.createdDate)
+                      
+                      
+                    }
                     </div>
                   </div>
                 </div>

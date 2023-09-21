@@ -5,18 +5,18 @@ import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 import { Link } from "react-router-dom";
 
 const Blog = () => {
-    useEffect(() => {
-        window.scrollTo(0, 0);
-      }, []);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const {
     filter_blogs,
     all_blogs,
     filters: { text, companyBlogCategory },
     updateFilterValue,
-    categories
+    categories,
   } = useBlog();
   const API = `${process.env.REACT_APP_API}/imageUploads`;
-  
+// console.log(filter_blogs);
   const getUniqueCat = (data, property) => {
     let newVal = data.map((curElem) => {
       return curElem[property];
@@ -64,9 +64,11 @@ const Blog = () => {
       setRightActiveArrow(true);
     }
   };
-
-  
-
+  function formatDate(dateString) {
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    return new Date(dateString).toLocaleDateString(undefined, options);
+  }
+ 
   return (
     <>
       <div className="singleblog-header">
@@ -87,10 +89,9 @@ const Blog = () => {
         >
           {blogCategories.map((blogCategory, index) => {
             const isActive = activeIndex === index;
-            let categoryname
-            if(blogCategory != "All"){
-
-               categoryname = categories.find((cat)=> blogCategory === cat._id)
+            let categoryname;
+            if (blogCategory != "All") {
+              categoryname = categories.find((cat) => blogCategory === cat._id);
             }
             return (
               <button
@@ -106,11 +107,9 @@ const Blog = () => {
                 }}
                 value={blogCategory}
               >
-               {
-blogCategory === 'All' ?  "All" : categoryname.companyBlogCategoryName 
-
-
-                }
+                {blogCategory === "All"
+                  ? "All"
+                  : categoryname.companyBlogCategoryName}
               </button>
             );
           })}
@@ -125,22 +124,27 @@ blogCategory === 'All' ?  "All" : categoryname.companyBlogCategoryName
       <div className="blog-section-contents">
         <div className="blog-section-content">
           {filter_blogs.map((blog, index) => {
-            let category = categories.find((cat)=> blog.companyBlogCategory === cat._id)
+            let category = categories.find(
+              (cat) => blog.companyBlogCategory === cat._id
+            );
             return (
               <Link to={`/blogpost/${blog._id}`}>
                 <div key={index} className="blog-section-blogBox">
                   <div className="blog-section-thumbnail">
-                  <img src={API + "/" + blog.companyBlogThumbnail} alt="" />
+                    <img src={API + "/" + blog.companyBlogThumbnail} alt="" />
                   </div>
                   <div className="blog-section-content-texts">
                     <div className="blog-section-content-category">
-                    {category.companyBlogCategoryName}
+                      {category.companyBlogCategoryName}
                     </div>
                     <div className="blog-section-content-title">
                       {blog.companyBlogTitle}
                     </div>
                     <div className="blog-section-content-createdDate">
-                      {blog.createDate}
+                      { formatDate(blog.createdDate)
+                      
+                      
+                      }
                     </div>
                   </div>
                 </div>

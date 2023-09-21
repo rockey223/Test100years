@@ -10,7 +10,6 @@ const initialState = {
     companyBlogCategory: "All",
   },
   categories: [],
-  
 };
 const API = `${process.env.REACT_APP_API}/api`;
 
@@ -23,8 +22,29 @@ const BlogProvider = ({ children }) => {
       .then((res) => {
         // console.log(res.data.data);
         const allBlog = res.data.data;
+        const finalDate = allBlog.map((item) => {
+          const dateStr = item.createDate;
+          const date = new Date(dateStr);
+          const options = {
+            timeZone: "Europe/London",
+            year: "numeric",
+            month: "2-digit",
+            day: "2-digit",
+            hour: "2-digit",
+            minute: "2-digit",
+          };
+          const nepalTime = date.toLocaleString("en-US", options);
+          const onlyDate = nepalTime.split(",")[0].trim();
+
+          return {
+            ...item,
+            createdDate: onlyDate,
+          };
+        });
+
+       
         // const userName = res.data.user.userFullName[0];
-        dispatch({ type: "GET_All_BLOG", payload: { allBlog } });
+        dispatch({ type: "GET_All_BLOG", payload: { finalDate } });
       })
       .catch((err) => {
         // dispatch({ type: "GET_MY_INFO_ERROR", payload: err });
@@ -38,7 +58,10 @@ const BlogProvider = ({ children }) => {
       .then((res) => {
         // console.log(res.data.data);
         const allCategories = res.data.data;
-       return dispatch({ type: "GET_ALL_CATEGORY", payload: { allCategories } });
+        return dispatch({
+          type: "GET_ALL_CATEGORY",
+          payload: { allCategories },
+        });
       })
       .catch((err) => {
         console.log(err);
@@ -63,10 +86,6 @@ const BlogProvider = ({ children }) => {
     getAllCompanyBlog();
     getAllCategory();
   }, []);
-
-
- 
-
 
   return (
     <blogDetails.Provider value={{ ...state, updateFilterValue }}>

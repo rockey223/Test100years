@@ -8,13 +8,30 @@ const SingleBlog = () => {
   const { id } = useParams();
   const { categories } = useBlog();
   const [oneBlog, setOneBlog] = useState();
+  const [date, setDate] = useState();
   const getOneBlog = (id) => {
     axios
       .get(`${APICall}/getOneCompanyBlog/${id}`)
       .then((res) => {
-        setOneBlog(res.data.data);
-        console.log(res.data.data);
+        const one = res.data.data;
+        // console.log(res.data.data);
 
+        const dateStr = one.createDate;
+        const date = new Date(dateStr);
+        const options = {
+          timeZone: "Europe/London",
+          year: "numeric",
+          month: "2-digit",
+          day: "2-digit",
+          hour: "2-digit",
+          minute: "2-digit",
+        };
+        const nepalTime = date.toLocaleString("en-US", options);
+        const onlyDate = nepalTime.split(",")[0].trim();
+
+        setDate(onlyDate);
+
+        setOneBlog(res.data.data);
         //   dispatch({type:"GET_ONE_BLOG", payload: {oneBlo}})
       })
       .catch((err) => {
@@ -28,11 +45,16 @@ const SingleBlog = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  console.log(oneBlog);
+  // console.log(oneBlog);
   const category =
     oneBlog &&
     categories.find((cat) => oneBlog.companyBlogCategory === cat._id);
   const API = `${process.env.REACT_APP_API}/imageUploads`;
+
+  function formatDate(dateString) {
+    const options = { year: "numeric", month: "long", day: "numeric" };
+    return new Date(dateString).toLocaleDateString(undefined, options);
+  }
 
   return (
     <>
@@ -50,7 +72,7 @@ const SingleBlog = () => {
               {oneBlog.companyBlogTitle}
             </div>
             <div className="singleblog-content-createdDate">
-              November 21, 2019
+              {formatDate(date)}
             </div>
             <div className="singleblog-content-description">
               {oneBlog.companyBlogContent}
@@ -64,13 +86,33 @@ const SingleBlog = () => {
                 </div>
 
                 <div className="singleblog-content-subcontent-description">
+                  {
+                    oneBlog.companyBlogSubtitleOneImage &&
                   <div className="singleblog-content-subContent-Image">
                     <img
                       src={API + "/" + oneBlog.companyBlogSubtitleOneImage}
                       alt=""
                     />
                   </div>
+                  }
                   <p>{oneBlog.companyBlogSubtitleOneContent}</p>
+                </div>
+              </div>
+            )}
+            {oneBlog.companyBlogSubtitleTwo && (
+              <div className="singleblog-content-subContent">
+                <div className="singleblog-content-subContent-title">
+                  {oneBlog.companyBlogSubtitleTwo}
+                </div>
+
+                <div className="singleblog-content-subcontent-description">
+                  <div className="singleblog-content-subContent-Image">
+                    <img
+                      src={API + "/" + oneBlog.companyBlogSubtitleTwoImage}
+                      alt=""
+                    />
+                  </div>
+                  <p>{oneBlog.companyBlogSubtitleTwoContent}</p>
                 </div>
               </div>
             )}
