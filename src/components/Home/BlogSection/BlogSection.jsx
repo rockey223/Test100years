@@ -14,9 +14,9 @@ const BlogSection = () => {
     categories
   } = useBlog();
 
+  console.log(categories);
   const API = `${process.env.REACT_APP_API}/imageUploads`;
-  const APICALL = `${process.env.REACT_APP_API}/api`;
-  
+ 
   const getUniqueCat = (data, property) => {
     let newVal = data.map((curElem) => {
       return curElem[property];
@@ -73,30 +73,6 @@ const BlogSection = () => {
 
   
 
-  var cat = "hellos";
-function getOneCategory (id){
-  if(id==="All"){
-    return "All"
-    
-  }
- 
-    
-    axios.get(`${APICALL}/getOneCompanyBlogCategory/${id}`)
-    .then((res)=>{
-      // console.log(res.data.data.companyBlogCategoryName);
-      cat = res.data.data.companyBlogCategoryName;
-      // return res.data.data.companyBlogCategoryName
-      console.log(cat);
-      return(cat)
-    })
-    .catch((err)=>{
-      console.log(err);
-    })
-    console.log(cat);
-    return cat;
-  
-}
-
 
   return (
     <>
@@ -117,8 +93,14 @@ function getOneCategory (id){
           {blogCategories.map((blogCategory, index) => {
             // console.log(blogCategory);
             const isActive = activeIndex === index;
-            const categoryname = getOneCategory(blogCategory);
-            console.log(blogCategory);
+            let categoryname
+            if(blogCategory != "All"){
+
+               categoryname = categories.find((cat)=> blogCategory === cat._id)
+            }
+
+
+            
             return (
               <button
                 key={index}
@@ -133,8 +115,12 @@ function getOneCategory (id){
                 }}
                 value={blogCategory}
               >
-                
-                {categoryname}
+                {
+blogCategory === 'All' ?  "All" : categoryname.companyBlogCategoryName 
+
+
+                }
+                {/* {c} */}
               </button>
             );
           })}
@@ -150,6 +136,7 @@ function getOneCategory (id){
         <div className="blog-section-content">
           {filter_blogs.slice(0, 5).map((blog, index) => {
             // console.log(blog);
+            let category = categories.find((cat)=> blog.companyBlogCategory === cat._id)
             return (
               <Link to={`/blogpost/${blog._id}`} key={index}>
                 <div className="blog-section-blogBox">
@@ -158,7 +145,7 @@ function getOneCategory (id){
                   </div>
                   <div className="blog-section-content-texts">
                     <div className="blog-section-content-category">
-                      {blog.companyBlogCategory}
+                      {category.companyBlogCategoryName}
                     </div>
                     <div className="blog-section-content-title">
                       {blog.companyBlogTitle}

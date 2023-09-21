@@ -45,7 +45,7 @@ const VideoCard = ({ details, open }) => {
                 {category}
               </div>
               <div className="videoCard-container-textContent-videoDetails-title">
-                {title}
+                {details.courseVideoTitle}
               </div>
             </div>
             <div className="videoCard-container-textContent-bottom">

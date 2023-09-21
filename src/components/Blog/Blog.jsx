@@ -3,6 +3,7 @@ import axios from "axios";
 import { useBlog } from "../../contexts/BlogDetails/blogContext";
 import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 import { Link } from "react-router-dom";
+
 const Blog = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -12,10 +13,10 @@ const Blog = () => {
     all_blogs,
     filters: { text, companyBlogCategory },
     updateFilterValue,
+    categories
   } = useBlog();
   const API = `${process.env.REACT_APP_API}/imageUploads`;
-  const APICALL = `${process.env.REACT_APP_API}/api`;
-
+  
   const getUniqueCat = (data, property) => {
     let newVal = data.map((curElem) => {
       return curElem[property];
@@ -65,29 +66,6 @@ const Blog = () => {
   };
 
   
-  var cat = "hellos";
-function getOneCategory (id){
-  if(id==="All"){
-    return "All"
-    
-  }
- 
-    
-    axios.get(`${APICALL}/getOneCompanyBlogCategory/${id}`)
-    .then((res)=>{
-      // console.log(res.data.data.companyBlogCategoryName);
-      cat = res.data.data.companyBlogCategoryName;
-      // return res.data.data.companyBlogCategoryName
-      console.log(cat);
-      return(cat)
-    })
-    .catch((err)=>{
-      console.log(err);
-    })
-    console.log(cat);
-    return cat;
-  
-}
 
   return (
     <>
@@ -109,7 +87,11 @@ function getOneCategory (id){
         >
           {blogCategories.map((blogCategory, index) => {
             const isActive = activeIndex === index;
-            const categoryname = getOneCategory(blogCategory);
+            let categoryname
+            if(blogCategory != "All"){
+
+               categoryname = categories.find((cat)=> blogCategory === cat._id)
+            }
             return (
               <button
                 key={index}
@@ -124,7 +106,11 @@ function getOneCategory (id){
                 }}
                 value={blogCategory}
               >
-                {categoryname}
+               {
+blogCategory === 'All' ?  "All" : categoryname.companyBlogCategoryName 
+
+
+                }
               </button>
             );
           })}
@@ -139,6 +125,7 @@ function getOneCategory (id){
       <div className="blog-section-contents">
         <div className="blog-section-content">
           {filter_blogs.map((blog, index) => {
+            let category = categories.find((cat)=> blog.companyBlogCategory === cat._id)
             return (
               <Link to={`/blogpost/${blog._id}`}>
                 <div key={index} className="blog-section-blogBox">
@@ -147,7 +134,7 @@ function getOneCategory (id){
                   </div>
                   <div className="blog-section-content-texts">
                     <div className="blog-section-content-category">
-                      {blog.companyBlogCategory}
+                    {category.companyBlogCategoryName}
                     </div>
                     <div className="blog-section-content-title">
                       {blog.companyBlogTitle}
