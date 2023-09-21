@@ -3,6 +3,7 @@ import "./courses.css";
 import { useState } from "react";
 import VideoBox from "./VideoBox";
 import Video from "../dummy/Video";
+import NotFound from "./NotFound";
 
 const Courses = ({ tooglePopup, videos }) => {
   const [activeCoursenav, setActiveCourseNav] = useState("94px");
@@ -85,7 +86,8 @@ const Courses = ({ tooglePopup, videos }) => {
             case "video":
               return (
                 <div className="coursesVideo">
-                  <VideoBox video={videos} tooglePopup={tooglePopup} />
+                  {videos.length>0? <VideoBox video={videos} tooglePopup={tooglePopup} /> : <NotFound text={"Videos"}/>}
+                  
                 </div>
               );
 

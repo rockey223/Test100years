@@ -19,6 +19,8 @@ const Level1 = ({ tooglePopup, buyBanner, windowScroll }) => {
   }, []);
   return (
     <>
+
+    
       <Top tooglePopup={tooglePopup} />
       <WhatYouGet />
       <Courses tooglePopup={tooglePopup} videos={videos} />
