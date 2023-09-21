@@ -64,20 +64,20 @@ const Navbar = () => {
                     Course
                   </NavLink>
                 </li>
-                {/* <li onClick={() => {
+                 <li onClick={() => {
                     setDisplayNav((prev) => !prev);
                   }}>
                   <NavLink className="navbar-navLinks-navLink" to={"/upgrade"}>
                     upgrade
                   </NavLink>
-                </li> */}
-                {/* <li onClick={() => {
+                </li>
+                <li onClick={() => {
                     setDisplayNav((prev) => !prev);
                   }}>
-                  <NavLink className="navbar-navLinks-navLink" to={"/r"}>
-                    Home
+                  <NavLink className="navbar-navLinks-navLink" to={"/blogs"}>
+                    Blog
                   </NavLink>
-                </li> */}
+                </li>
                 <li onClick={() => {
                     setDisplayNav((prev) => !prev);
                   }}>

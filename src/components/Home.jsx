@@ -11,6 +11,8 @@ import SlideBox from "./Home/SlideBox/SlideBox.jsx";
 import { useEffect } from "react";
 import axios from "axios";
 import Landing from "./Home/Landing/Landing.jsx";
+import BlogSection from "./Home/BlogSection/BlogSection.jsx";
+import AboutSection from "./Home/AboutSection/AboutSection.jsx";
 
 const Home = ({ tooglePopup }) => {
   // useEffect(() => {
@@ -39,29 +41,30 @@ const Home = ({ tooglePopup }) => {
 
       <Landing />
 
-      {/* ******************************************************** */}
-
-      {/* ******************************************************** */}
-
-      
-
-      {/* ******************************************************** */}
-
-      {/* ******************************************************** */}
-
-      
-
-      {/* ******************************************************** */}
-
-      <div className="midBanner">
-        <MidBanner />
+      <div className="aboutus-container">
+        <AboutSection />
       </div>
+      {/* ******************************************************** */}
 
+      {/* ******************************************************** */}
+
+      {/* ******************************************************** */}
+
+      {/* ******************************************************** */}
+
+      {/* ******************************************************** */}
+
+      {/* <div className="midBanner">
+        <MidBanner />
+      </div> */}
+
+      <div className="blogSection">
+        <BlogSection />
+      </div>
 
       <div className="HealthGuides">
         <HealthGuides open={tooglePopup} />
       </div>
-
 
       <div className="pricing-table-container">
         <div className="pricing-table-heading">

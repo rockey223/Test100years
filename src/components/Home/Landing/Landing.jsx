@@ -11,7 +11,7 @@ const Landing = () => {
           <video src={video} autoPlay loop muted></video>
           <div className="landing-container-content">
             <div className="landing-container-content-title">
-              My Life My Rules
+             Your Health is Our Concern
             </div>
             <div className="landing-container-content-tagline">
               Let's go 100 Years Happy Life
