@@ -13,29 +13,36 @@ import levels from "./dummy/levels";
 
 const Level1 = ({ tooglePopup, buyBanner, windowScroll }) => {
   const { id } = useParams();
+
   const { level1Videos, level2Videos } = useVideo();
 
   const videos = id === "1" ? level1Videos : level2Videos;
+
   useEffect(() => {
     window.scrollTo(0, 0);
+    
   }, []);
-  const [levelDetails, setLevelDetails] = useState({});
+
+  const [levelDetails, setLevelDetails] = useState(id === "1" ? levels[0] : levels[1]);
 
   console.log(levels);
+
   useEffect(() => {
     console.log(id);
 
-    if (id === "1") {
-      setLevelDetails(()=>{
-        return levels[0]
-      });
-    } else {
-      setLevelDetails(()=>{
-       return levels[0]
-      });
-    }
+    // if (id === "1") {
+    //   console.log(levels);
+    //   setLevelDetails(()=>{
+    //     return levels[0]
+    //   });
+    // } else {
+    //   setLevelDetails(()=>{
+    //    return levels[1]
+    //   });
+    // }
   }, [id]);
   
+  console.log(levelDetails.LevelwhatYouGet);
   console.log(levelDetails);
   return (
     <>
