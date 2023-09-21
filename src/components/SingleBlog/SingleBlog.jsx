@@ -6,7 +6,7 @@ import axios from "axios";
 const SingleBlog = () => {
   const APICall = `${process.env.REACT_APP_API}/api`;
   const { id } = useParams();
-const {categories} = useBlog();
+  const { categories } = useBlog();
   const [oneBlog, setOneBlog] = useState();
   const getOneBlog = (id) => {
     axios
@@ -27,23 +27,25 @@ const {categories} = useBlog();
     getOneBlog(id);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-let category = categories.find((cat)=> oneBlog.companyBlogCategory === cat._id)
-  const API = `${process.env.REACT_APP_API}/imageUploads`;
 
   console.log(oneBlog);
+  const category =
+    oneBlog &&
+    categories.find((cat) => oneBlog.companyBlogCategory === cat._id);
+  const API = `${process.env.REACT_APP_API}/imageUploads`;
 
   return (
     <>
       {oneBlog && (
         <>
-          
-
           <div className="singleblog-banner-image">
             <img src={API + "/" + oneBlog.companyBlogImage} alt="" />
           </div>
 
           <div className="singleblog-content">
-            <div className="singleblog-content-category">{category.companyBlogCategoryName}</div>
+            <div className="singleblog-content-category">
+              {category.companyBlogCategoryName}
+            </div>
             <div className="singleblog-content-title">
               {oneBlog.companyBlogTitle}
             </div>
@@ -55,21 +57,23 @@ let category = categories.find((cat)=> oneBlog.companyBlogCategory === cat._id)
               {/* Being healthy should be part of your overall lifestyle. Living a healthy lifestyle can help prevent chronic diseases and long-term illnesses. Feeling good about yourself and taking care of your health are important for your self-esteem and self-image. Being healthy should be part of your overall lifestyle. Living a healthy lifestyle can help prevent chronic diseases and long-term illnesses. Feeling good about yourself and taking care of your health are important for your self-esteem and self-image. Being healthy should be part of your overall lifestyle. Living a healthy lifestyle can help prevent chronic diseases and long-term illnesses. Feeling good about yourself and taking care of your health are important for your self-esteem and self-image. */}
             </div>
 
-            <div className="singleblog-content-subContent">
-              <div className="singleblog-content-subContent-title">
-                {oneBlog.companyBlogSubtitleOne}
-              </div>
-
-              <div className="singleblog-content-subcontent-description">
-                <div className="singleblog-content-subContent-Image">
-                  <img
-                    src={API + "/" + oneBlog.companyBlogSubtitleOneImage}
-                    alt=""
-                  />
+            {oneBlog.companyBlogSubtitleOne && (
+              <div className="singleblog-content-subContent">
+                <div className="singleblog-content-subContent-title">
+                  {oneBlog.companyBlogSubtitleOne}
                 </div>
-                <p>{oneBlog.companyBlogSubtitleOneContent}</p>
+
+                <div className="singleblog-content-subcontent-description">
+                  <div className="singleblog-content-subContent-Image">
+                    <img
+                      src={API + "/" + oneBlog.companyBlogSubtitleOneImage}
+                      alt=""
+                    />
+                  </div>
+                  <p>{oneBlog.companyBlogSubtitleOneContent}</p>
+                </div>
               </div>
-            </div>
+            )}
           </div>
         </>
       )}

@@ -7,24 +7,22 @@ import {TbArticle} from "react-icons/tb";
 import {BsFillCameraVideoFill} from "react-icons/bs";
 import {BiPodcast} from "react-icons/bi";
 import {SiBlogger} from "react-icons/si"
-const Top = ({tooglePopup}) => {
-  var title = 'The Healthcare For Anyone And Everyone';
+const Top = ({tooglePopup,levelDetails}) => {
+  var title = levelDetails.levelTitle;
   return (
     <>
       
       <div className="top-container">
         <div className="top-container-left">
-          <div className="top-container-left-level">Level 1</div>
+          <div className="top-container-left-level">{levelDetails.levelName}</div>
           <div className="top-container-left-title">
-            The Healthcare For Anyone And Everyone
+          {levelDetails.levelTitle}
           </div>
           <div className="top-container-left-description">
-            Commodi fugiat animi eum nemo. Commodi praesentium praesentium
-            expedita ea quae quia tenetur eaque aut. Aperiam excepturi ab nam
-            quaerat nihil nostrum.
+            {levelDetails.levelDesc}
           </div>
           {/* <div className="top-container-left-buybtn">$9.99 Buy Now</div> */}
-          <FillButton link={"/checkout"} btnTxt={"$9.99 Buy Now"} width={'156px'} height={'48px'} />
+          <FillButton link={"/checkout"} btnTxt={`$${levelDetails.levelPrice} Buy Now`} width={'156px'} height={'48px'} />
         </div>
         <div className="top-container-right">
           <div className="top-container-right-video-box">

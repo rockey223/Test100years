@@ -53,7 +53,7 @@
 .singleblog-content-category{
     display: inline-flex;
     padding: 16px 24px;
-    border-radius: 20px;
+    border-radius: 10px;
     border: 1px solid var(--Blue, #01ACF1);
     background: #01ACF1;
     flex-direction: column;
