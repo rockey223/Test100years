@@ -9,6 +9,7 @@
 .midBanner-container-left {
   width: 495px;
   height: 242px;
+  padding: 0 150px;
 }
 .midBanner-container-left-title span{
 /* color: #89c11f; */

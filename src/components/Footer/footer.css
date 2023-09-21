@@ -177,7 +177,8 @@
   color: #f66e24;
 }
 .footer-copyright {
-  color: var(--wite, #fff);
+  /* color: var(--wite, #fff); */
+  color: #b6b6b6;
   font-family: Inter;
   font-size: 16px;
   font-style: normal;

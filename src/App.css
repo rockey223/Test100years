@@ -66,6 +66,7 @@ a{
   height: 640px;
   /* margin: 100px 0; */
   margin-bottom: 20px;
+  margin-top: 50px;
 }
 
 .pricing-table-container {
@@ -173,4 +174,8 @@ text-align: left;
   width: 100%;
   height: auto;
 /* padding: 25px 0; */
+}
+
+.notFound{
+  font-size: 24px;
 }

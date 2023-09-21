@@ -83,6 +83,7 @@ const VideoBox = ({ video, tooglePopup }) => {
             </div>
             <div className="VideoBox-container-button">
               <FillButton
+              link={`/videoplayer/${_id}`}
               className={"startLearning"}
                 btnTxt={"Start Learning"}
                 // height={"50px"}

@@ -64,7 +64,7 @@ const Navbar = () => {
                     Course
                   </NavLink>
                 </li>
-                <li onClick={() => {
+                 <li onClick={() => {
                     setDisplayNav((prev) => !prev);
                   }}>
                   <NavLink className="navbar-navLinks-navLink" to={"/upgrade"}>

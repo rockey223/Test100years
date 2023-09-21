@@ -43,16 +43,16 @@
     margin: 24px 0;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     align-items: center;
-    gap: 24px;
+    gap: 40px;
   }
   .requirement-container-content-points-icon {
     color: #008000;
     font-size: 25px;
   }
   .requirement-container-content-points-point {
-    width: 324px;
+    width: auto;
     height: auto;
     color: rgba(0, 0, 0, 0.6);
     font-size: 16px;

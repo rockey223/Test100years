@@ -75,9 +75,9 @@ const SingleVideo = ({ tooglePopup }) => {
             {/* <div className="singleTop-container-left-buybtn">$9.99 Buy Now</div> */}
 
             <FillButton
+            className={'singlePage-startBtn'}
               btnTxt="Start Learning"
-              width={"156px"}
-              height={"48px"}
+            
               disable={isloggedIn ? false : true}
               link={isloggedIn ? `/videoplayer/${_id}` : ""}
             />

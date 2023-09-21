@@ -11,7 +11,7 @@
   width: 45%;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 16px;
 }
 
 .top-container-left-level {
@@ -35,7 +35,11 @@
   line-height: 160%;
   letter-spacing: 0.24px;
 }
-
+.level-top-btn{
+  width:156px;
+  height:48px;
+  margin: 24px 0;
+}
 .top-container-right {
   width: 373px;
   height: auto;
