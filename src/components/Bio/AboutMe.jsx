@@ -6,6 +6,7 @@ import { useUser } from "../../contexts/userDetails/userContext";
 import { Link } from "react-router-dom";
 function AboutMe() {
   const { myInfo, initialName } = useUser();
+  
   return (
     <div className="profile-about-me-main-container">
       <div className="profile-about-me-user-name-container">
@@ -13,8 +14,12 @@ function AboutMe() {
           <div className="profile-about-me-circle-text">{initialName}</div>
         </div>
         <div className="profile-about-me-user-name-role-container">
-          <div className="profile-about-me-user-name-text"> {myInfo.userFullName}</div>
-          <div className="profile-about-me-role-text"> {myInfo.userOccupation}</div>
+          <div className="profile-about-me-user-name-text">
+            {myInfo.userFullName}
+          </div>
+          <div className="profile-about-me-role-text">
+            {myInfo.userOccupation}
+          </div>
         </div>
       </div>
       <div className="profile-about-me-text-main-container">
@@ -29,14 +34,30 @@ function AboutMe() {
         </div>
 
         <div className="profile-about-me-icon-container">
-          <Link>
-          <FaTwitter className="profile-about-me-icon" />
+          <Link
+            target="_blank"
+            to={`https://twitter.com/${myInfo.userSocialMediaLinks[1]}`}
+          >
+            <FaTwitter className="profile-about-me-icon" />
           </Link>
-          <Link to={"https://facebook.com/"}>
-          <FaFacebook className="profile-about-me-icon" />
+          <Link
+            target="_blank"
+            to={`https://facebook.com/${myInfo.userSocialMediaLinks[3]}`}
+          >
+            <FaFacebook className="profile-about-me-icon" />
           </Link>
-          <AiFillInstagram className="profile-about-me-icon" />
-          <FaYoutube className="profile-about-me-icon" />
+          <Link
+            target="_blank"
+            to={`https://instagram.com/${myInfo.userSocialMediaLinks[4]}`}
+          >
+            <AiFillInstagram className="profile-about-me-icon" />
+          </Link>
+          <Link
+            target="_blank"
+            to={`https://youtube.com/${myInfo.userSocialMediaLinks[2]}`}
+          >
+            <FaYoutube className="profile-about-me-icon" />
+          </Link>
         </div>
       </div>
     </div>

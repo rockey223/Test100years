@@ -10,7 +10,9 @@ const WhatYouGet = ({ levelDetails }) => {
         <div className="what-container-content">
           <div className="what-container-content-title">What You Will Get?</div>
           <div className="what-container-content-points">
-            {levelDetails.LevelwhatYouGet.map((lwyg, index) => {
+
+
+            { levelDetails.LevelwhatYouGet && levelDetails.LevelwhatYouGet.map((lwyg, index) => {
               return (
 
               <div className="what-container-content-points-point" key={index}>

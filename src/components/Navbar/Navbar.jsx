@@ -19,7 +19,7 @@ const Navbar = () => {
   }
 
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
- 
+
   useEffect(() => {
     const handleWindowResize = () => {
       setWindowWidth(() => window.innerWidth);
@@ -37,13 +37,13 @@ const Navbar = () => {
     <>
       <div
         className="navbar-container"
-        style={{ position: displayNav  && windowWidth < 780? "sticky" : "" }}
+        style={{ position: displayNav && windowWidth < 780 ? "sticky" : "" }}
       >
         <div className="navbar-container-content">
-          <Link to={'/'}>
-          <div className="navbar-logo">
-            <img src={logo} alt="" />
-          </div>
+          <Link to={"/"}>
+            <div className="navbar-logo">
+              <img src={logo} alt="" />
+            </div>
           </Link>
           <div className="navbar-container-links">
             <div className={`navbar-navlinks ${displayNav ? "display" : ""}`}>
@@ -57,31 +57,53 @@ const Navbar = () => {
                     Home
                   </NavLink>
                 </li>
-                <li onClick={() => {
+                <li className="dropbtn">
+                  
+                    Courses
+                    
+                  
+
+                  <div className="dropdown-content"  onClick={() => {
                     setDisplayNav((prev) => !prev);
                   }}>
-                  <NavLink className="navbar-navLinks-navLink" to={"/level/1"}>
-                    Course
-                  </NavLink>
+                    
+                    <NavLink to={"/level/1"}>
+                      Level 1
+                    </NavLink>
+                    <NavLink to={"/level/2"}>
+                      Level 2
+                    </NavLink>
+                    
+                  </div>
+                 
                 </li>
-                 <li onClick={() => {
+                <li
+                  onClick={() => {
                     setDisplayNav((prev) => !prev);
-                  }}>
+                  }}
+                >
                   <NavLink className="navbar-navLinks-navLink" to={"/upgrade"}>
                     upgrade
                   </NavLink>
                 </li>
-                <li onClick={() => {
+                <li
+                  onClick={() => {
                     setDisplayNav((prev) => !prev);
-                  }}>
+                  }}
+                >
                   <NavLink className="navbar-navLinks-navLink" to={"/blogs"}>
                     Blog
                   </NavLink>
                 </li>
-                <li onClick={() => {
+                <li
+                  onClick={() => {
                     setDisplayNav((prev) => !prev);
-                  }}>
-                  <NavLink className="navbar-navLinks-navLink" to={"/contactus"}>
+                  }}
+                >
+                  <NavLink
+                    className="navbar-navLinks-navLink"
+                    to={"/contactus"}
+                  >
                     Contact us
                   </NavLink>
                 </li>
@@ -113,22 +135,32 @@ const Navbar = () => {
                     </div>
                   </div>
                   <hr />
-                  <Link to={"/profile"} onClick={()=>{
-                    displayDropdown()
-                  }}>
+                  <Link
+                    to={"/profile"}
+                    onClick={() => {
+                      displayDropdown();
+                    }}
+                  >
                     <p>My Acocunt</p>
                   </Link>
-                  <Link to={"/profileBio"} onClick={()=>{
-                    displayDropdown()
-                  }}>
+                  <Link
+                    to={"/profileBio"}
+                    onClick={() => {
+                      displayDropdown();
+                    }}
+                  >
                     <p>My Profile</p>
                   </Link>
-                 
+
                   <p>Support</p>
-                  <p onClick={()=>{
-                    displayDropdown();
-                    Logout();
-                  }}>Logout</p>
+                  <p
+                    onClick={() => {
+                      displayDropdown();
+                      Logout();
+                    }}
+                  >
+                    Logout
+                  </p>
                 </div>
               </div>
             ) : (
@@ -136,10 +168,7 @@ const Navbar = () => {
                 {windowWidth < 450 ? (
                   <CgProfile className="LoginProfileIcon" />
                 ) : (
-                  <div className="navbar-login-btn">
-                    Login
-                   
-                  </div>
+                  <div className="navbar-login-btn">Login</div>
                 )}
               </NavLink>
             )}

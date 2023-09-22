@@ -14,6 +14,9 @@ import Landing from "./Home/Landing/Landing.jsx";
 import BlogSection from "./Home/BlogSection/BlogSection.jsx";
 import AboutSection from "./Home/AboutSection/AboutSection.jsx";
 
+
+
+
 const Home = ({ tooglePopup }) => {
   // useEffect(() => {
   //   axios
@@ -41,9 +44,7 @@ const Home = ({ tooglePopup }) => {
 
       <Landing />
 
-      <div className="aboutus-container">
-        <AboutSection />
-      </div>
+     
       {/* ******************************************************** */}
 
       {/* ******************************************************** */}
@@ -65,6 +66,11 @@ const Home = ({ tooglePopup }) => {
       <div className="HealthGuides">
         <HealthGuides open={tooglePopup} />
       </div>
+
+      <div className="aboutus-container">
+        <AboutSection />
+      </div>
+
 
       <div className="pricing-table-container">
         <div className="pricing-table-heading">
@@ -132,9 +138,9 @@ const Home = ({ tooglePopup }) => {
       <div className="Testinomial">
         <SlideBox />
       </div>
-      <div className="Achievement">
+      {/* <div className="Achievement">
         <Achievement />
-      </div>
+      </div> */}
     </>
   );
 };

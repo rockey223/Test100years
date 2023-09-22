@@ -9,7 +9,7 @@ function ProfileAboutMe({tooglePopup}) {
 
   const { level1Videos, level2Videos } = useVideo();
 
-  const allVideos = [...level1Videos,...level2Videos];
+  const allVideos = level1Videos.length> 0 & level2Videos.length> 0 ? [...level1Videos,...level2Videos] : 0;
  
 
   return (

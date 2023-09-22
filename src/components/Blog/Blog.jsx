@@ -16,7 +16,7 @@ const Blog = () => {
     categories,
   } = useBlog();
   const API = `${process.env.REACT_APP_API}/imageUploads`;
-// console.log(filter_blogs);
+  // console.log(filter_blogs);
   const getUniqueCat = (data, property) => {
     let newVal = data.map((curElem) => {
       return curElem[property];
@@ -65,10 +65,13 @@ const Blog = () => {
     }
   };
   function formatDate(dateString) {
-    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    const options = { year: "numeric", month: "long", day: "numeric" };
     return new Date(dateString).toLocaleDateString(undefined, options);
   }
- 
+  useEffect(() => {
+    const e = { target: { name: "companyBlogCategory", value: "All" } };
+    updateFilterValue(e);
+  }, []);
   return (
     <>
       <div className="singleblog-header">
@@ -141,10 +144,7 @@ const Blog = () => {
                       {blog.companyBlogTitle}
                     </div>
                     <div className="blog-section-content-createdDate">
-                      { formatDate(blog.createdDate)
-                      
-                      
-                      }
+                      {formatDate(blog.createdDate)}
                     </div>
                   </div>
                 </div>

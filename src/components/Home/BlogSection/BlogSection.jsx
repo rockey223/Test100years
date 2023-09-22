@@ -83,7 +83,7 @@ const BlogSection = () => {
       <div className="blog-section-title">
         Follow the <span>Trend</span> to change the life
       </div>
-      <hr className="blog-section-bar" />
+      {/* <hr className="blog-section-bar" /> */}
 
       <div className="blog-section-filter-btns">
         <div className={`blog-leftarrow ${leftActiveArrow && "active-arrow"}`}>

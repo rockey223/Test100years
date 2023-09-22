@@ -23,34 +23,30 @@ const Level1 = ({ tooglePopup, buyBanner, windowScroll }) => {
     
   }, []);
 
-  const [levelDetails, setLevelDetails] = useState(id === "1" ? levels[0] : levels[1]);
+  const [levelDetails, setLevelDetails] = useState({});
 
-  console.log(levels);
+  // console.log(levels);
 
   useEffect(() => {
-    console.log(id);
+    // console.log(id);
 
-    // if (id === "1") {
-    //   console.log(levels);
-    //   setLevelDetails(()=>{
-    //     return levels[0]
-    //   });
-    // } else {
-    //   setLevelDetails(()=>{
-    //    return levels[1]
-    //   });
-    // }
+    if (id === "1") {
+      // console.log(levels);
+      setLevelDetails(levels[0]);
+    } else {
+      setLevelDetails(levels[1]);
+    }
   }, [id]);
   
-  console.log(levelDetails.LevelwhatYouGet);
-  console.log(levelDetails);
+  // console.log(levelDetails);
+  // console.log(levelDetails.LevelwhatYouGet);
   return (
     <>
       <Top tooglePopup={tooglePopup} levelDetails={levelDetails} />
       <WhatYouGet levelDetails={levelDetails} />
       <Courses tooglePopup={tooglePopup} videos={videos} />
       {/* <RateUs/> */}
-      <BuyBanner buyBanner={buyBanner} windowScroll={windowScroll} />
+      <BuyBanner buyBanner={buyBanner} price={levelDetails.levelPrice} windowScroll={windowScroll} />
     </>
   );
 };
