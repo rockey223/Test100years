@@ -28,7 +28,7 @@ import SingleBlog from "./components/SingleBlog/SingleBlog";
 import Blog from "./components/Blog/Blog";
 
 
-import 'react-loading-skeleton/dist/skeleton.css'
+
 
 function App() {
   const { isloggedIn } = useUser();
