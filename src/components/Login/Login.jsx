@@ -98,7 +98,7 @@ const [InputType,icon] =Toggler();
               <div className="login-container-content-form-submitBtn" onClick={() => {
                   Login(
                    
-                    loginDetails.loginUsername,
+                    loginDetails.loginUsername.trim(),
                     loginDetails.loginPassword
                   );
                 }}>

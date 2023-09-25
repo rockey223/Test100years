@@ -35,6 +35,7 @@ const UserProvider = ({ children }) => {
 
   // Login Function
   function Login(email, password) {
+    console.log(email);
     // e.preventDefault();
     dispatch({ type: "SET_LOADING" });
     axios
@@ -53,7 +54,7 @@ const UserProvider = ({ children }) => {
           console.log(res.data);
 
           const user = res.data.user;
-          navigate(-1);
+          navigate("/");
           const userName = res.data.user.userFullName[0];
           dispatch({ type: "LOGIN", payload: { user, userName } });
         }
