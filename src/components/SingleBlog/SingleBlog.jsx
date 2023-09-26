@@ -14,7 +14,7 @@ const SingleBlog = () => {
       .get(`${APICall}/getOneCompanyBlog/${id}`)
       .then((res) => {
         const one = res.data.data;
-        // console.log(res.data.data);
+        console.log(res.data.data.companyBlogContent);
 
         const dateStr = one.createDate;
         const date = new Date(dateStr);
@@ -75,7 +75,10 @@ const SingleBlog = () => {
               {formatDate(date)}
             </div>
             <div className="singleblog-content-description">
+              <pre >
+
               {oneBlog.companyBlogContent}
+              </pre>
               {/* Being healthy should be part of your overall lifestyle. Living a healthy lifestyle can help prevent chronic diseases and long-term illnesses. Feeling good about yourself and taking care of your health are important for your self-esteem and self-image. Being healthy should be part of your overall lifestyle. Living a healthy lifestyle can help prevent chronic diseases and long-term illnesses. Feeling good about yourself and taking care of your health are important for your self-esteem and self-image. Being healthy should be part of your overall lifestyle. Living a healthy lifestyle can help prevent chronic diseases and long-term illnesses. Feeling good about yourself and taking care of your health are important for your self-esteem and self-image. */}
             </div>
 
@@ -95,7 +98,7 @@ const SingleBlog = () => {
                     />
                   </div>
                   }
-                  <p>{oneBlog.companyBlogSubtitleOneContent}</p>
+                  <pre>{oneBlog.companyBlogSubtitleOneContent}</pre>
                 </div>
               </div>
             )}
@@ -112,7 +115,7 @@ const SingleBlog = () => {
                       alt=""
                     />
                   </div>
-                  <p>{oneBlog.companyBlogSubtitleTwoContent}</p>
+                  <pre>{oneBlog.companyBlogSubtitleTwoContent}</pre>
                 </div>
               </div>
             )}

@@ -35,9 +35,10 @@ const UserProvider = ({ children }) => {
 
   // Login Function
   function Login(email, password) {
-    console.log(email);
+    console.log(API);
     // e.preventDefault();
     dispatch({ type: "SET_LOADING" });
+    
     axios
       .post(
         `${API}/userLogin`,

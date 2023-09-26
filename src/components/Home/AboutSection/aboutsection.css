@@ -1,7 +1,7 @@
 .about-section{
     width: 100%;
     height: auto;
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.60) 0%, rgba(0, 0, 0, 0.60) 100%), #01ACF1;
+   max-width: 1440px;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
