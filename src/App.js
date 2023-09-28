@@ -67,7 +67,11 @@ function App() {
         {isloggedIn ? (
           <Route path="/" element={<Home tooglePopup={tooglePopup} />} />
         ) : (
+          <>
+          
           <Route path="/" element={<Login />} />
+          <Route path="*" element={<Login />} />
+          </>
         )}
 
         <Route element={<Auth />}>
@@ -104,7 +108,7 @@ function App() {
           <Route path="/upgrade" element={<Upgrade />} />
           <Route path="/profile" element={<Account />} />
           <Route path="/contactus" element={<Contact />} />
-          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/checkout/:id" element={<Checkout />} />
           <Route path="/profileBio" element={<ProfileAboutMe  tooglePopup={tooglePopup}/>}/>
           {/* <Route path="*" element={<Login />} /> */}
           <Route path="/blogpost/:id" element={<SingleBlog/>}/>

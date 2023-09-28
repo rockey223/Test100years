@@ -9,7 +9,7 @@
 .loader span {
   width: 0.3em;
   height: 1em;
-  background-color: #c0c0c0;
+  background-color: #fff;
 }
 
 .loader span:nth-of-type(1) {

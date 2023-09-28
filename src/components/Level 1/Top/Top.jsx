@@ -7,7 +7,7 @@ import {TbArticle} from "react-icons/tb";
 import {BsFillCameraVideoFill} from "react-icons/bs";
 import {BiPodcast} from "react-icons/bi";
 import {SiBlogger} from "react-icons/si"
-const Top = ({tooglePopup,levelDetails}) => {
+const Top = ({tooglePopup,levelDetails,link}) => {
   var title = levelDetails.levelTitle;
   return (
     <>
@@ -22,7 +22,7 @@ const Top = ({tooglePopup,levelDetails}) => {
             {levelDetails.levelDesc}
           </div>
           {/* <div className="top-container-left-buybtn">$9.99 Buy Now</div> */}
-          <FillButton link={"/checkout"} btnTxt={`$${levelDetails.levelPrice} Buy Now`} width={'156px'} height={'48px'} />
+          <FillButton  link={`/checkout/${link}`} btnTxt={`$${levelDetails.levelPrice} Buy Now`} width={'156px'} height={'48px'} />
         </div>
         <div className="top-container-right">
           <div className="top-container-right-video-box">

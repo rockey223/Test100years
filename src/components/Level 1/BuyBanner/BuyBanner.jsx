@@ -1,7 +1,7 @@
 import React from "react";
 import { FillButton } from "../../Helpers/Buttons";
 import "./buybanner.css";
-const BuyBanner = ({buyBanner,windowScroll,price}) => {
+const BuyBanner = ({buyBanner,windowScroll,price,link}) => {
   return (
     <>
       <div className="buyBanner-container" style={
@@ -23,6 +23,7 @@ const BuyBanner = ({buyBanner,windowScroll,price}) => {
           </div>
           <div className="buyBanner-container-right">
             <FillButton
+            link={`/checkout/${link}`}
               btnTxt={`$${price} Buy Now`}
               height={"40px"}
               width={"150px"}
