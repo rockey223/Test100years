@@ -6,7 +6,7 @@ const initialState = {
     level1Videos: {},
     isLoading: false,
     level2Videos:{},
-    
+    featuredVideos: []
 }
 
 const API = `${process.env.REACT_APP_API}/api`;
@@ -42,9 +42,25 @@ const VideoProvider = ({children})=>{
             console.log(err);
         })
     }
+
+    function getFeaturedVideo () {
+        axios
+        .get(`${API}/getAllFeaturedCourseVideo`)
+        .then((res)=>{
+            // console.log(res.data.data);
+            const featuredvideos = res.data.data;
+            dispatch({type: "GET_FEATURED_VIDEOS" ,payload: {featuredvideos}})
+        })
+        .catch((err)=>{
+            console.log(err);
+        })
+    }
+
+
 useEffect(()=>{
     getLevel1Video();
     getLevel2Video();
+    getFeaturedVideo();
 },[])
 
     return(

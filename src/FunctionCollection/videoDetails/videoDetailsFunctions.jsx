@@ -15,6 +15,11 @@ const videoDetailsFunction = (state, action) => {
         
     }
 
+    case "GET_FEATURED_VIDEOS":
+      return{
+        ...state,
+        featuredVideos : action.payload.featuredvideos,
+      }
     case "SET_LOADING":
       return{
         ...state,

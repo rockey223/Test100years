@@ -103,7 +103,7 @@ const SingleBlog = () => {
               </div>
             )}
             {oneBlog.companyBlogSubtitleTwo && (
-              <div className="singleblog-content-subContent">
+              <div className="singleblog-content-subContent second-content">
                 <div className="singleblog-content-subContent-title">
                   {oneBlog.companyBlogSubtitleTwo}
                 </div>

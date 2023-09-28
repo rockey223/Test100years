@@ -13,11 +13,14 @@ import axios from "axios";
 import Landing from "./Home/Landing/Landing.jsx";
 import BlogSection from "./Home/BlogSection/BlogSection.jsx";
 import AboutSection from "./Home/AboutSection/AboutSection.jsx";
+import { useVideo } from "../contexts/VideoDetails/videoContext.jsx";
 
 
 
 
 const Home = ({ tooglePopup }) => {
+
+  const {featuredVideos} = useVideo();
   // useEffect(() => {
   //   axios
   //     .get("http://localhost:8000/api/getMyInfo", {
@@ -64,7 +67,10 @@ const Home = ({ tooglePopup }) => {
       </div>
 
       <div className="HealthGuides">
-        <HealthGuides open={tooglePopup} />
+{
+  featuredVideos.length >0 ? 
+  <HealthGuides open={tooglePopup} /> : null
+}
       </div>
 
       <div className="aboutus-container">

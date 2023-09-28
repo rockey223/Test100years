@@ -3,19 +3,21 @@ import "./videoCard.css";
 // import video from "./video.mp4";
 import { NavLink } from "react-router-dom";
 
-const VideoCard = ({ details, open }) => {
+const VideoCard = ({ videoItem, open }) => {
+
+  const API = `${process.env.REACT_APP_API}/mediaUploads/`
   // console.log(videoItem)
-  const { id, title, category, videTime, happy, thumbnail } = details;
+  const { _id, courseVideoTitle, courseVideoCategory, courseVideoDuration, courseVideoThumbnail } = videoItem;
   // console.log(details);
   return (
     <>
       <div className="videoCard-container">
         <div className="videoCard-container-thumbnail">
-          <img src={thumbnail} alt="" />
+          <img src={API + courseVideoThumbnail} alt="" />
           <div
             className="videoCard-container-thumbnail-playBtn"
             onClick={() => {
-              open(details, details.courseVideoTitle);
+              open({videoItem, courseVideoTitle});
             }}
           >
             <svg
@@ -37,23 +39,23 @@ const VideoCard = ({ details, open }) => {
             <p>Preview This Course</p>
           </div>
         </div>
-       <NavLink to={`/singlevideo/${id}`} className='videoCard-link'>
+       <NavLink to={`/singlevideo/${_id}`} className='videoCard-link'>
 
           <div className="videoCard-container-textContent" >
             <div className="videoCard-container-textContent-videoDetails">
               <div className="videoCard-container-textContent-videoDetails-category">
-                {category}
+                {courseVideoCategory}
               </div>
               <div className="videoCard-container-textContent-videoDetails-title">
-                {details.courseVideoTitle}
+                {courseVideoTitle}
               </div>
             </div>
             <div className="videoCard-container-textContent-bottom">
               <div className="videoCard-container-textContent-bottom-videoDuration">
-                {videTime}
+                {courseVideoDuration}
               </div>
               <div className="videoCard-container-textContent-bottom-numberOfLearners">
-                {happy} happy learner
+                20 happy learner
               </div>
             </div>
           </div>
