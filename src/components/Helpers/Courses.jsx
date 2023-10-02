@@ -1,29 +1,31 @@
 import React from "react";
 import "./courses.css";
-import { useState } from "react";
+// import { useState } from "react";
 import VideoBox from "./VideoBox";
-import Video from "../dummy/Video";
+// import Video from "../dummy/Video";
 import NotFound from "./NotFound";
 
 const Courses = ({ tooglePopup, videos }) => {
-  const [activeCoursenav, setActiveCourseNav] = useState("94px");
-  const [activeNav, setActiveNav] = useState("video");
+  //remove comment for animations of articals, podcasts, and bolg when navigated
+  // const [activeCoursenav, setActiveCourseNav] = useState("94px");
+  const activeNav = "video"
+  // const [activeNav, setActiveNav] = useState("video");
 
-  const changeActiveNav = (content) => {
-    if (content === "article") {
-      setActiveCourseNav("288px");
-      setActiveNav("article");
-    } else if (content === "podcast") {
-      setActiveCourseNav("500px");
-      setActiveNav("podcast");
-    } else if (content === "blog") {
-      setActiveCourseNav("690px");
-      setActiveNav("blog");
-    } else {
-      setActiveCourseNav("94px");
-      setActiveNav("video");
-    }
-  };
+  // const changeActiveNav = (content) => {
+  //   if (content === "article") {
+  //     setActiveCourseNav("288px");
+  //     setActiveNav("article");
+  //   } else if (content === "podcast") {
+  //     setActiveCourseNav("500px");
+  //     setActiveNav("podcast");
+  //   } else if (content === "blog") {
+  //     setActiveCourseNav("690px");
+  //     setActiveNav("blog");
+  //   } else {
+  //     setActiveCourseNav("94px");
+  //     setActiveNav("video");
+  //   }
+  // };
 
   return (
     <>
@@ -33,9 +35,9 @@ const Courses = ({ tooglePopup, videos }) => {
             className={`courses-container-nav-item ${
               activeNav === "video" ? "courses-container-nav-item-active" : null
             }`}
-            onClick={() => {
-              changeActiveNav("video");
-            }}
+            // onClick={() => {
+            //   changeActiveNav("video");
+            // }}
           >
             Videos
           </div>

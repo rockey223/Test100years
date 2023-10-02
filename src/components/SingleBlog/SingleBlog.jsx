@@ -9,41 +9,40 @@ const SingleBlog = () => {
   const { categories } = useBlog();
   const [oneBlog, setOneBlog] = useState();
   const [date, setDate] = useState();
-  const getOneBlog = (id) => {
-    axios
-      .get(`${APICall}/getOneCompanyBlog/${id}`)
-      .then((res) => {
-        const one = res.data.data;
-        console.log(res.data.data.companyBlogContent);
-
-        const dateStr = one.createDate;
-        const date = new Date(dateStr);
-        const options = {
-          timeZone: "Europe/London",
-          year: "numeric",
-          month: "2-digit",
-          day: "2-digit",
-          hour: "2-digit",
-          minute: "2-digit",
-        };
-        const nepalTime = date.toLocaleString("en-US", options);
-        const onlyDate = nepalTime.split(",")[0].trim();
-
-        setDate(onlyDate);
-
-        setOneBlog(res.data.data);
-        //   dispatch({type:"GET_ONE_BLOG", payload: {oneBlo}})
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    const getOneBlog = (id) => {
+      axios
+        .get(`${APICall}/getOneCompanyBlog/${id}`)
+        .then((res) => {
+          const one = res.data.data;
+          // console.log(res.data.data.companyBlogContent);
+
+          const dateStr = one.createDate;
+          const date = new Date(dateStr);
+          const options = {
+            timeZone: "Europe/London",
+            year: "numeric",
+            month: "2-digit",
+            day: "2-digit",
+            hour: "2-digit",
+            minute: "2-digit",
+          };
+          const nepalTime = date.toLocaleString("en-US", options);
+          const onlyDate = nepalTime.split(",")[0].trim();
+
+          setDate(onlyDate);
+
+          setOneBlog(res.data.data);
+          //   dispatch({type:"GET_ONE_BLOG", payload: {oneBlo}})
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    };
     getOneBlog(id);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [APICall, id]);
 
   // console.log(oneBlog);
   const category =
@@ -75,10 +74,7 @@ const SingleBlog = () => {
               {formatDate(date)}
             </div>
             <div className="singleblog-content-description">
-              <pre >
-
-              {oneBlog.companyBlogContent}
-              </pre>
+              <pre>{oneBlog.companyBlogContent}</pre>
               {/* Being healthy should be part of your overall lifestyle. Living a healthy lifestyle can help prevent chronic diseases and long-term illnesses. Feeling good about yourself and taking care of your health are important for your self-esteem and self-image. Being healthy should be part of your overall lifestyle. Living a healthy lifestyle can help prevent chronic diseases and long-term illnesses. Feeling good about yourself and taking care of your health are important for your self-esteem and self-image. Being healthy should be part of your overall lifestyle. Living a healthy lifestyle can help prevent chronic diseases and long-term illnesses. Feeling good about yourself and taking care of your health are important for your self-esteem and self-image. */}
             </div>
 
@@ -89,15 +85,14 @@ const SingleBlog = () => {
                 </div>
 
                 <div className="singleblog-content-subcontent-description">
-                  {
-                    oneBlog.companyBlogSubtitleOneImage &&
-                  <div className="singleblog-content-subContent-Image">
-                    <img
-                      src={API + "/" + oneBlog.companyBlogSubtitleOneImage}
-                      alt=""
-                    />
-                  </div>
-                  }
+                  {oneBlog.companyBlogSubtitleOneImage && (
+                    <div className="singleblog-content-subContent-Image">
+                      <img
+                        src={API + "/" + oneBlog.companyBlogSubtitleOneImage}
+                        alt=""
+                      />
+                    </div>
+                  )}
                   <pre>{oneBlog.companyBlogSubtitleOneContent}</pre>
                 </div>
               </div>

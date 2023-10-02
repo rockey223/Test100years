@@ -7,36 +7,28 @@ import { useParams } from "react-router-dom";
 
 import levels from "../dummy/levels";
 function Checkout() {
+  const { id } = useParams();
 
-  const {id} = useParams();
-  
-  console.log(id);
+  // console.log(id);
 
+  const [checkoutPrice, setCheckoutPrice] = useState();
 
-  const[checkoutPrice,setCheckoutPrice] = useState();
-
-  useEffect(()=>{
-
-if(id === "level1"){
-  setCheckoutPrice(levels[0].levelPrice)
-}else{
-  setCheckoutPrice(levels[1].levelPrice)
-
-}
+  useEffect(() => {
+    if (id === "level1") {
+      setCheckoutPrice(levels[0].levelPrice);
+    } else {
+      setCheckoutPrice(levels[1].levelPrice);
+    }
 
     window.scrollTo(0, 0);
-  },[]);
-
-  
-
-
+  }, [id]);
 
   return (
     <>
       <Header heading="Checkout" />
       <div className="checkout-botton-container">
         <CheckoutForm />
-        <SummaryPayment checkoutPrice={checkoutPrice}/>
+        <SummaryPayment checkoutPrice={checkoutPrice} />
       </div>
     </>
   );

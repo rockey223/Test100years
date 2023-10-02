@@ -2,7 +2,7 @@ import React from "react";
 import "./videoBox.css";
 import { Link } from "react-router-dom";
 import { FillButton } from "./Buttons";
-import Level1 from "../Level1";
+// import Level1 from "../Level1";
 
 const VideoBox = ({ video, tooglePopup }) => {
   // console.log(videoItem)
@@ -15,20 +15,11 @@ const VideoBox = ({ video, tooglePopup }) => {
         // console.log(videoItem);
 
         const {
-          courseVideoAboutThisCourse,
           courseVideoCategory,
-          courseVideoDescription,
           courseVideoDuration,
-          courseVideoInstructorImage,
-          courseVideoInstructorName,
-          courseVideoLevel,
-          courseVideoPreview,
-          courseVideoRequirements,
           courseVideoThumbnail,
           courseVideoTitle,
-          courseVideoWhatYouWillGet,
-          courseVideoWhoIsThisFor,
-          _id,
+          _id
         } = videoItem;
 
         // const { id, title, category, videTime, happy, thumbnail } = videoItem;

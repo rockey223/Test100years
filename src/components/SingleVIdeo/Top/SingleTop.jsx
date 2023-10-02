@@ -9,7 +9,7 @@ import { BiPodcast } from "react-icons/bi";
 import { SiBlogger } from "react-icons/si";
 // import SingleVideo from "../../SingleVideo";
 const SingleTop = ({ tooglePopup, videoDetails }) => {
-  console.log(videoDetails);
+  // console.log(videoDetails);
 
   return (
     <>

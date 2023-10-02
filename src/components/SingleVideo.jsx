@@ -43,13 +43,9 @@ const SingleVideo = ({ tooglePopup }) => {
 
   const {
     courseVideoAboutThisCourse,
-    courseVideoCategory,
     courseVideoDescription,
-    courseVideoDuration,
     courseVideoInstructorImage,
     courseVideoInstructorName,
-    courseVideoLevel,
-    courseVideoPreview,
     courseVideoRequirements,
     courseVideoThumbnail,
     courseVideoTitle,

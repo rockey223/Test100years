@@ -9,7 +9,7 @@ function ContactUsForm() {
     subject: "",
     message: ""
   });
-  const [showInfo, setShowInfo] = React.useState("");
+  
   function handleChange(event) {
     const { name, value } = event.target;
     setInfo((prevValue) => {
@@ -21,21 +21,7 @@ function ContactUsForm() {
   }
   function handleClick(event) {
     event.preventDefault();
-    setShowInfo(info);
-    alert(
-      "First Name" +
-        info.fname +
-        "\nLast Name" +
-        info.lname +
-        "\nEmail" +
-        info.email +
-        "\nNumber" +
-        info.number +
-        "\nSubject" +
-        info.subject +
-        "\nmessage" +
-        info.message
-    );
+    
   }
   // function validate() {
   //   var firstName = document.getElementById("contact-us-from-fname");

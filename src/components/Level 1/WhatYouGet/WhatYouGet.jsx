@@ -2,8 +2,8 @@ import React from "react";
 import { BsCheck2Circle } from "react-icons/bs";
 import "./whatyouget.css";
 const WhatYouGet = ({ levelDetails }) => {
-  console.log(levelDetails);
-  const { LevelwhatYouGet } = levelDetails;
+  // console.log(levelDetails);
+  // const { LevelwhatYouGet } = levelDetails;
   return (
     <>
       <div className="what-container">

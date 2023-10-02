@@ -1,27 +1,27 @@
 import React from "react";
-import video from "./video.mp4";
+// import video from "./video.mp4";
 import "./videopopup.css";
 import { CgClose } from "react-icons/cg";
 const VideoPopUp = ({ videoUrl, close, details, title }) => {
   // console.log(close)
   // console.log(details.video.title);
 console.log(details);
-const {
-  courseVideoAboutThisCourse,
-  courseVideoCategory,
-  courseVideoDescription,
-  courseVideoDuration,
-  courseVideoInstructorImage,
-  courseVideoInstructorName,
-  courseVideoLevel,
-  courseVideoPreview,
-  courseVideoRequirements,
-  courseVideoThumbnail,
-  courseVideoTitle,
-  courseVideoWhatYouWillGet,
-  courseVideoWhoIsThisFor,
-  _id,
-} = details;
+// const {
+//   courseVideoAboutThisCourse,
+//   courseVideoCategory,
+//   courseVideoDescription,
+//   courseVideoDuration,
+//   courseVideoInstructorImage,
+//   courseVideoInstructorName,
+//   courseVideoLevel,
+//   courseVideoPreview,
+//   courseVideoRequirements,
+//   courseVideoThumbnail,
+//   courseVideoTitle,
+//   courseVideoWhatYouWillGet,
+//   courseVideoWhoIsThisFor,
+//   _id,
+// } = details;
 
   const API = `${process.env.REACT_APP_API}/mediaUploads`;
   return (

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./navbar.css";
 import "../../responsive.css";
 import logo from "../../assets/images/logo.jpg";
@@ -14,8 +14,9 @@ const Navbar = () => {
   const { isloggedIn, myInfo, Logout, initialName } = useUser();
 
   const [isDropdown, setIsDropdown] = useState(false);
+
   function displayDropdown() {
-    setIsDropdown(!isDropdown);
+    setIsDropdown((prevValue) => !prevValue);
   }
 
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -33,6 +34,20 @@ const Navbar = () => {
   });
   // console.log(windowWidth);
   const [displayNav, setDisplayNav] = useState(false);
+
+  const profileRef = useRef();
+  useEffect(() => {
+    let handleClickOut = (e) => {
+      if (!profileRef.current.contains(e.target)) {
+        setIsDropdown(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOut);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOut);
+    };
+  });
   return (
     <>
       <div
@@ -58,24 +73,16 @@ const Navbar = () => {
                   </NavLink>
                 </li>
                 <li className="dropbtn">
-                  
-                    Courses
-                    
-                  
-
-                  <div className="dropdown-content"  onClick={() => {
-                    setDisplayNav((prev) => !prev);
-                  }}>
-                    
-                    <NavLink to={"/level/1"}>
-                      Level 1
-                    </NavLink>
-                    <NavLink to={"/level/2"}>
-                      Level 2
-                    </NavLink>
-                    
+                  Courses
+                  <div
+                    className="dropdown-content"
+                    onClick={() => {
+                      setDisplayNav((prev) => !prev);
+                    }}
+                  >
+                    <NavLink to={"/level/1"}>Level 1</NavLink>
+                    <NavLink to={"/level/2"}>Level 2</NavLink>
                   </div>
-                 
                 </li>
                 <li
                   onClick={() => {
@@ -109,8 +116,9 @@ const Navbar = () => {
                 </li>
               </ul>
             </div>
+
             {isloggedIn ? (
-              <div className="navbar-userProfile">
+              <div className="navbar-userProfile" ref={profileRef}>
                 <div
                   className="navbar-userProfile-profile"
                   onClick={() => {
@@ -140,6 +148,7 @@ const Navbar = () => {
                     onClick={() => {
                       displayDropdown();
                     }}
+                    id="profile-links"
                   >
                     <p>My Acocunt</p>
                   </Link>
@@ -148,6 +157,7 @@ const Navbar = () => {
                     onClick={() => {
                       displayDropdown();
                     }}
+                    id="profile-links"
                   >
                     <p>My Profile</p>
                   </Link>
@@ -158,6 +168,7 @@ const Navbar = () => {
                       displayDropdown();
                       Logout();
                     }}
+                    id="profile-links"
                   >
                     Logout
                   </p>

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import axios from "axios";
+// import axios from "axios";
 import { useBlog } from "../../contexts/BlogDetails/blogContext";
 import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 import { Link } from "react-router-dom";
@@ -11,7 +11,7 @@ const Blog = () => {
   const {
     filter_blogs,
     all_blogs,
-    filters: { text, companyBlogCategory },
+    // filters: { text, companyBlogCategory },
     updateFilterValue,
     categories,
   } = useBlog();
@@ -71,7 +71,7 @@ const Blog = () => {
   useEffect(() => {
     const e = { target: { name: "companyBlogCategory", value: "All" } };
     updateFilterValue(e);
-  }, []);
+  }, [updateFilterValue]);
   return (
     <>
       <div className="singleblog-header">
@@ -93,7 +93,7 @@ const Blog = () => {
           {blogCategories.map((blogCategory, index) => {
             const isActive = activeIndex === index;
             let categoryname;
-            if (blogCategory != "All") {
+            if (blogCategory !== "All") {
               categoryname = categories.find((cat) => blogCategory === cat._id);
             }
             return (

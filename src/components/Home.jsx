@@ -1,15 +1,15 @@
 // import React, { useState } from "react";
 import PriceTable from "./dummy/PriceTable.js";
 import PriceBox from "./Home/PriceBox/PriceBox";
-import Achievement from "./Home/Achievement/Achievement";
+// import Achievement from "./Home/Achievement/Achievement";
 import "../responsive.css";
-import MidBanner from "./Home/MIdBanner/MidBanner";
+// import MidBanner from "./Home/MIdBanner/MidBanner";
 import HealthGuides from "./Home/HealtGuides/HealthGuides.jsx";
 // import VideoPopUp from "./Helpers/VideoPopUp";
 // import Navbar from "./Navbar/Navbar.jsx";
 import SlideBox from "./Home/SlideBox/SlideBox.jsx";
 import { useEffect } from "react";
-import axios from "axios";
+// import axios from "axios";
 import Landing from "./Home/Landing/Landing.jsx";
 import BlogSection from "./Home/BlogSection/BlogSection.jsx";
 import AboutSection from "./Home/AboutSection/AboutSection.jsx";

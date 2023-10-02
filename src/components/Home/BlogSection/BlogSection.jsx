@@ -1,22 +1,21 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import "./blogsection.css";
 import { useBlog } from "../../../contexts/BlogDetails/blogContext";
 import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 import { Link } from "react-router-dom";
-import axios from "axios"
+// import axios from "axios";
 const BlogSection = () => {
-  
   const {
     filter_blogs,
     all_blogs,
-    filters: { text, companyBlogCategory },
+    // filters: { text, companyBlogCategory },
     updateFilterValue,
-    categories
+    categories,
   } = useBlog();
 
   // console.log(categories);
   const API = `${process.env.REACT_APP_API}/imageUploads`;
- 
+
   const getUniqueCat = (data, property) => {
     let newVal = data.map((curElem) => {
       return curElem[property];
@@ -70,13 +69,10 @@ const BlogSection = () => {
   //  console.log(btnList.scrollLeft)
   // },[])
 
-
-  
   function formatDate(dateString) {
-    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    const options = { year: "numeric", month: "long", day: "numeric" };
     return new Date(dateString).toLocaleDateString(undefined, options);
   }
-
 
   return (
     <>
@@ -97,14 +93,11 @@ const BlogSection = () => {
           {blogCategories.map((blogCategory, index) => {
             // console.log(blogCategory);
             const isActive = activeIndex === index;
-            let categoryname
-            if(blogCategory != "All"){
-
-               categoryname = categories.find((cat)=> blogCategory === cat._id)
+            let categoryname;
+            if (blogCategory !== "All") {
+              categoryname = categories.find((cat) => blogCategory === cat._id);
             }
 
-
-            
             return (
               <button
                 key={index}
@@ -119,12 +112,10 @@ const BlogSection = () => {
                 }}
                 value={blogCategory}
               >
-                {
-blogCategory === 'All' ?  "All" : categoryname.companyBlogCategoryName 
-
-
-                }
-                {/* {c} */}
+                {blogCategories && blogCategory === "All"
+                  ? "All"
+                  : categoryname.companyBlogCategoryName}
+         
               </button>
             );
           })}
@@ -140,7 +131,9 @@ blogCategory === 'All' ?  "All" : categoryname.companyBlogCategoryName
         <div className="blog-section-content">
           {filter_blogs.slice(0, 5).map((blog, index) => {
             // console.log(blog);
-            let category = categories.find((cat)=> blog.companyBlogCategory === cat._id)
+            let category = categories.find(
+              (cat) => blog.companyBlogCategory === cat._id
+            );
             return (
               <Link to={`/blogpost/${blog._id}`} key={index}>
                 <div className="blog-section-blogBox">
@@ -155,10 +148,7 @@ blogCategory === 'All' ?  "All" : categoryname.companyBlogCategoryName
                       {blog.companyBlogTitle}
                     </div>
                     <div className="blog-section-content-createdDate">
-                    { formatDate(blog.createdDate)
-                      
-                      
-                    }
+                      {formatDate(blog.createdDate)}
                     </div>
                   </div>
                 </div>
@@ -168,11 +158,11 @@ blogCategory === 'All' ?  "All" : categoryname.companyBlogCategoryName
 
           {filter_blogs.length > 4 && (
             <Link to="/blogs">
-            <div className="blog-section-blogBox">
-              <div className="blog-section-seeMore">
-                see More <BsChevronRight />
-              </div>
-              {/* <div className="blog-section-thumbnail">
+              <div className="blog-section-blogBox">
+                <div className="blog-section-seeMore">
+                  see More <BsChevronRight />
+                </div>
+                {/* <div className="blog-section-thumbnail">
         <img src="" alt="" />
       </div>
       <div className="blog-section-content-texts">
@@ -184,14 +174,15 @@ blogCategory === 'All' ?  "All" : categoryname.companyBlogCategoryName
          
         </div>
       </div> */}
-            </div>
+              </div>
             </Link>
           )}
         </div>
       </div>
       <Link to="/blogs" className="blog-section-seemore-btn">
-      
-        <div>See more <BsChevronRight /> </div>
+        <div>
+          See more <BsChevronRight />{" "}
+        </div>
       </Link>
     </>
   );

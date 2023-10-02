@@ -14,9 +14,9 @@ const API = `${process.env.REACT_APP_API}/api`;
 const VideoProvider = ({children})=>{
     const [state, dispatch] = useReducer(videoDetailsFunction, initialState);
 
-    function setLoading(){
-        dispatch({type: "SET_LOADING"})
-    }
+    // function setLoading(){
+    //     dispatch({type: "SET_LOADING"})
+    // }
 
     function getLevel1Video(){
         axios
@@ -24,6 +24,7 @@ const VideoProvider = ({children})=>{
         .then((res)=>{
             // console.log(res.data.data);
             const l1video = res.data.data
+           
             dispatch({type: "GET_LEVEL1_VIDEO", payload:{l1video}})
         })
         .catch((err)=>{

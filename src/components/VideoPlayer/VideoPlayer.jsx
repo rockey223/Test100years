@@ -1,27 +1,29 @@
-import React,{useEffect,useState} from "react";
-import video from "../dummy/video.mp4";
+import React, { useEffect, useState } from "react";
+
 import AboutThisCourse from "./AboutThisCourse/AboutThisCourse";
 import PlayerDesc from "./playerDesc/PlayerDesc";
 import Instructor from "./Instructor/Instructor";
 import { useParams } from "react-router-dom";
-import Video from '../dummy/Video';
-import './videoplayer.css'
+
+import "./videoplayer.css";
 import { useVideo } from "../../contexts/VideoDetails/videoContext";
 const VideoPlayer = () => {
   const API = `${process.env.REACT_APP_API}/mediaUploads`;
-  const { level1Videos,level2Videos } = useVideo();
+  const { level1Videos, level2Videos } = useVideo();
   // window.scrollTo(0, 0);
 
-  useEffect(()=>{
-
+  useEffect(() => {
     window.scrollTo(0, 0);
-  },[]);
-  const {id} = useParams();
+  }, []);
+  const { id } = useParams();
 
   const [videoDetails, setVideoDetails] = useState(null);
 
   useEffect(() => {
-    const allVideos = [...Object.values(level1Videos), ...Object.values(level2Videos)];
+    const allVideos = [
+      ...Object.values(level1Videos),
+      ...Object.values(level2Videos),
+    ];
     const selectedVideo = allVideos.find((video) => video._id === id);
     setVideoDetails(selectedVideo);
   }, [level1Videos, level2Videos, id]);
@@ -35,42 +37,29 @@ const VideoPlayer = () => {
   // console.log(typeof(allVideos));
   const {
     courseVideoAboutThisCourse,
-    courseVideoCategory,
     courseVideoDescription,
-    courseVideoDuration,
-    courseVideoInstructorImage,
-    courseVideoInstructorName,
-    courseVideoLevel,
     courseVideoPreview,
-    courseVideoRequirements,
-    courseVideoThumbnail,
-    courseVideoTitle,
-    courseVideoWhatYouWillGet,
-    courseVideoWhoIsThisFor,
-    _id
   } = videoDetails;
   return (
     <>
-
-{
-   <div className="videoplayer-container">
-        <div className="videoplayer-container-content">
-          <div className="videoplayer-container-content-Player">
-            <video controls>
-              <source src={API + "/" + courseVideoPreview } type="video/mp4" />
-            </video>
-          </div>
-          <div className="videoPlayer-desc-container">
-
-         <AboutThisCourse courseVideoAboutThisCourse={courseVideoAboutThisCourse}/>
-         <PlayerDesc courseVideoDescription={courseVideoDescription}/>
-         <Instructor videoDetails={videoDetails}/>
+      {
+        <div className="videoplayer-container">
+          <div className="videoplayer-container-content">
+            <div className="videoplayer-container-content-Player">
+              <video controls>
+                <source src={API + "/" + courseVideoPreview} type="video/mp4" />
+              </video>
+            </div>
+            <div className="videoPlayer-desc-container">
+              <AboutThisCourse
+                courseVideoAboutThisCourse={courseVideoAboutThisCourse}
+              />
+              <PlayerDesc courseVideoDescription={courseVideoDescription} />
+              <Instructor videoDetails={videoDetails} />
+            </div>
           </div>
         </div>
-      </div>
-}
-
-      
+      }
     </>
   );
 };
