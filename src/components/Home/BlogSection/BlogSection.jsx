@@ -1,20 +1,21 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./blogsection.css";
 import { useBlog } from "../../../contexts/BlogDetails/blogContext";
 import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 import { Link } from "react-router-dom";
-// import axios from "axios";
+import axios from "axios";
 const BlogSection = () => {
   const {
     filter_blogs,
     all_blogs,
-    // filters: { text, companyBlogCategory },
+    filters: { text, companyBlogCategory },
     updateFilterValue,
-    categories,
+    
   } = useBlog();
 
   // console.log(categories);
   const API = `${process.env.REACT_APP_API}/imageUploads`;
+  
 
   const getUniqueCat = (data, property) => {
     let newVal = data.map((curElem) => {
@@ -73,10 +74,33 @@ const BlogSection = () => {
     const options = { year: "numeric", month: "long", day: "numeric" };
     return new Date(dateString).toLocaleDateString(undefined, options);
   }
+ 
+  const [categories,setCategories] = useState([])
+  const getAllCategory = () => {
+    axios
+      .get(`${process.env.REACT_APP_API}/api/getAllCompanyBlogCategory`)
+      .then((res) => {
+        // console.log(res.data.data);
+        setCategories(res.data.data)
+      
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  useEffect(()=>{
+    getAllCategory();
+  },[])
+
+  useEffect(() => {
+    const e = { target: { name: "companyBlogCategory", value: "All" } };
+    updateFilterValue(e);
+  }, []);
 
   return (
-   
-      blogCategories && <>
+  
+       <>
       <div className="blog-section-title">
         Follow the <span>Trend</span> to change the life
       </div>
@@ -94,31 +118,33 @@ const BlogSection = () => {
           {blogCategories.map((blogCategory, index) => {
             // console.log(blogCategory);
             const isActive = activeIndex === index;
+            console.log(blogCategory);
+            console.log(categories);
             let categoryname;
             if (blogCategory !== "All") {
               categoryname = categories.find((cat) => blogCategory === cat._id);
+              console.log(categoryname);
+              
             }
 
             return (
              
               <button
-                key={index}
-                type="button"
-                name="companyBlogCategory"
-                className={`blog-section-btn ${
-                  isActive ? "blog-section-active" : ""
-                } `}
-                onClick={(e) => {
-                  updateFilterValue(e);
-                  handleButtonClick(index);
-                }}
-                value={blogCategory}
-              >
-                {blogCategories && blogCategory === "All"
-                  ? "All"
-                  : categoryname.companyBlogCategoryName}
-         
-              </button>
+              key={index}
+              type="button"
+              name="companyBlogCategory"
+              className={`blog-section-btn ${isActive ? "blog-section-active" : ""}`}
+              onClick={(e) => {
+                updateFilterValue(e);
+                handleButtonClick(index);
+              }}
+              value={blogCategory}
+            >
+              {blogCategory === "All"
+                ? "All"
+                : categoryname && categoryname.companyBlogCategoryName}
+            </button>
+            
             );
           })}
         </div>
@@ -144,7 +170,7 @@ const BlogSection = () => {
                   </div>
                   <div className="blog-section-content-texts">
                     <div className="blog-section-content-category">
-                      {category.companyBlogCategoryName}
+                      {category && category.companyBlogCategoryName}
                     </div>
                     <div className="blog-section-content-title">
                       {blog.companyBlogTitle}

@@ -35,19 +35,19 @@ const Navbar = () => {
   // console.log(windowWidth);
   const [displayNav, setDisplayNav] = useState(false);
 
-  const profileRef = useRef();
-  useEffect(() => {
-    let handleClickOut = (e) => {
-      if (!profileRef.current.contains(e.target)) {
-        setIsDropdown(false);
-      }
-    };
+  // const profileRef = useRef();
+  // useEffect(() => {
+  //   let handleClickOut = (e) => {
+  //     if (!profileRef.current.contains(e.target)) {
+  //       setIsDropdown(false);
+  //     }
+  //   };
 
-    document.addEventListener("mousedown", handleClickOut);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOut);
-    };
-  });
+  //   document.addEventListener("mousedown", handleClickOut);
+  //   return () => {
+  //     document.removeEventListener("mousedown", handleClickOut);
+  //   };
+  // });
   return (
     <>
       <div
@@ -118,7 +118,7 @@ const Navbar = () => {
             </div>
 
             {isloggedIn ? (
-              <div className="navbar-userProfile" ref={profileRef}>
+              <div className="navbar-userProfile" >
                 <div
                   className="navbar-userProfile-profile"
                   onClick={() => {

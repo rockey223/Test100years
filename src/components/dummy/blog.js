@@ -1,3 +1,5 @@
+import { BsFillBrightnessAltHighFill } from "react-icons/bs";
+
 const blogs =[
     {
         id:0,
@@ -80,3 +82,25 @@ const blogs =[
 
 
 export default blogs;
+
+
+
+// category: 
+// nutrition
+// fitness
+// meditation
+// yoga
+// running
+
+// -----------------------------------------------
+// All running yoga fitness
+// ----------------------------------------------
+
+
+// blogs
+// bolg === all all : 
+// All
+// running
+// running
+// yoga
+// fitness

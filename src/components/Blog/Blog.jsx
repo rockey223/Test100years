@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { useBlog } from "../../contexts/BlogDetails/blogContext";
 import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 import { Link } from "react-router-dom";
-
+import axios from "axios";
 const Blog = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -11,11 +11,32 @@ const Blog = () => {
   const {
     filter_blogs,
     all_blogs,
-    // filters: { text, companyBlogCategory },
+    filters: { text, companyBlogCategory },
     updateFilterValue,
-    categories,
+  
   } = useBlog();
   const API = `${process.env.REACT_APP_API}/imageUploads`;
+  
+  
+  const [categories,setCategories] = useState([])
+  const getAllCategory = () => {
+    axios
+    .get(`${process.env.REACT_APP_API}/api/getAllCompanyBlogCategory`)
+      .then((res) => {
+        // console.log(res.data.data);
+        setCategories(res.data.data)
+      
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  useEffect(()=>{
+    getAllCategory();
+  },[])
+
+
   // console.log(filter_blogs);
   const getUniqueCat = (data, property) => {
     let newVal = data.map((curElem) => {
@@ -71,7 +92,7 @@ const Blog = () => {
   useEffect(() => {
     const e = { target: { name: "companyBlogCategory", value: "All" } };
     updateFilterValue(e);
-  }, [updateFilterValue]);
+  }, []);
   return (
     <>
       <div className="singleblog-header">
@@ -112,7 +133,7 @@ const Blog = () => {
               >
                 {blogCategory === "All"
                   ? "All"
-                  : categoryname.companyBlogCategoryName}
+                  : categoryname && categoryname.companyBlogCategoryName}
               </button>
             );
           })}
@@ -138,7 +159,7 @@ const Blog = () => {
                   </div>
                   <div className="blog-section-content-texts">
                     <div className="blog-section-content-category">
-                      {category.companyBlogCategoryName}
+                    {category && category.companyBlogCategoryName}
                     </div>
                     <div className="blog-section-content-title">
                       {blog.companyBlogTitle}

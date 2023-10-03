@@ -14,9 +14,10 @@ const blogDetailsFunction = (state, action) => {
       case "GET_ALL_CATEGORY":
         const {allCategories} = action.payload
         // console.log(action.payload);
+        console.log(allCategories);
         return{
           ...state,
-          categories: [...allCategories]
+          categories: allCategories
         }
 
         case "GET_ONE_BLOG":
