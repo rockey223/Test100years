@@ -75,7 +75,8 @@ const BlogSection = () => {
   }
 
   return (
-    <>
+   
+      blogCategories && <>
       <div className="blog-section-title">
         Follow the <span>Trend</span> to change the life
       </div>
@@ -99,6 +100,7 @@ const BlogSection = () => {
             }
 
             return (
+             
               <button
                 key={index}
                 type="button"
@@ -185,6 +187,8 @@ const BlogSection = () => {
         </div>
       </Link>
     </>
+    
+    
   );
 };
 
