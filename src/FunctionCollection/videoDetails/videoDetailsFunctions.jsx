@@ -26,6 +26,12 @@ const videoDetailsFunction = (state, action) => {
         isLoading: true
       }
 
+      case "Change_Static":
+        return{
+          ...state,
+          isStatic: true
+        }
+
     default:
       return state;
   }

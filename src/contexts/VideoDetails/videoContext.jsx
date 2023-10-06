@@ -62,11 +62,11 @@ const VideoProvider = ({children})=>{
     }
 
     function changeIsStatic(){
-        state.isStatic= true;
+        dispatch({type: "Change_Static",})
     }
 
     function ChangefalseStatic(){
-        state.isStatic = false;
+        dispatch({type: "Change_Static",})
     }
 useEffect(()=>{
     getLevel1Video();

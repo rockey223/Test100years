@@ -46,7 +46,10 @@ const VideoPopUp = ({ videoUrl, close, details, title }) => {
                   Course preview
                 </div>
                 <div className="videoPopup-container-video-title">
-                  {details.courseVideoTitle}
+                  {
+                    isStatic === true? details.title :  details.courseVideoTitle
+                  }
+                 
                 </div>
               </div>
 
