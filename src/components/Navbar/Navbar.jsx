@@ -35,7 +35,7 @@ const Navbar = () => {
   // console.log(windowWidth);
   const [displayNav, setDisplayNav] = useState(false);
 
-  // const profileRef = useRef();
+  const profileRef = useRef();
   // useEffect(() => {
   //   let handleClickOut = (e) => {
   //     if (!profileRef.current.contains(e.target)) {
@@ -118,7 +118,7 @@ const Navbar = () => {
             </div>
 
             {isloggedIn ? (
-              <div className="navbar-userProfile" >
+              <div className="navbar-userProfile" ref={profileRef}>
                 <div
                   className="navbar-userProfile-profile"
                   onClick={() => {

@@ -43,7 +43,7 @@ const Level1 = ({ tooglePopup, buyBanner, windowScroll }) => {
   // console.log(levelDetails.LevelwhatYouGet);
   return (
     <>
-      <Top tooglePopup={tooglePopup}  video={video}  levelDetails={levelDetails} link={id==="1"? "level1" : "level2"} />
+      <Top tooglePopup={tooglePopup}  courseVideoPreview={video}  levelDetails={levelDetails} link={id==="1"? "level1" : "level2"} />
       <WhatYouGet levelDetails={levelDetails} />
       <Courses tooglePopup={tooglePopup} videos={videos} />
       {/* <RateUs/> */}

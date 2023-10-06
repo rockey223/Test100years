@@ -3,12 +3,13 @@ import "./videoBox.css";
 import { Link } from "react-router-dom";
 import { FillButton } from "./Buttons";
 // import Level1 from "../Level1";
-
+import { useVideo } from "../../contexts/VideoDetails/videoContext";
 const VideoBox = ({ video, tooglePopup }) => {
   // console.log(videoItem)
 
   // console.log(videoItem);
   const API = `${process.env.REACT_APP_API}/mediaUploads`;
+  const {ChangefalseStatic} = useVideo()
   return (
     <>
       {video.map((videoItem) => {
@@ -31,6 +32,7 @@ const VideoBox = ({ video, tooglePopup }) => {
               <div
                 className="VideoBox-container-thumbnail-playBtn"
                 onClick={() => {
+                  ChangefalseStatic();
                   tooglePopup({ videoItem, courseVideoTitle });
                 }}
               >

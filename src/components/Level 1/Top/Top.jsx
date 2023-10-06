@@ -11,6 +11,7 @@ import { useVideo } from "../../../contexts/VideoDetails/videoContext";
 const Top = ({ tooglePopup, levelDetails, link, video }) => {
   var title = levelDetails.levelTitle;
   const { changeIsStatic } = useVideo();
+  
   return (
     <>
       <div className="top-container">
