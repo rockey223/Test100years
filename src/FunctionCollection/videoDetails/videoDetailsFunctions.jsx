@@ -31,6 +31,11 @@ const videoDetailsFunction = (state, action) => {
           ...state,
           isStatic: true
         }
+      case "Change_Static_false":
+        return{
+          ...state,
+          isStatic: false
+        }
 
     default:
       return state;

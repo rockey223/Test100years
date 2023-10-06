@@ -66,7 +66,7 @@ const VideoProvider = ({children})=>{
     }
 
     function ChangefalseStatic(){
-        dispatch({type: "Change_Static",})
+        dispatch({type: "Change_Static_false",})
     }
 useEffect(()=>{
     getLevel1Video();
@@ -75,7 +75,7 @@ useEffect(()=>{
 },[isloggedIn])
 
     return(
-        <videoDetails.Provider value={{...state,changeIsStatic}}>
+        <videoDetails.Provider value={{...state,changeIsStatic, ChangefalseStatic}}>
             {children}
         </videoDetails.Provider>
     )
