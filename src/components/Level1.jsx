@@ -8,7 +8,7 @@ import Courses from "./Helpers/Courses";
 
 import { useVideo } from "../contexts/VideoDetails/videoContext";
 import { useParams } from "react-router-dom";
-
+import video from "./dummy/video.mp4";
 import levels from "./dummy/levels";
 
 const Level1 = ({ tooglePopup, buyBanner, windowScroll }) => {
@@ -43,7 +43,7 @@ const Level1 = ({ tooglePopup, buyBanner, windowScroll }) => {
   // console.log(levelDetails.LevelwhatYouGet);
   return (
     <>
-      <Top tooglePopup={tooglePopup} levelDetails={levelDetails} link={id==="1"? "level1" : "level2"} />
+      <Top tooglePopup={tooglePopup}  video={video}  levelDetails={levelDetails} link={id==="1"? "level1" : "level2"} />
       <WhatYouGet levelDetails={levelDetails} />
       <Courses tooglePopup={tooglePopup} videos={videos} />
       {/* <RateUs/> */}

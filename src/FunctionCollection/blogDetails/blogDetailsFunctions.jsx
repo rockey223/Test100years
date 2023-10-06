@@ -1,31 +1,28 @@
 const blogDetailsFunction = (state, action) => {
   let { all_blogs } = state;
   switch (action.type) {
-
-
     case "GET_All_BLOG":
-      const {finalDate} = action.payload
-      return{
+      const { finalDate } = action.payload;
+      return {
         ...state,
         all_blogs: [...finalDate],
         filter_blogs: [...finalDate],
-      }
+      };
 
-      case "GET_ALL_CATEGORY":
-        const {allCategories} = action.payload
-        // console.log(action.payload);
-        console.log(allCategories);
-        return{
-          ...state,
-          categories: allCategories
-        }
+    case "GET_ALL_CATEGORY":
+      const { allCategories } = action.payload;
+      // console.log(action.payload);
+      console.log(allCategories);
+      return {
+        ...state,
+        categories: allCategories,
+      };
 
-        case "GET_ONE_BLOG":
-         
-  return{
-    ...state,
-    oneBlog :action.payload
-  }
+    case "GET_ONE_BLOG":
+      return {
+        ...state,
+        oneBlog: action.payload,
+      };
     // case "LOAD_FILTER_BLOGS":
     //   return {
     //     ...state,
@@ -42,7 +39,6 @@ const blogDetailsFunction = (state, action) => {
       };
 
     case "FILTER_BLOGS":
-      
       let tempFilterBlog = all_blogs;
 
       const { companyBlogCategory } = state.filters;

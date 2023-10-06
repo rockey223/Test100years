@@ -1,17 +1,21 @@
 import { useContext,useEffect, useReducer,createContext } from "react";
 import videoDetailsFunction from "../../FunctionCollection/videoDetails/videoDetailsFunctions"
 import axios from "axios";
+import { useUser } from "../userDetails/userContext";
 const videoDetails = createContext();
 const initialState = {
     level1Videos: {},
     isLoading: false,
     level2Videos:{},
-    featuredVideos: []
+    featuredVideos: [],
+    isStatic: false
 }
 
 const API = `${process.env.REACT_APP_API}/api`;
 
+
 const VideoProvider = ({children})=>{
+    const {isloggedIn} = useUser();
     const [state, dispatch] = useReducer(videoDetailsFunction, initialState);
 
     // function setLoading(){
@@ -24,7 +28,7 @@ const VideoProvider = ({children})=>{
         .then((res)=>{
             // console.log(res.data.data);
             const l1video = res.data.data
-           
+           console.log("level 1");
             dispatch({type: "GET_LEVEL1_VIDEO", payload:{l1video}})
         })
         .catch((err)=>{
@@ -57,15 +61,18 @@ const VideoProvider = ({children})=>{
         })
     }
 
+    function changeIsStatic(){
+        state.isStatic= true;
+    }
 
 useEffect(()=>{
     getLevel1Video();
     getLevel2Video();
     getFeaturedVideo();
-},[])
+},[isloggedIn])
 
     return(
-        <videoDetails.Provider value={{...state}}>
+        <videoDetails.Provider value={{...state,changeIsStatic}}>
             {children}
         </videoDetails.Provider>
     )

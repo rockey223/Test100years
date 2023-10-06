@@ -8,7 +8,6 @@ const initialState = {
   all_blogs: [],
   filters: {
     companyBlogCategory: "All",
-    
   },
   categories: [],
 };

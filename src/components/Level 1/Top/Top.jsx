@@ -1,28 +1,36 @@
 // import React, { useState } from "react";
 // import VideoPopUp from "../../Helpers/VideoPopUp";
-import video from "../../Home/HealtGuides/video.mp4";
+// import video from "../../Home/HealtGuides/video.mp4";
 import "./top.css";
-import { FillButton} from "../../Helpers/Buttons";
-import {TbArticle} from "react-icons/tb";
-import {BsFillCameraVideoFill} from "react-icons/bs";
-import {BiPodcast} from "react-icons/bi";
-import {SiBlogger} from "react-icons/si"
-const Top = ({tooglePopup,levelDetails,link}) => {
+import { FillButton } from "../../Helpers/Buttons";
+import { TbArticle } from "react-icons/tb";
+import { BsFillCameraVideoFill } from "react-icons/bs";
+import { BiPodcast } from "react-icons/bi";
+import { SiBlogger } from "react-icons/si";
+import { useVideo } from "../../../contexts/VideoDetails/videoContext";
+const Top = ({ tooglePopup, levelDetails, link, video }) => {
   var title = levelDetails.levelTitle;
+  const { changeIsStatic } = useVideo();
   return (
     <>
-      
       <div className="top-container">
         <div className="top-container-left">
-          <div className="top-container-left-level">{levelDetails.levelName}</div>
+          <div className="top-container-left-level">
+            {levelDetails.levelName}
+          </div>
           <div className="top-container-left-title">
-          {levelDetails.levelTitle}
+            {levelDetails.levelTitle}
           </div>
           <div className="top-container-left-description">
             {levelDetails.levelDesc}
           </div>
           {/* <div className="top-container-left-buybtn">$9.99 Buy Now</div> */}
-          <FillButton  link={`/checkout/${link}`} btnTxt={`$${levelDetails.levelPrice} Buy Now`} width={'156px'} height={'48px'} />
+          <FillButton
+            link={`/checkout/${link}`}
+            btnTxt={`$${levelDetails.levelPrice} Buy Now`}
+            width={"156px"}
+            height={"48px"}
+          />
         </div>
         <div className="top-container-right">
           <div className="top-container-right-video-box">
@@ -34,7 +42,8 @@ const Top = ({tooglePopup,levelDetails,link}) => {
               <div
                 className="top-container-right-video-box-thumbnail-playBtn"
                 onClick={() => {
-                  tooglePopup({video,title});
+                  changeIsStatic();
+                  tooglePopup({ video, title });
                 }}
               >
                 <svg
@@ -67,11 +76,21 @@ const Top = ({tooglePopup,levelDetails,link}) => {
             </div>
             <ul>
               <li>
-                <TbArticle className="top-container-right-video-box-icon"/>
-                Article</li>
-              <li><BsFillCameraVideoFill className="top-container-right-video-box-icon"/>Video</li>
-              <li><BiPodcast className="top-container-right-video-box-icon"/> Podcast</li>
-              <li><SiBlogger className="top-container-right-video-box-icon"/> Customer Experience</li>
+                <TbArticle className="top-container-right-video-box-icon" />
+                Article
+              </li>
+              <li>
+                <BsFillCameraVideoFill className="top-container-right-video-box-icon" />
+                Video
+              </li>
+              <li>
+                <BiPodcast className="top-container-right-video-box-icon" />{" "}
+                Podcast
+              </li>
+              <li>
+                <SiBlogger className="top-container-right-video-box-icon" />{" "}
+                Customer Experience
+              </li>
             </ul>
           </div>
         </div>

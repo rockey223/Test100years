@@ -118,12 +118,12 @@ const BlogSection = () => {
           {blogCategories.map((blogCategory, index) => {
             // console.log(blogCategory);
             const isActive = activeIndex === index;
-            console.log(blogCategory);
-            console.log(categories);
+            // console.log(blogCategory);
+            // console.log(categories);
             let categoryname;
             if (blogCategory !== "All") {
               categoryname = categories.find((cat) => blogCategory === cat._id);
-              console.log(categoryname);
+              // console.log(categoryname);
               
             }
 
