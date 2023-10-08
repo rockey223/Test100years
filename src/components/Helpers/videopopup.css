@@ -21,7 +21,8 @@
   .videoPopUp{
     /* display: none; */
     position: fixed;
-    width: 712px;
+    max-width: 712px;
+    width: 95%;
     height: auto;
     /* left: 219px; */
     left: 50%;
@@ -39,6 +40,7 @@
     justify-content: center;
     align-items: center;
     padding: 20px;
+    /* width:80% */
 }
 .videoPopup-container-close{
     color: white;
