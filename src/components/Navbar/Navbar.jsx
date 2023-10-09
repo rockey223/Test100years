@@ -54,17 +54,17 @@ const Navbar = () => {
       if (profileRef.current && !profileRef.current.contains(event.target)) {
         setIsDropdown(false);
       }
-    };
-
+    }
+  
     document.addEventListener("mousedown", handler);
     document.addEventListener("touchstart", handler);
-
+    
     return () => {
-      document.removeEventListener("mousedown", handler);
+      document.removeEventListener('mousedown', handler);
       document.removeEventListener("touchstart", handler);
-    };
+    }
   }, [profileRef]);
-
+  
   return (
     <>
       <div
@@ -206,24 +206,8 @@ const Navbar = () => {
                 setDisplayNav((prev) => !prev);
               }}
             >
-              {/* {displayNav ? <GoX /> : <GiHamburgerMenu />} */}
-
-              <input
-                type="checkbox"
-                id="checkbox3"
-                class="checkbox3 visuallyHidden"
-                onClick={() => {
-                  setDisplayNav((prev) => !prev);
-                }}
-              />
-              <label for="checkbox3">
-                <div class="hamburger hamburger3">
-                  <span class="bar bar1"></span>
-                  {/* <span class="bar bar2"></span> */}
-                  <span class="bar bar3"></span>
-                  <span class="bar bar4"></span>
-                </div>
-              </label>
+              {displayNav ? <GoX /> : <GiHamburgerMenu />}
+             
             </div>
           </div>
         </div>
