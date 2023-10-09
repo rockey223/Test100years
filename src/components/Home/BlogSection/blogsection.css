@@ -254,6 +254,7 @@
   }
   .blog-section-content {
     width: 95%;
+    justify-content: center;
   }
 
 }
@@ -285,4 +286,19 @@
   .blog-section-filter-btns{
     max-width: 85%;
   }
+  .blog-section-content a {
+    width: 95%;
+    
+  }
+  .blog-section-blogBox{
+    width:100%;
+  }
+  .blog-section-content-texts{
+    width: calc(100% - 20px);
+    margin: 10px 0 0 10px;
+  }
+.blog-section-content-title{
+width: auto;
+}
+
 }

@@ -8,6 +8,7 @@ const Blog = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
   const {
     filter_blogs,
     all_blogs,
@@ -64,6 +65,8 @@ const Blog = () => {
       setRightActiveArrow(true);
     }
   };
+
+
   function formatDate(dateString) {
     const options = { year: "numeric", month: "long", day: "numeric" };
     return new Date(dateString).toLocaleDateString(undefined, options);
@@ -71,7 +74,7 @@ const Blog = () => {
   useEffect(() => {
     const e = { target: { name: "companyBlogCategory", value: "All" } };
     updateFilterValue(e);
-  }, [updateFilterValue]);
+  }, []);
   return (
     <>
       <div className="singleblog-header">

@@ -35,7 +35,7 @@ const Navbar = () => {
   // console.log(windowWidth);
   const [displayNav, setDisplayNav] = useState(false);
 
-  const profileRef = useRef();
+  const profileRef = useRef(null);
   // useEffect(() => {
   //   let handleClickOut = (e) => {
   //     if (!profileRef.current.contains(e.target)) {
@@ -48,6 +48,23 @@ const Navbar = () => {
   //     document.removeEventListener("mousedown", handleClickOut);
   //   };
   // });
+
+  useEffect(() => {
+    let handler = (event) => {
+      if (profileRef.current && !profileRef.current.contains(event.target)) {
+        setIsDropdown(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handler);
+    document.addEventListener("touchstart", handler);
+
+    return () => {
+      document.removeEventListener("mousedown", handler);
+      document.removeEventListener("touchstart", handler);
+    };
+  }, [profileRef]);
+
   return (
     <>
       <div
@@ -84,7 +101,7 @@ const Navbar = () => {
                     <NavLink to={"/level/2"}>Level 2</NavLink>
                   </div>
                 </li>
-                <li
+                {/* <li
                   onClick={() => {
                     setDisplayNav((prev) => !prev);
                   }}
@@ -92,7 +109,7 @@ const Navbar = () => {
                   <NavLink className="navbar-navLinks-navLink" to={"/upgrade"}>
                     upgrade
                   </NavLink>
-                </li>
+                </li> */}
                 <li
                   onClick={() => {
                     setDisplayNav((prev) => !prev);
@@ -189,7 +206,24 @@ const Navbar = () => {
                 setDisplayNav((prev) => !prev);
               }}
             >
-              {displayNav ? <GoX /> : <GiHamburgerMenu />}
+              {/* {displayNav ? <GoX /> : <GiHamburgerMenu />} */}
+
+              <input
+                type="checkbox"
+                id="checkbox3"
+                class="checkbox3 visuallyHidden"
+                onClick={() => {
+                  setDisplayNav((prev) => !prev);
+                }}
+              />
+              <label for="checkbox3">
+                <div class="hamburger hamburger3">
+                  <span class="bar bar1"></span>
+                  {/* <span class="bar bar2"></span> */}
+                  <span class="bar bar3"></span>
+                  <span class="bar bar4"></span>
+                </div>
+              </label>
             </div>
           </div>
         </div>

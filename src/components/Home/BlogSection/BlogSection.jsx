@@ -181,11 +181,11 @@ const BlogSection = () => {
           )}
         </div>
       </div>
-      <Link to="/blogs" className="blog-section-seemore-btn">
+      {/* <Link to="/blogs" className="blog-section-seemore-btn">
         <div>
           See more <BsChevronRight />{" "}
         </div>
-      </Link>
+      </Link> */}
     </>
     
     
