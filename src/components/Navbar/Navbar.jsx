@@ -57,10 +57,12 @@ const Navbar = () => {
     }
   
     document.addEventListener("mousedown", handler);
+    document.addEventListener("scroll", handler);
     document.addEventListener("touchstart", handler);
     
     return () => {
       document.removeEventListener('mousedown', handler);
+      document.removeEventListener("scroll", handler);
       document.removeEventListener("touchstart", handler);
     }
   }, [profileRef]);
@@ -179,7 +181,7 @@ const Navbar = () => {
                     <p>My Profile</p>
                   </Link>
 
-                  <p>Support</p>
+                  {/* <p>Support</p> */}
                   <p
                     onClick={() => {
                       displayDropdown();

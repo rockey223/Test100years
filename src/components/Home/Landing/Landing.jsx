@@ -4,9 +4,12 @@ import "./landing.css";
 import video from "../../dummy/video.mp4"
 
 const Landing = () => {
+  const handleContextMenu = (e) => {
+    e.preventDefault(); // Prevent the default context menu
+  };
   return (
     <>
-      <div className="landing-container">
+      <div className="landing-container" contextmenu={handleContextMenu}>
         <div className="landing-container-video">
           <video src={video} autoPlay loop muted></video>
           <div className="landing-container-content">
