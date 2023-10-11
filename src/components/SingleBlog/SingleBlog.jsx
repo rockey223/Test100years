@@ -65,7 +65,7 @@ const SingleBlog = () => {
 
           <div className="singleblog-content">
             <div className="singleblog-content-category">
-              {category.companyBlogCategoryName}
+              {category && category.companyBlogCategoryName}
             </div>
             <div className="singleblog-content-title">
               {oneBlog.companyBlogTitle}
