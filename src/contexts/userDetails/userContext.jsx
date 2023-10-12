@@ -13,6 +13,7 @@ const initialState = {
   initialName: "",
   isLoading: false,
 };
+
 const API = `${process.env.REACT_APP_API}/api`;
 const UserProvider = ({ children }) => {
   const navigate = useNavigate();
@@ -38,7 +39,7 @@ const UserProvider = ({ children }) => {
     console.log(API);
     // e.preventDefault();
     dispatch({ type: "SET_LOADING" });
-    
+
     axios
       .post(
         `${API}/userLogin`,
@@ -141,10 +142,8 @@ const UserProvider = ({ children }) => {
           position: toast.POSITION.TOP_RIGHT,
         });
         getUserDetails();
-       
       })
       .catch((err) => {
-        
         if (!err.response) {
           toast.error(err.message, {});
         } else {
@@ -157,7 +156,7 @@ const UserProvider = ({ children }) => {
   }
 
   //change password
-  function ChangePassword(password,setPasswords) {
+  function ChangePassword(password, setPasswords) {
     dispatch({ type: "SET_LOADING" });
     axios
       .put(`${API}/changeUserPassword`, password, { withCredentials: true })
@@ -165,8 +164,8 @@ const UserProvider = ({ children }) => {
         setPasswords({
           oldUserPassword: "",
           newUserPassword: "",
-          confirmUserPassword: ""
-        })
+          confirmUserPassword: "",
+        });
         toast.success(res.data.message, {
           position: toast.POSITION.TOP_RIGHT,
         });
@@ -188,9 +187,10 @@ const UserProvider = ({ children }) => {
 
   // Logout function
   function Logout() {
-    axios(`${API}/userLogout`, {
-      withCredentials: true,
-    })
+    axios
+      .get(`${API}/userLogout`, {
+        withCredentials: true,
+      })
       .then((res) => {
         console.log(res);
         dispatch({ type: "LOGOUT", payload: {} });
