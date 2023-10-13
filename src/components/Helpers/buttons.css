@@ -59,3 +59,8 @@
   transition: 0.3s;
   color: white;
 }
+
+
+.disable-startlearning{
+  background-color: grey;
+}

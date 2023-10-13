@@ -4,7 +4,9 @@ import { Link } from "react-router-dom";
 import { FillButton } from "./Buttons";
 // import Level1 from "../Level1";
 import { useVideo } from "../../contexts/VideoDetails/videoContext";
+import { useUser } from "../../contexts/userDetails/userContext";
 const VideoBox = ({ video, tooglePopup }) => {
+  const {isloggedIn} = useUser()
   // console.log(videoItem)
 
   // console.log(videoItem);
@@ -76,8 +78,9 @@ const VideoBox = ({ video, tooglePopup }) => {
             </div>
             <div className="VideoBox-container-button">
               <FillButton
-              link={`/videoplayer/${_id}`}
-              className={"startLearning"}
+              
+              link={`${isloggedIn ?  `/videoplayer/${_id}` : ""}`}
+              className={`startLearning ${isloggedIn ? "" : 'disable-startlearning'}`}
                 btnTxt={"Start Learning"}
                 // height={"50px"}
                 // width={"186px"}

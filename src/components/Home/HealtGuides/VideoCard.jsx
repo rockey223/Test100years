@@ -1,7 +1,7 @@
 import React from "react";
 import "./videoCard.css";
 // import video from "./video.mp4";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const VideoCard = ({ videoItem, open }) => {
 
@@ -39,7 +39,7 @@ const VideoCard = ({ videoItem, open }) => {
             <p>Preview This Course</p>
           </div>
         </div>
-       <NavLink to={`/singlevideo/${_id}`} className='videoCard-link'>
+       <Link to={`/singlevideo/${_id}`} className='videoCard-link'>
 
           <div className="videoCard-container-textContent" >
             <div className="videoCard-container-textContent-videoDetails">
@@ -59,7 +59,7 @@ const VideoCard = ({ videoItem, open }) => {
               </div>
             </div>
           </div>
-          </NavLink>
+          </Link>
        
       </div>
     </>

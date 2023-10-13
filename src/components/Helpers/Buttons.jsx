@@ -16,8 +16,8 @@ const OutLineButton = ({ btnTxt, width, height, className }) => {
 const FillButton = ({ btnTxt, width, height, disable, className, link }) => {
   return (
     <>
-      <Link
-        to={link}
+      <Link  
+        to={link === null ? null : link}
         style={{ display: "block", width: width, height: height }}
       >
         <div
