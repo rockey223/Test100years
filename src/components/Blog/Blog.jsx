@@ -14,7 +14,6 @@ const Blog = () => {
     all_blogs,
     // filters: { text, companyBlogCategory },
     updateFilterValue,
-    categories,
   } = useBlog();
   const API = `${process.env.REACT_APP_API}/imageUploads`;
   // console.log(filter_blogs);
@@ -26,7 +25,7 @@ const Blog = () => {
     return (newVal = ["All", ...new Set(newVal)]);
   };
 
-  const blogCategories = getUniqueCat(all_blogs, "companyBlogCategory");
+  const blogCategories = getUniqueCat(all_blogs, "companyBlogCategoryName");
 
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -72,7 +71,7 @@ const Blog = () => {
     return new Date(dateString).toLocaleDateString(undefined, options);
   }
   useEffect(() => {
-    const e = { target: { name: "companyBlogCategory", value: "All" } };
+    const e = { target: { name: "companyBlogCategoryName", value: "All" } };
     updateFilterValue(e);
   }, []);
   return (
@@ -95,15 +94,15 @@ const Blog = () => {
         >
           {blogCategories.map((blogCategory, index) => {
             const isActive = activeIndex === index;
-            let categoryname;
-            if (blogCategory !== "All") {
-              categoryname = categories.find((cat) => blogCategory === cat._id);
-            }
+            // let categoryname;
+            // if (blogCategory !== "All") {
+            //   categoryname = categories.find((cat) => blogCategory === cat._id);
+            // }
             return (
               <button
                 key={index}
                 type="button"
-                name="companyBlogCategory"
+                name="companyBlogCategoryName"
                 className={`blog-section-btn ${
                   isActive ? "blog-section-active" : ""
                 } `}
@@ -113,9 +112,9 @@ const Blog = () => {
                 }}
                 value={blogCategory}
               >
-                {blogCategory === "All"
+                {blogCategories && blogCategory === "All"
                   ? "All"
-                  : categoryname.companyBlogCategoryName}
+                  : blogCategory}
               </button>
             );
           })}
@@ -130,9 +129,9 @@ const Blog = () => {
       <div className="blog-section-contents">
         <div className="blog-section-content">
           {filter_blogs.map((blog, index) => {
-            let category = categories.find(
-              (cat) => blog.companyBlogCategory === cat._id
-            );
+            // let category = categories.find(
+            //   (cat) => blog.companyBlogCategory === cat._id
+            // );
             return (
               <Link to={`/blogpost/${blog._id}`}>
                 <div key={index} className="blog-section-blogBox">
@@ -141,7 +140,7 @@ const Blog = () => {
                   </div>
                   <div className="blog-section-content-texts">
                     <div className="blog-section-content-category">
-                      {category.companyBlogCategoryName}
+                    {blog.companyBlogCategoryName}
                     </div>
                     <div className="blog-section-content-title">
                       {blog.companyBlogTitle}

@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import "./blogsection.css";
 import { useBlog } from "../../../contexts/BlogDetails/blogContext";
 import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
@@ -10,10 +10,12 @@ const BlogSection = () => {
     all_blogs,
     // filters: { text, companyBlogCategory },
     updateFilterValue,
-    categories,
   } = useBlog();
-
-  // console.log(categories);
+  useEffect(() => {
+    const e = { target: { name: "companyBlogCategoryName", value: "All" } };
+    updateFilterValue(e);
+  }, []);
+  // console.log(filter_blogs);
   const API = `${process.env.REACT_APP_API}/imageUploads`;
 
   const getUniqueCat = (data, property) => {
@@ -24,7 +26,7 @@ const BlogSection = () => {
     return (newVal = ["All", ...new Set(newVal)]);
   };
 
-  const blogCategories = getUniqueCat(all_blogs, "companyBlogCategory");
+  const blogCategories = getUniqueCat(all_blogs, "companyBlogCategoryName");
 
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -75,96 +77,99 @@ const BlogSection = () => {
   }
 
   return (
-   
-      blogCategories && <>
-      <div className="blog-section-title">
-        Follow the <span>Trend</span> to change the life
-      </div>
-      {/* <hr className="blog-section-bar" /> */}
-
-      <div className="blog-section-filter-btns">
-        <div className={`blog-leftarrow ${leftActiveArrow && "active-arrow"}`}>
-          <BsChevronLeft className="blog-arrows" onClick={leftArrowHandler} />
+    blogCategories && (
+      <>
+        <div className="blog-section-title">
+          Follow the <span>Trend</span> to change the life
         </div>
-        <div
-          ref={btnListRef}
-          className="blog-section-filter-btn"
-          onScroll={manageScrollIcons}
-        >
-          {blogCategories.map((blogCategory, index) => {
-            // console.log(blogCategory);
-            const isActive = activeIndex === index;
-            let categoryname;
-            if (blogCategory !== "All") {
-              categoryname = categories.find((cat) => blogCategory === cat._id);
-            }
+        {/* <hr className="blog-section-bar" /> */}
 
-            return (
-             
-              <button
-                key={index}
-                type="button"
-                name="companyBlogCategory"
-                className={`blog-section-btn ${
-                  isActive ? "blog-section-active" : ""
-                } `}
-                onClick={(e) => {
-                  updateFilterValue(e);
-                  handleButtonClick(index);
-                }}
-                value={blogCategory}
-              >
-                {blogCategories && blogCategory === "All"
-                  ? "All"
-                  : categoryname.companyBlogCategoryName}
-         
-              </button>
-            );
-          })}
-        </div>
-        <div
-          className={`blog-rightarrow ${rightActiveArrow && "active-arrow"} `}
-        >
-          <BsChevronRight className="blog-arrows" onClick={rightArrowHandler} />
-        </div>
-      </div>
+        <div className="blog-section-filter-btns">
+          <div
+            className={`blog-leftarrow ${leftActiveArrow && "active-arrow"}`}
+          >
+            <BsChevronLeft className="blog-arrows" onClick={leftArrowHandler} />
+          </div>
+          <div
+            ref={btnListRef}
+            className="blog-section-filter-btn"
+            onScroll={manageScrollIcons}
+          >
+            {blogCategories.map((blogCategory, index) => {
+              // console.log(blogCategory);
+              const isActive = activeIndex === index;
+              // let categoryname;
+              // if (blogCategory !== "All") {
+              //   categoryname = categories.find((cat) => blogCategory === cat._id);
+              // }
 
-      <div className="blog-section-contents">
-        <div className="blog-section-content">
-          {filter_blogs.slice(0, 5).map((blog, index) => {
-            // console.log(blog);
-            let category = categories.find(
-              (cat) => blog.companyBlogCategory === cat._id
-            );
-            return (
-              <Link to={`/blogpost/${blog._id}`} key={index}>
+              return (
+                <button
+                  key={index}
+                  type="button"
+                  name="companyBlogCategoryName"
+                  className={`blog-section-btn ${
+                    isActive ? "blog-section-active" : ""
+                  } `}
+                  onClick={(e) => {
+                    updateFilterValue(e);
+                    handleButtonClick(index);
+                  }}
+                  value={blogCategory}
+                >
+                  {blogCategories && blogCategory === "All"
+                    ? "All"
+                    : blogCategory}
+                </button>
+              );
+            })}
+          </div>
+          <div
+            className={`blog-rightarrow ${rightActiveArrow && "active-arrow"} `}
+          >
+            <BsChevronRight
+              className="blog-arrows"
+              onClick={rightArrowHandler}
+            />
+          </div>
+        </div>
+
+        <div className="blog-section-contents">
+          <div className="blog-section-content">
+            {filter_blogs.slice(0, 5).map((blog, index) => {
+              // console.log(blog);
+              // let category = categories.find(
+              //   (cat) => blog.companyBlogCategory === cat._id
+              // );
+              return (
+                <Link to={`/blogpost/${blog._id}`} key={index}>
+                  <div className="blog-section-blogBox">
+                    <div className="blog-section-thumbnail">
+                      <img src={API + "/" + blog.companyBlogThumbnail} alt="" />
+                    </div>
+                    <div className="blog-section-content-texts">
+                      <div className="blog-section-content-category">
+                        {blog.companyBlogCategoryName}
+                      </div>
+                      <div className="blog-section-content-title">
+                        {blog.companyBlogTitle}
+                      </div>
+                      <div className="blog-section-content-createdDate">
+                        {formatDate(blog.createDate)}
+                      </div>
+                    </div>
+                  </div>
+                </Link>
+              );
+            })}
+
+            {filter_blogs.length > 4 && (
+              <Link to="/blogs">
                 <div className="blog-section-blogBox">
-                  <div className="blog-section-thumbnail">
-                    <img src={API + "/" + blog.companyBlogThumbnail} alt="" />
+                  <div className="blog-section-seeMore">
+                    see More <BsChevronRight />
                   </div>
-                  <div className="blog-section-content-texts">
-                    <div className="blog-section-content-category">
-                      {category.companyBlogCategoryName}
-                    </div>
-                    <div className="blog-section-content-title">
-                      {blog.companyBlogTitle}
-                    </div>
-                    <div className="blog-section-content-createdDate">
-                      {formatDate(blog.createdDate)}
-                    </div>
-                  </div>
-                </div>
-              </Link>
-            );
-          })}
-
-          {filter_blogs.length > 4 && (
-            <Link to="/blogs">
-              <div className="blog-section-blogBox">
-                <div className="blog-section-seeMore">
-                  see More <BsChevronRight />
-                </div>
-                {/* <div className="blog-section-thumbnail">
+                  {/* <div className="blog-section-thumbnail">
         <img src="" alt="" />
       </div>
       <div className="blog-section-content-texts">
@@ -176,19 +181,18 @@ const BlogSection = () => {
          
         </div>
       </div> */}
-              </div>
-            </Link>
-          )}
+                </div>
+              </Link>
+            )}
+          </div>
         </div>
-      </div>
-      {/* <Link to="/blogs" className="blog-section-seemore-btn">
+        {/* <Link to="/blogs" className="blog-section-seemore-btn">
         <div>
           See more <BsChevronRight />{" "}
         </div>
       </Link> */}
-    </>
-    
-    
+      </>
+    )
   );
 };
 

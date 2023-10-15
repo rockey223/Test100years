@@ -1,59 +1,61 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useBlog } from "../../contexts/BlogDetails/blogContext";
 import "./singleblog.css";
-import axios from "axios";
+// import axios from "axios";
 const SingleBlog = () => {
-  const APICall = `${process.env.REACT_APP_API}/api`;
+  // const APICall = `${process.env.REACT_APP_API}/api`;
   const { id } = useParams();
-  const { categories } = useBlog();
-  const [oneBlog, setOneBlog] = useState();
-  const [date, setDate] = useState();
+  const { all_blogs } = useBlog();
+  // const [oneBlog, setOneBlog] = useState();
+  // const [date, setDate] = useState();
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    const getOneBlog = (id) => {
-      axios
-        .get(`${APICall}/getOneCompanyBlog/${id}`)
-        .then((res) => {
-          const one = res.data.data;
-          // console.log(res.data.data.companyBlogContent);
+    // const getOneBlog = (id) => {
+    //   axios
+    //     .get(`${APICall}/getOneCompanyBlog/${id}`)
+    //     .then((res) => {
+    //       const one = res.data.data;
+    //       // console.log(res.data.data.companyBlogContent);
 
-          const dateStr = one.createDate;
-          const date = new Date(dateStr);
-          const options = {
-            timeZone: "Europe/London",
-            year: "numeric",
-            month: "2-digit",
-            day: "2-digit",
-            hour: "2-digit",
-            minute: "2-digit",
-          };
-          const nepalTime = date.toLocaleString("en-US", options);
-          const onlyDate = nepalTime.split(",")[0].trim();
+    //       const dateStr = one.createDate;
+    //       const date = new Date(dateStr);
+    //       const options = {
+    //         timeZone: "Europe/London",
+    //         year: "numeric",
+    //         month: "2-digit",
+    //         day: "2-digit",
+    //         hour: "2-digit",
+    //         minute: "2-digit",
+    //       };
+    //       const nepalTime = date.toLocaleString("en-US", options);
+    //       const onlyDate = nepalTime.split(",")[0].trim();
 
-          setDate(onlyDate);
+    //       setDate(onlyDate);
 
-          setOneBlog(res.data.data);
-          //   dispatch({type:"GET_ONE_BLOG", payload: {oneBlo}})
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    };
-    getOneBlog(id);
-  }, [APICall, id]);
+    //       setOneBlog(res.data.data);
+    //       //   dispatch({type:"GET_ONE_BLOG", payload: {oneBlo}})
+    //     })
+    //     .catch((err) => {
+    //       console.log(err);
+    //     });
+    // };
+    // getOneBlog(id);
+  }, []);
 
+  const oneBlog = all_blogs.find((el) => id === el._id);
   // console.log(oneBlog);
-  const category =
-    oneBlog &&
-    categories.find((cat) => oneBlog.companyBlogCategory === cat._id);
+  // console.log(oneBlog);
+  // const category =oneBlog && categories.find((cat) => oneBlog.companyBlogCategory === cat._id);
   const API = `${process.env.REACT_APP_API}/imageUploads`;
-
+  // console.log(categories);
   function formatDate(dateString) {
     const options = { year: "numeric", month: "long", day: "numeric" };
     return new Date(dateString).toLocaleDateString(undefined, options);
   }
+
+  // console.log(oneBlog)
 
   return (
     <>
@@ -65,13 +67,13 @@ const SingleBlog = () => {
 
           <div className="singleblog-content">
             <div className="singleblog-content-category">
-              {category && category.companyBlogCategoryName}
+              {oneBlog.companyBlogCategoryName}
             </div>
             <div className="singleblog-content-title">
               {oneBlog.companyBlogTitle}
             </div>
             <div className="singleblog-content-createdDate">
-              {formatDate(date)}
+              {formatDate(oneBlog.createDate)}
             </div>
             <div className="singleblog-content-description">
               <pre>{oneBlog.companyBlogContent}</pre>

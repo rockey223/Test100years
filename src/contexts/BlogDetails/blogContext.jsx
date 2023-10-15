@@ -7,7 +7,7 @@ const initialState = {
   filter_blogs: [],
   all_blogs: [],
   filters: {
-    companyBlogCategory: "All",
+    companyBlogCategoryName: "All",
   },
   categories: [],
 };
@@ -26,14 +26,9 @@ const BlogProvider = ({ children }) => {
           const dateStr = item.createDate;
           const date = new Date(dateStr);
           const options = {
-            timeZone: "Europe/London",
-            year: "numeric",
-            month: "2-digit",
-            day: "2-digit",
-            hour: "2-digit",
-            minute: "2-digit",
+            year: 'numeric', month: 'long', day: 'numeric'
           };
-          const nepalTime = date.toLocaleString("en-US", options);
+          const nepalTime = date.toLocaleDateString("en-US", options);
           const onlyDate = nepalTime.split(",")[0].trim();
 
           return {
@@ -42,9 +37,21 @@ const BlogProvider = ({ children }) => {
           };
         });
 
-       
+
+        const allBlogWithCategoryName = finalDate.map((item)=>{
+          console.log(state.categories);
+          
+          const catName = state.categories.find((cat) => item.companyBlogCategory === cat._id);
+          console.log(catName);
+          return {
+            ...item,
+            companyBlogCategoryName :  catName.companyBlogCategoryName
+          }
+        })
+
+       console.log(allBlogWithCategoryName)
         // const userName = res.data.user.userFullName[0];
-        dispatch({ type: "GET_All_BLOG", payload: { finalDate } });
+        dispatch({ type: "GET_All_BLOG", payload: { allBlogWithCategoryName } });
       })
       .catch((err) => {
         // dispatch({ type: "GET_MY_INFO_ERROR", payload: err });
@@ -53,15 +60,15 @@ const BlogProvider = ({ children }) => {
   };
 
   const getAllCategory = () => {
+    
     axios
       .get(`${API}/getAllCompanyBlogCategory`)
       .then((res) => {
         // console.log(res.data.data);
         const allCategories = res.data.data;
-        return dispatch({
-          type: "GET_ALL_CATEGORY",
-          payload: { allCategories },
-        });
+       
+        state.categories = allCategories
+        console.log(state.categories)
       })
       .catch((err) => {
         console.log(err);
@@ -83,8 +90,11 @@ const BlogProvider = ({ children }) => {
   // }, []);
 
   useEffect(() => {
-    getAllCompanyBlog();
+
+    
     getAllCategory();
+
+    getAllCategory && getAllCompanyBlog();
   }, []);
 
   return (

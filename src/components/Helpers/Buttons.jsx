@@ -19,6 +19,7 @@ const FillButton = ({ btnTxt, width, height, disable, className, link }) => {
       <Link  
         to={link === null ? null : link}
         style={{ display: "block", width: width, height: height }}
+        
       >
         <div
           className={`fill-btn ${className ? className : ""}`}

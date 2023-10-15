@@ -37,11 +37,12 @@
     display: flex;
     gap: 30px;
     width: 100%;
+    align-items: center;
 }
 
 .instructor-container-content-details-image{
 width: 126px;
-/* height: 126px; */
+height: 126px;
 border-radius: 50%;
 /* background: url(<path-to-image>), lightgray 10.428px -5.431px / 84.026% 126.039% no-repeat, #D9D9D9; */
 flex-shrink: 0;

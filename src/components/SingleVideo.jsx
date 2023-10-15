@@ -73,7 +73,7 @@ const SingleVideo = ({ tooglePopup }) => {
             <FillButton
             className={'singlePage-startBtn'}
               btnTxt="Start Learning"
-            
+            width={'156px'}
               disable={isloggedIn ? false : true}
               link={isloggedIn ? `/videoplayer/${_id}` : ""}
             />

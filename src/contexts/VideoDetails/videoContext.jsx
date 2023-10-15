@@ -39,7 +39,7 @@ const VideoProvider = ({children})=>{
         axios
         .get(`${API}/getAllLevel2CourseVideo`, { withCredentials: true })
         .then((res)=>{
-            // console.log(res.data.data);
+            console.log(res.data.data);
             const l2video = res.data.data
             dispatch({type: "GET_LEVEL2_VIDEO", payload:{l2video}})
         })
