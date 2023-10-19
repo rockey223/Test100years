@@ -17,7 +17,17 @@ const Level1 = ({ tooglePopup, buyBanner, windowScroll }) => {
 
   const { level1Videos, level2Videos } = useVideo();
 
-  const videos = id === "1" ? level1Videos : level2Videos;
+  const vid = () =>{
+    if( id === '1'){
+      return level1Videos;
+    }
+    else{
+      
+      return level2Videos
+    }
+  }
+
+  const videos = vid()
 
   
   useEffect(() => {

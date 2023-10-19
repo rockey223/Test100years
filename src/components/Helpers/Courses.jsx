@@ -26,7 +26,7 @@ const Courses = ({ tooglePopup, videos }) => {
   //     setActiveNav("video");
   //   }
   // };
-
+console.log(videos);
   return (
     <>
       <div className="courses-container">

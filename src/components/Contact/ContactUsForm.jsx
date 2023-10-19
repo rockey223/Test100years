@@ -1,27 +1,67 @@
 import React from "react";
 import "./contact-us-form.css";
+import axios from "axios";
+import { toast } from "react-toastify";
 function ContactUsForm() {
+  const API = `${process.env.REACT_APP_API}`;
   const [info, setInfo] = React.useState({
     fname: "",
     lname: "",
     email: "",
     number: "",
     subject: "",
-    message: ""
+    message: "",
   });
-  
+
   function handleChange(event) {
     const { name, value } = event.target;
     setInfo((prevValue) => {
       return {
         ...prevValue,
-        [name]: value
+        [name]: value,
       };
     });
   }
   function handleClick(event) {
     event.preventDefault();
-    
+
+    if(info.fname== "" || info.lname== "" || info.number== "" || info.message== "" || info.subject== "" || info.email == ""){
+      return  toast.error('All fields are required to be filled up.', {
+        position: toast.POSITION.TOP_RIGHT,
+      });
+    }
+    axios
+      .post(`${API}/api/sendContactEmail`, {
+        customerName: `${info.fname} ${info.lname}`,
+        customerContact: info.number,
+        customerEmail: info.email,
+        customerMessageSubject: info.subject,
+        customerMessage: info.message,
+      })
+      .then((res) => {
+        setInfo((prev) => {
+          return {
+            ...prev,
+
+            fname: "",
+            lname: "",
+            email: "",
+            number: "",
+            subject: "",
+            message: "",
+          };
+        });
+        toast.success(res.data.message, {
+          position: toast.POSITION.TOP_RIGHT,
+        });
+
+        console.log(res.data);
+      })
+      .catch((err) => {
+        toast.error(err.response.data.message, {
+          position: toast.POSITION.TOP_RIGHT,
+        });
+      });
   }
   // function validate() {
   //   var firstName = document.getElementById("contact-us-from-fname");
