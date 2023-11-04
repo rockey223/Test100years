@@ -8,7 +8,7 @@ import NotFound from "./NotFound";
 const Courses = ({ tooglePopup, videos }) => {
   //remove comment for animations of articals, podcasts, and bolg when navigated
   // const [activeCoursenav, setActiveCourseNav] = useState("94px");
-  const activeNav = "video"
+  const activeNav = "video";
   // const [activeNav, setActiveNav] = useState("video");
 
   // const changeActiveNav = (content) => {
@@ -26,7 +26,7 @@ const Courses = ({ tooglePopup, videos }) => {
   //     setActiveNav("video");
   //   }
   // };
-console.log(videos);
+  console.log(videos);
   return (
     <>
       <div className="courses-container">
@@ -88,8 +88,11 @@ console.log(videos);
             case "video":
               return (
                 <div className="coursesVideo">
-                  {videos.length>0? <VideoBox video={videos} tooglePopup={tooglePopup} /> : <NotFound text={"Videos"}/>}
-                  
+                  {videos.length > 0 ? (
+                    <VideoBox video={videos} tooglePopup={tooglePopup} />
+                  ) : (
+                    <NotFound text={"Videos"} />
+                  )}
                 </div>
               );
 

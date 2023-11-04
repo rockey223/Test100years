@@ -4,9 +4,9 @@ import axios from "axios";
 import { useUser } from "../userDetails/userContext";
 const videoDetails = createContext();
 const initialState = {
-    level1Videos: [{}],
+    level1Videos: [],
     isLoading: false,
-    level2Videos:[{}],
+    level2Videos:[],
     featuredVideos: [],
     isStatic: false
 }
