@@ -1,6 +1,12 @@
 .landing {
-  outline: 2px solid #ffffff;
-  color: #fff;
+  border-radius: 3em;
+  border: 1px solid rgb(136, 136, 136);
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 10px;
 }
 
 .landing-container {
@@ -21,7 +27,7 @@
   align-items: center;
   background-color: #00000067;
 }
-.landing-container-video video{
+.landing-container-video video {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -52,7 +58,6 @@
   font-weight: 400;
   line-height: normal;
   text-align: center;
-  
 }
 .landing-container-content-info {
   /* width: 499px; */

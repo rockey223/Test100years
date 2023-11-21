@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import { OutLineButton } from "../../Helpers/Buttons";
 import "./landing.css";
-import video from "../../dummy/video.mp4"
+import video from "../../dummy/video.mp4";
 
+import Rounded from "../../Helpers/Rounded";
 const Landing = () => {
- 
+  
   return (
     <>
       <div className="landing-container">
@@ -12,7 +13,7 @@ const Landing = () => {
           <video src={video} autoPlay loop muted></video>
           <div className="landing-container-content">
             <div className="landing-container-content-title">
-             Your Health is Our Concern
+              Your Health is Our Concern
             </div>
             <div className="landing-container-content-tagline">
               Let's go 100 Years Happy Life
@@ -21,12 +22,10 @@ const Landing = () => {
               A ut accusamus ipsa ut. Eos et quis totam ut autem. Facere quasi
               tempore et rem sunt natus consequatur perferendis non. Et et unde.
             </div>
-            <OutLineButton
-              btnTxt={"Start Now"}
-              width={"193px"}
-              height={"50px"}
-              className={"landing"}
-            />
+
+            <Rounded>
+              <p>Start Now </p>
+            </Rounded>
           </div>
         </div>
       </div>

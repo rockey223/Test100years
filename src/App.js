@@ -27,7 +27,7 @@ import ProfileAboutMe from "./components/Bio/ProfileAboutMe"
 import SingleBlog from "./components/SingleBlog/SingleBlog";
 import Blog from "./components/Blog/Blog";
 
-
+import MainOverlay from "./components/MainOverlay/MainOverlay";
 
 
 function App() {
@@ -52,7 +52,11 @@ function App() {
     setPrevWinScroll(window.scrollY);
   });
 
-  
+  const [displayOverLay, setDisplayOverlay] = useState(true);
+  const hideOverlay = () =>{
+    console.log('close')
+    setDisplayOverlay(false)
+  }
  
   return (
     <div className="App">
@@ -60,8 +64,10 @@ function App() {
         <VideoPopUp close={tooglePopup} details={popupDetails} />
       ) : null}
 
-
       
+{
+  displayOverLay && <MainOverlay hideOverlay={hideOverlay}/>
+}
       <ToastContainer />
       <Navbar /> 
 
