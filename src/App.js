@@ -65,9 +65,9 @@ function App() {
       ) : null}
 
       
-{
+{/* {
   displayOverLay && <MainOverlay hideOverlay={hideOverlay}/>
-}
+} */}
       <ToastContainer />
       <Navbar /> 
 
