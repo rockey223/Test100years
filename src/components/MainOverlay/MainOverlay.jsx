@@ -9,7 +9,7 @@ const MainOverlay = ({ hideOverlay }) => {
         <CgCloseO className="close-overlay-btn" />
       </div>
         <img
-          src="https://i.postimg.cc/x14r6gg7/bill-board.png"
+          src="https://i.postimg.cc/vB9LFG8m/bill-board.png"
           alt=""
         />
       </div>
