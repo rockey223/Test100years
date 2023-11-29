@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from "react";
 import { OutLineButton } from "../../Helpers/Buttons";
 import "./landing.css";
-import video from "../../dummy/video.mp4";
+import video from "../../dummy/video3.mp4";
 
 import Rounded from "../../Helpers/Rounded";
 const Landing = () => {
