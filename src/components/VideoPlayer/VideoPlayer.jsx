@@ -43,7 +43,7 @@ const VideoPlayer = () => {
   return (
     <>
       {
-        <div className="videoplayer-container">
+        <div className="videoplayer-container" style={{marginTop: '100px'}}>
           <div className="videoplayer-container-content">
             <div className="videoplayer-container-content-Player">
               <video controls>

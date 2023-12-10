@@ -2,7 +2,7 @@ import React from "react";
 import "./header.css";
 function Header(props) {
   return (
-    <div className="header-container">
+    <div className="header-container" style={{marginTop: '100px'}}>
       <div className="header-container-item">
         <div className="header-container-item-heading">
           <div className="header-container-item-bar"></div>

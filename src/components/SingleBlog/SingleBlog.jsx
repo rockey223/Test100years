@@ -61,7 +61,7 @@ const SingleBlog = () => {
     <>
       {oneBlog && (
         <>
-          <div className="singleblog-banner-image">
+          <div className="singleblog-banner-image" style={{marginTop: '100px'}}>
             <img src={API + "/" + oneBlog.companyBlogImage} alt="" />
           </div>
 

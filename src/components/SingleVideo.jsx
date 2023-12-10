@@ -55,7 +55,7 @@ const SingleVideo = ({ tooglePopup }) => {
   } = videoItem;
   return (
     <>
-      <div className="singleVideo-Container">
+      <div className="singleVideo-Container" style={{marginTop: '100px'}}>
         {/* ****************************** */}
 
         {/* ****************************** */}
@@ -88,7 +88,7 @@ const SingleVideo = ({ tooglePopup }) => {
           </div>
         </div>
 
-        <div className="singleTop-sticky">
+        <div className="singleTop-sticky" >
           <div className="singleTop-container-right">
             <div className="singleTop-container-right-video-box">
               <div className="singleTop-container-right-video-box-thumbnail">

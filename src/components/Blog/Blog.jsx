@@ -76,7 +76,7 @@ const Blog = () => {
   }, []);
   return (
     <>
-      <div className="singleblog-header">
+      <div className="singleblog-header" style={{marginTop: '100px'}}>
         <div className="singleblog-header-content">
           <div className="singleblog-header-blueBar"></div>
           <div className="singleblog-header-text">Blog</div>

@@ -3,7 +3,7 @@ import "./navbar.css";
 import "../../responsive.css";
 import logo from "../../assets/images/logo.jpg";
 import { Link, NavLink } from "react-router-dom";
-
+import {motion} from 'framer-motion'
 import { GiHamburgerMenu } from "react-icons/gi";
 import { CgProfile } from "react-icons/cg";
 
@@ -54,23 +54,39 @@ const Navbar = () => {
       if (profileRef.current && !profileRef.current.contains(event.target)) {
         setIsDropdown(false);
       }
-    }
-  
+    };
+
     document.addEventListener("mousedown", handler);
     document.addEventListener("scroll", handler);
     document.addEventListener("touchstart", handler);
-    
+
     return () => {
-      document.removeEventListener('mousedown', handler);
+      document.removeEventListener("mousedown", handler);
       document.removeEventListener("scroll", handler);
       document.removeEventListener("touchstart", handler);
-    }
+    };
   }, [profileRef]);
-  
+
+  const [navSticky, setNavSticky] = useState(false);
+  useEffect(() => {
+    function StickyNav() {
+      if (window.scrollY > 0) {
+        setNavSticky(true);
+      } else {
+        setNavSticky(false);
+      }
+    }
+    // sticky navbar when scroll
+    window.addEventListener("scroll", StickyNav);
+    return () => {
+      window.removeEventListener("scroll", StickyNav);
+    };
+  }, []);
+
   return (
     <>
       <div
-        className="navbar-container"
+        className={`${navSticky && "sticky"} navbar-container`}
         style={{ position: displayNav && windowWidth < 780 ? "sticky" : "" }}
       >
         <div className="navbar-container-content">
@@ -198,7 +214,11 @@ const Navbar = () => {
                 {windowWidth < 450 ? (
                   <CgProfile className="LoginProfileIcon" />
                 ) : (
-                  <div className="navbar-login-btn">Login</div>
+                  <motion.div
+                  whileHover={{
+                    scale: 1.1
+                  }}
+                  className="navbar-login-btn">Login</motion.div>
                 )}
               </NavLink>
             )}
@@ -209,7 +229,6 @@ const Navbar = () => {
               }}
             >
               {displayNav ? <GoX /> : <GiHamburgerMenu />}
-             
             </div>
           </div>
         </div>
