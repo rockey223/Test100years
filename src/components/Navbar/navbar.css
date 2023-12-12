@@ -20,6 +20,7 @@
     0px 2px 4px rgba(1, 172, 241, 0.08);
     transition: all 0.5s;
   }
+  
   .navbar-container-content {
     transition: all 0.5s;
     display: flex;

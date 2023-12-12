@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./navbar.css";
 import "../../responsive.css";
-import logo from "../../assets/images/logo.jpg";
+import logo from "../../assets/images/logo.png";
 import { Link, NavLink } from "react-router-dom";
 import {motion} from 'framer-motion'
 import { GiHamburgerMenu } from "react-icons/gi";
