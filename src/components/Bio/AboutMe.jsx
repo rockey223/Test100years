@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./about-me.css";
 import { FaTwitter, FaFacebook, FaYoutube } from "react-icons/fa";
 import { AiFillInstagram } from "react-icons/ai";
@@ -6,6 +6,9 @@ import { useUser } from "../../contexts/userDetails/userContext";
 import { Link } from "react-router-dom";
 function AboutMe() {
   const { myInfo, initialName } = useUser();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className="profile-about-me-main-container">
