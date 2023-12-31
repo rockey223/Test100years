@@ -150,6 +150,7 @@
     font-style: normal;
     font-weight: 600;
     line-height: 22px;
+    margin-top: 30px;
 }
 .login-container-content-signup span:nth-child(1){
     color: #F66E24;

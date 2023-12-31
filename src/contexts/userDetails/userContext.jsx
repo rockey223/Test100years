@@ -12,6 +12,7 @@ const initialState = {
   myInfo: {},
   initialName: "",
   isLoading: false,
+  displayOverLay: true
 };
 
 const API = `${process.env.REACT_APP_API}/api`;
@@ -204,9 +205,14 @@ const UserProvider = ({ children }) => {
     getUserDetails();
   }, []);
 
+  function HideOverlay (){
+    console.log('close')
+    dispatch({type: 'HIDE_OVERLAY'})
+  }
+
   return (
     <userDetails.Provider
-      value={{ ...state, Logout, Login, Signup, updateUser, ChangePassword }}
+      value={{ ...state, Logout, Login, Signup, updateUser, ChangePassword,HideOverlay }}
     >
       {children}
     </userDetails.Provider>

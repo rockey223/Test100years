@@ -9,7 +9,6 @@ import { CgProfile } from "react-icons/cg";
 
 import { useUser } from "../../contexts/userDetails/userContext";
 import { GoX } from "react-icons/go";
-import { RxCaretDown } from "react-icons/rx";
 
 const Navbar = () => {
   const { isloggedIn, myInfo, Logout, initialName } = useUser();
@@ -78,9 +77,9 @@ const Navbar = () => {
       }
     }
     // sticky navbar when scroll
-    document.addEventListener("scroll", StickyNav);
+    window.addEventListener("scroll", StickyNav);
     return () => {
-      document.removeEventListener("scroll", StickyNav);
+      window.removeEventListener("scroll", StickyNav);
     };
   }, []);
 
@@ -96,7 +95,7 @@ const Navbar = () => {
               <img src={logo} alt="" />
             </div>
           </Link>
-          {/* <div className="navbar-container-links"> */}
+          <div className="navbar-container-links">
             <div className={`navbar-navlinks ${displayNav ? "display" : ""}`}>
               <ul>
                 <li
@@ -108,30 +107,20 @@ const Navbar = () => {
                     Home
                   </NavLink>
                 </li>
-                <div class="dropdown">
-    <button class="dropbtn">Courses 
-    <RxCaretDown />
-    </button>
-    <div class="dropdown-content">
-      <Link to={'/level/1'}>Level 1</Link>
-      <Link to={'/level/2'}>Level 2</Link>
-    </div>
-  </div> 
-                {/* <li className="dropbtn">
-                  <button className="dropdownbtn">
+                <li className="dropbtn">
+                <a className="navbar-navLinks-navLink">
                     Courses
-                  </button>
-                
+                  </a>
                   <div
                     className="dropdown-content"
-                    // onClick={() => {
-                    //   setDisplayNav((prev) => !prev);
-                    // }}
+                    onClick={() => {
+                      setDisplayNav((prev) => !prev);
+                    }}
                   >
                     <NavLink to={"/level/1"}>Level 1</NavLink>
                     <NavLink to={"/level/2"}>Level 2</NavLink>
                   </div>
-                </li> */}
+                </li>
                 {/* <li
                   onClick={() => {
                     setDisplayNav((prev) => !prev);
@@ -166,7 +155,7 @@ const Navbar = () => {
             </div>
 
             {isloggedIn ? (
-              <div className="navbar-userProfile loginBtna" ref={profileRef}>
+              <div className="navbar-userProfile" ref={profileRef}>
                 <div
                   className="navbar-userProfile-profile"
                   onClick={() => {
@@ -223,9 +212,9 @@ const Navbar = () => {
                 </div>
               </div>
             ) : (
-              <NavLink to="/login" className='loginBtna' style={windowWidth < 450 ? { right: '60px' } : {}}>
+              <NavLink to="/login">
                 {windowWidth < 450 ? (
-                  <CgProfile className="LoginProfileIcon" style={{right: '60px'}} />
+                  <CgProfile className="LoginProfileIcon" />
                 ) : (
                   <motion.div
                     whileHover={{
@@ -246,7 +235,7 @@ const Navbar = () => {
             >
               {displayNav ? <GoX /> : <GiHamburgerMenu />}
             </div>
-          {/* </div> */}
+          </div>
         </div>
       </div>
     </>

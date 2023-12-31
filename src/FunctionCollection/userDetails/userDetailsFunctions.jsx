@@ -54,7 +54,12 @@ const userDetailsFunction = (state, action) => {
         isloggedIn: false,
         myInfo: action.payload,
       };
-
+    
+    case "HIDE_OVERLAY":
+      return{
+        ...state,
+        displayOverLay: false
+      }
     default:
       return state;
   }

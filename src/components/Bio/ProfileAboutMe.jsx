@@ -14,7 +14,7 @@ function ProfileAboutMe({tooglePopup}) {
 
   return (
     <>
-      <div className="main-profile-container">
+      <div className="main-profile-container" style={{marginTop: '100px'}}>
         <Header heading="Profile" />
         <AboutMe />
       </div>

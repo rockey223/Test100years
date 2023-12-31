@@ -14,7 +14,7 @@ const Top = ({ tooglePopup, levelDetails, link, video }) => {
   
   return (
     <>
-      <div className="top-container">
+      <div className="top-container" style={{marginTop: '100px'}}>
         <div className="top-container-left">
           <div className="top-container-left-level">
             {levelDetails.levelName}

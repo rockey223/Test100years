@@ -1,4 +1,4 @@
-// import React, { useState } from "react";
+import React, { useState } from "react";
 import PriceTable from "./dummy/PriceTable.js";
 import PriceBox from "./Home/PriceBox/PriceBox";
 // import Achievement from "./Home/Achievement/Achievement";
@@ -14,13 +14,14 @@ import Landing from "./Home/Landing/Landing.jsx";
 import BlogSection from "./Home/BlogSection/BlogSection.jsx";
 import AboutSection from "./Home/AboutSection/AboutSection.jsx";
 import { useVideo } from "../contexts/VideoDetails/videoContext.jsx";
-
-
+import MainOverlay from "./MainOverlay/MainOverlay.jsx";
+import { useUser } from "../contexts/userDetails/userContext.jsx";
 
 
 const Home = ({ tooglePopup }) => {
-
+const {HideOverlay,displayOverLay} = useUser();
   const {featuredVideos} = useVideo();
+
   // useEffect(() => {
   //   axios
   //     .get("http://localhost:8000/api/getMyInfo", {
@@ -41,8 +42,15 @@ const Home = ({ tooglePopup }) => {
     window.scrollTo(0, 0);
   }, []);
   // console.log(PriceTable)
+  // const [displayOverLay, setDisplayOverlay] = useState(true);
+  
+  
   return (
     <>
+
+{
+  displayOverLay && <MainOverlay hideOverlay={HideOverlay}/>
+}
       {/* ******************************************************** */}
 
       <Landing />

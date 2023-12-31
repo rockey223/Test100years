@@ -83,11 +83,6 @@
 }
 @media screen and (max-width: 675px) {
     .courses-container-nav-item{
-        width: 19%;
-    }
-}
-@media screen and (max-width: 450px) {
-    .courses-container-nav-item{
         width: auto;
     }
 }

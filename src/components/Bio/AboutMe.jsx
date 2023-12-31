@@ -6,7 +6,7 @@ import { useUser } from "../../contexts/userDetails/userContext";
 import { Link } from "react-router-dom";
 function AboutMe() {
   const { myInfo, initialName } = useUser();
-  
+
   return (
     <div className="profile-about-me-main-container">
       <div className="profile-about-me-user-name-container">
@@ -34,30 +34,38 @@ function AboutMe() {
         </div>
 
         <div className="profile-about-me-icon-container">
-          <Link
-            target="_blank"
-            to={`https://twitter.com/${myInfo.userSocialMediaLinks[1]}`}
-          >
-            <FaTwitter className="profile-about-me-icon" />
-          </Link>
-          <Link
-            target="_blank"
-            to={`https://facebook.com/${myInfo.userSocialMediaLinks[3]}`}
-          >
-            <FaFacebook className="profile-about-me-icon" />
-          </Link>
-          <Link
-            target="_blank"
-            to={`https://instagram.com/${myInfo.userSocialMediaLinks[4]}`}
-          >
-            <AiFillInstagram className="profile-about-me-icon" />
-          </Link>
-          <Link
-            target="_blank"
-            to={`https://youtube.com/${myInfo.userSocialMediaLinks[2]}`}
-          >
-            <FaYoutube className="profile-about-me-icon" />
-          </Link>
+          {myInfo.userSocialMediaLinks[1] && (
+            <Link
+              target="_blank"
+              to={`https://twitter.com/${myInfo.userSocialMediaLinks[1]}`}
+            >
+              <FaTwitter className="profile-about-me-icon" />
+            </Link>
+          )}
+          {myInfo.userSocialMediaLinks[3] && (
+            <Link
+              target="_blank"
+              to={`https://facebook.com/${myInfo.userSocialMediaLinks[3]}`}
+            >
+              <FaFacebook className="profile-about-me-icon" />
+            </Link>
+          )}
+          {myInfo.userSocialMediaLinks[4] && (
+            <Link
+              target="_blank"
+              to={`https://instagram.com/${myInfo.userSocialMediaLinks[4]}`}
+            >
+              <AiFillInstagram className="profile-about-me-icon" />
+            </Link>
+          )}
+          {myInfo.userSocialMediaLinks[2] && (
+            <Link
+              target="_blank"
+              to={`https://youtube.com/${myInfo.userSocialMediaLinks[2]}`}
+            >
+              <FaYoutube className="profile-about-me-icon" />
+            </Link>
+          )}
         </div>
       </div>
     </div>

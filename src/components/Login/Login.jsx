@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import InputField from "../Helpers/InputField";
 // import LoginHelper from "./LoginHelper";
 import "./login.css";
-// import { NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 import Loader from "../Helpers/Loader/Loader"
 
@@ -113,8 +113,8 @@ const [InputType,icon] =Toggler();
             </div>
 
 {/* temp removed */}
-{/* 
-            <div className="login-container-content-oauth">
+
+            {/* <div className="login-container-content-oauth">
               <NavLink>
                 <LoginHelper
                   socialName={"Facebook"}
@@ -133,14 +133,14 @@ const [InputType,icon] =Toggler();
                   icon={"https://i.postimg.cc/VNRr4n2F/apple-logo.png"}
                 />
               </NavLink>
-            </div>
+            </div> */}
             <div className="login-container-content-signup">
               Don't have account?{" "}
               <NavLink to="/signup">
                 <span>Sign Up</span>
               </NavLink>
             </div>
-             */}
+            
           </div>
         </div>
       </div>

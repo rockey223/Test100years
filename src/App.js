@@ -1,9 +1,8 @@
 import "./App.css";
-import {  useState } from "react";
+import { useState } from "react";
 import Footer from "./components/Footer/Footer";
 import Home from "./components/Home";
 import Level1 from "./components/Level1";
-
 
 import Navbar from "./components/Navbar/Navbar";
 import "./responsive.css";
@@ -22,13 +21,10 @@ import { ToastContainer } from "react-toastify";
 
 import Checkout from "./components/checkout/Checkout";
 // import Auth from "./Auth";
-import ProfileAboutMe from "./components/Bio/ProfileAboutMe"
+import ProfileAboutMe from "./components/Bio/ProfileAboutMe";
 // import { useUser } from "./contexts/userDetails/userContext";
 import SingleBlog from "./components/SingleBlog/SingleBlog";
 import Blog from "./components/Blog/Blog";
-
-import MainOverlay from "./components/MainOverlay/MainOverlay";
-
 
 function App() {
   // const { isloggedIn } = useUser();
@@ -52,40 +48,29 @@ function App() {
     setPrevWinScroll(window.scrollY);
   });
 
-  const [displayOverLay, setDisplayOverlay] = useState(true);
-  const hideOverlay = () =>{
-    console.log('close')
-    setDisplayOverlay(false)
-  }
- 
   return (
     <div className="App">
       {openVideoPlayer ? (
         <VideoPopUp close={tooglePopup} details={popupDetails} />
       ) : null}
 
-      
-{
-  displayOverLay && <MainOverlay hideOverlay={hideOverlay}/>
-}
       <ToastContainer />
-      <Navbar /> 
+      <Navbar />
 
       <Routes>
-      
-          <Route path="/" element={<Home tooglePopup={tooglePopup} />} />
-          {/* <Route path="/" element={<Home tooglePopup={tooglePopup} />} /> */}
-          <Route
-            path="/level/:id"
-            element={
-              <Level1
-                tooglePopup={tooglePopup}
-                buyBanner={buyBanner}
-                windowScroll={windowScroll}
-              />
-            }
-          />
-          {/* <Route
+        <Route path="/" element={<Home tooglePopup={tooglePopup} />} />
+        {/* <Route path="/" element={<Home tooglePopup={tooglePopup} />} /> */}
+        <Route
+          path="/level/:id"
+          element={
+            <Level1
+              tooglePopup={tooglePopup}
+              buyBanner={buyBanner}
+              windowScroll={windowScroll}
+            />
+          }
+        />
+        {/* <Route
             path="/level/:id"
             element={
               <Level2
@@ -95,23 +80,25 @@ function App() {
               />
             }
           /> */}
-          <Route path="/login" element={<Login />} />
+        <Route path="/login" element={<Login />} />
 
-          <Route path="/signup" element={<Signup />} />
-          <Route
-            path="/singlevideo/:id"
-            element={<SingleVideo tooglePopup={tooglePopup} />}
-          />
-          <Route path="/videoplayer/:id" element={<VideoPlayer />} />
-          {/* <Route path="/upgrade" element={<Upgrade />} /> */}
-          <Route path="/profile" element={<Account />} />
-          <Route path="/contactus" element={<Contact />} />
-          <Route path="/checkout/:id" element={<Checkout />} />
-          <Route path="/profileBio" element={<ProfileAboutMe  tooglePopup={tooglePopup}/>}/>
-          {/* <Route path="*" element={<Login />} /> */}
-          <Route path="/blogpost/:id" element={<SingleBlog/>}/>
-          <Route path="/blogs" element={<Blog/>}/>
-        
+        <Route path="/signup" element={<Signup />} />
+        <Route
+          path="/singlevideo/:id"
+          element={<SingleVideo tooglePopup={tooglePopup} />}
+        />
+        <Route path="/videoplayer/:id" element={<VideoPlayer />} />
+        {/* <Route path="/upgrade" element={<Upgrade />} /> */}
+        <Route path="/profile" element={<Account />} />
+        <Route path="/contactus" element={<Contact />} />
+        <Route path="/checkout/:id" element={<Checkout />} />
+        <Route
+          path="/profileBio"
+          element={<ProfileAboutMe tooglePopup={tooglePopup} />}
+        />
+        {/* <Route path="*" element={<Login />} /> */}
+        <Route path="/blogpost/:id" element={<SingleBlog />} />
+        <Route path="/blogs" element={<Blog />} />
       </Routes>
       <Footer />
     </div>
@@ -119,4 +106,3 @@ function App() {
 }
 
 export default App;
-

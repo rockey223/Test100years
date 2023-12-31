@@ -197,7 +197,7 @@
     width: 100vw;
     overflow: hidden;
     left: -100vw;
-    top: 100px;
+    top: 80px;
   }
   .navbar-navlinks.display {
     display: block;
@@ -218,6 +218,11 @@
   .navbar-navbar-navlinks-icon {
     display: grid !important;
     place-items: center;
+  }
+
+  .loginBtna{
+    position: absolute;
+    right: 80px;
   }
 }
 @media only screen and (max-width: 700px) {
@@ -368,6 +373,7 @@
     gap: 27px;
   }
 }
+
 
 @media only screen and (max-width: 400px) {
   .landing-container-content-title {

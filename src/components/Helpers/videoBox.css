@@ -112,9 +112,9 @@ cursor: pointer;
     height: 50px;
 }
   @media screen and (max-width: 780px) {
-    .VideoBox-container{
+    /* .VideoBox-container{
       width: 40%;
-    }
+    } */
 
     .startLearning{
       width: 140px;
