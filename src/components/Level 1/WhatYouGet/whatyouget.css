@@ -29,8 +29,9 @@
   margin: 24px 0;
   display: flex;
   flex-wrap: wrap;
+  flex-direction: column;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   gap: 24px;
 }
 .what-container-content-points-icon {

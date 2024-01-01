@@ -5,7 +5,7 @@ import VideoBox from "./VideoBox";
 // import Video from "../dummy/Video";
 import NotFound from "./NotFound";
 
-const Courses = ({ tooglePopup, videos }) => {
+const Courses = ({ tooglePopup, videos,link }) => {
   //remove comment for animations of articals, podcasts, and bolg when navigated
   // const [activeCoursenav, setActiveCourseNav] = useState("94px");
   const activeNav = "video";
@@ -89,7 +89,7 @@ const Courses = ({ tooglePopup, videos }) => {
               return (
                 <div className="coursesVideo">
                   {videos.length > 0 ? (
-                    <VideoBox video={videos} tooglePopup={tooglePopup} />
+                    <VideoBox video={videos} tooglePopup={tooglePopup} link={link}/>
                   ) : (
                     <NotFound text={"Videos"} />
                   )}

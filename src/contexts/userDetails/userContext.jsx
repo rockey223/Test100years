@@ -26,6 +26,7 @@ const UserProvider = ({ children }) => {
     axios
       .get(`${API}/getMyInfo`, { withCredentials: true })
       .then((res) => {
+        
         const user = res.data.user;
         const userName = res.data.user.userFullName[0];
         dispatch({ type: "GET_MY_INFO", payload: { user, userName } });

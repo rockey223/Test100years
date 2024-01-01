@@ -1,20 +1,20 @@
 const levels = [
   {
     id: 0,
-    levelName: "Level 1",
-    levelTitle: "level1  ko video",
+    levelName: "Beginner Course level 1",
+    levelTitle: "Beginner Course Title Here",
     levelDesc:
-      "Commodi fugiat animi eum nemo. Commodi praesentium praesentium expedita ea quae quia tenetur eaque aut. Aperiam excepturi ab nam quaerat nihil nostrum.",
+      "Short description about course.",
     levelPrice: "9.99",
     courseVideoPreview: "./video.mp4",
     LevelwhatYouGet: [
       {
         id: 0,
-        point: "You will learn, a healthy habit for living 100 years:",
+        point: "Healthy Diet Routine",
       },
       {
         id: 1,
-        point: "You will learn, a healthy habit for living 100 years:",
+        point: "Healthy and Happy Body",
       },
       {
         id: 2,
@@ -24,32 +24,32 @@ const levels = [
         id: 3,
         point: "You will learn, a healthy habit for living 100 years:",
       },
-      {
-        id: 4,
-        point: "You will learn, a healthy habit for living 100 years:",
-      },
-      {
-        id: 5,
-        point: "You will learn, a healthy habit for living 100 years:",
-      },
+      // {
+      //   id: 4,
+      //   point: "You will learn, a healthy habit for living 100 years:",
+      // },
+      // {
+      //   id: 5,
+      //   point: "You will learn, a healthy habit for living 100 years:",
+      // },
     ],
   },
   {
     id: 1,
-    levelName: "Level 2",
-    levelTitle: "The Healthcare For Anyone And Everyone 2",
+    levelName: "Intermediate Course level 2",
+    levelTitle: "Intermediate Course Title Here",
     levelDesc:
-      "Commodi fugiat animi eum nemo. Commodi praesentium praesentium expedita ea quae quia tenetur eaque aut. Aperiam excepturi ab nam quaerat nihil nostrum.",
+      "Short description about course.",
     levelPrice: "16.99",
     courseVideoPreview: "./video.mp4",
     LevelwhatYouGet: [
       {
         id: 0,
-        point: "You will learn, a healthy habit for living 100 years:",
+        point: "Healthy Diet Routine",
       },
       {
         id: 1,
-        point: "You will learn, a healthy habit for living 100 years:",
+        point: "Healthy and Happy Body",
       },
       {
         id: 2,
@@ -59,14 +59,14 @@ const levels = [
         id: 3,
         point: "You will learn, a healthy habit for living 100 years:",
       },
-      {
-        id: 4,
-        point: "You will learn, a healthy habit for living 100 years:",
-      },
-      {
-        id: 5,
-        point: "You will learn, a healthy habit for living 100 years:",
-      },
+      // {
+      //   id: 4,
+      //   point: "You will learn, a healthy habit for living 100 years:",
+      // },
+      // {
+      //   id: 5,
+      //   point: "You will learn, a healthy habit for living 100 years:",
+      // },
     ],
   },
 ];

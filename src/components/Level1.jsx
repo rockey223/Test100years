@@ -57,7 +57,7 @@ const Level1 = ({ tooglePopup, buyBanner, windowScroll }) => {
     {/* // <div style={{marginTop: '100px'}}> */}
       <Top tooglePopup={tooglePopup}  video={id==="1"? video1 : video2}  levelDetails={levelDetails} link={id==="1"? "level1" : "level2"} />
       <WhatYouGet levelDetails={levelDetails} />
-      <Courses tooglePopup={tooglePopup} videos={videos} />
+      <Courses tooglePopup={tooglePopup} videos={videos} link={id==="1"? "level1" : "level2"}/>
       {/* <RateUs/> */}
       <BuyBanner buyBanner={buyBanner} price={levelDetails.levelPrice} windowScroll={windowScroll} link={id==="1"? "level1" : "level2"} />
     {/* // </div> */}

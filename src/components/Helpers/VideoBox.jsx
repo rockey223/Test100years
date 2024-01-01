@@ -5,13 +5,14 @@ import { FillButton } from "./Buttons";
 // import Level1 from "../Level1";
 import { useVideo } from "../../contexts/VideoDetails/videoContext";
 import { useUser } from "../../contexts/userDetails/userContext";
-const VideoBox = ({ video, tooglePopup }) => {
-  const {isloggedIn} = useUser()
+const VideoBox = ({ video, tooglePopup,link }) => {
+  const { isloggedIn, myInfo } = useUser();
+  console.log(myInfo);
   // console.log(videoItem)
 
   // console.log(videoItem);
   const API = `${process.env.REACT_APP_API}/mediaUploads`;
-  const {ChangefalseStatic} = useVideo()
+  const { ChangefalseStatic } = useVideo();
   return (
     <>
       {video.map((videoItem) => {
@@ -22,7 +23,7 @@ const VideoBox = ({ video, tooglePopup }) => {
           courseVideoDuration,
           courseVideoThumbnail,
           courseVideoTitle,
-          _id
+          _id,
         } = videoItem;
 
         // const { id, title, category, videTime, happy, thumbnail } = videoItem;
@@ -78,9 +79,20 @@ const VideoBox = ({ video, tooglePopup }) => {
             </div>
             <div className="VideoBox-container-button">
               <FillButton
-              
-              link={`${isloggedIn ?  `/videoplayer/${_id}` : ""}`}
-              className={`startLearning ${isloggedIn ? "" : 'disable-startlearning'}`}
+                link={`${
+                  myInfo.userLevel == "level1" && link == "level1"
+                    ? `/videoplayer/${_id}`
+                    : myInfo.userLevel == "level2"
+                    ?  `/videoplayer/${_id}`
+                    : ''
+                }`}
+                className={`startLearning ${
+                  myInfo.userLevel == "level1" && link == "level1"
+                    ? ""
+                    : myInfo.userLevel == "level2"
+                    ? ""
+                    : "disable-startlearning"
+                }`}
                 btnTxt={"Start Learning"}
                 // height={"50px"}
                 // width={"186px"}

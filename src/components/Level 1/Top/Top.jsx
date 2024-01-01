@@ -8,13 +8,15 @@ import { BsFillCameraVideoFill } from "react-icons/bs";
 import { BiPodcast } from "react-icons/bi";
 import { SiBlogger } from "react-icons/si";
 import { useVideo } from "../../../contexts/VideoDetails/videoContext";
+import { useUser } from "../../../contexts/userDetails/userContext";
 const Top = ({ tooglePopup, levelDetails, link, video }) => {
+  const { myInfo } = useUser();
   var title = levelDetails.levelTitle;
   const { changeIsStatic } = useVideo();
-  
+
   return (
     <>
-      <div className="top-container" style={{marginTop: '100px'}}>
+      <div className="top-container" style={{ marginTop: "100px" }}>
         <div className="top-container-left">
           <div className="top-container-left-level">
             {levelDetails.levelName}
@@ -26,12 +28,18 @@ const Top = ({ tooglePopup, levelDetails, link, video }) => {
             {levelDetails.levelDesc}
           </div>
           {/* <div className="top-container-left-buybtn">$9.99 Buy Now</div> */}
-          <FillButton
-            link={`/checkout/${link}`}
-            btnTxt={`$${levelDetails.levelPrice} Buy Now`}
-            width={"156px"}
-            height={"48px"}
-          />
+          {myInfo.userLevel == "level1" && link == "level1" ? (
+            ""
+          ) : myInfo.userLevel == "level2" ? (
+            ""
+          ) : (
+            <FillButton
+              link={`/checkout/${link}`}
+              btnTxt={`$${levelDetails.levelPrice} Buy Now`}
+              width={"156px"}
+              height={"48px"}
+            />
+          )}
         </div>
         <div className="top-container-right">
           <div className="top-container-right-video-box">
